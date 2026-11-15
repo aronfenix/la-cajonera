@@ -146,6 +146,8 @@ const CASETAS = { 'la-tombola': ['tombola', 2], 'el-candado-de-la-taquilla': ['t
 for (const s of ['el-cambio', 'los-patitos', 'las-colchonetas', 'pares-y-nones', 'la-bascula', 'el-martillo-de-fuerza', 'la-tirolina', 'la-caseta-de-los-records', 'tijeras-y-abanicos', 'las-banderolas', 'la-ruleta', 'los-farolillos', 'las-manzanas-de-caramelo', 'las-tiras-de-tickets', 'las-tres-cartas', 'el-puesto-de-chapas', 'los-encargos']) CASETAS[s] = [s, 2];
 import { dib } from './vida-dibujos.js';
 const LIM = new URL('./limpieza/', import.meta.url).href;
+// Lengua: un folio de impresora sin signos, y una coma y un punto que saltan
+const arteTexto = (p) => `<div class="arte arte-texto" aria-hidden="true"><div class="hoja">${'<i></i>'.repeat(7)}</div>${p.rotulo ? `<span class="rotulo-folio">${p.rotulo}</span>` : ''}<div class="abertura"><span class="pieza pz1"><b>,</b></span><span class="pieza pz2"><b>.</b></span></div></div>`;
 // Naturales: una bandeja de laboratorio con el protagonista del juego y dos piezas que saltan
 const arteVida = (p) => `<div class="arte arte-vida" aria-hidden="true"><div class="bandeja-lab"><span class="principal">${dib(p.dibujo)}</span></div>${p.rotulo ? `<span class="etiqueta-lab">${p.rotulo}</span>` : ''}<div class="abertura">${(p.piezas || []).map((k, i) => `<span class="pieza pz${i + 1}">${dib(k)}</span>`).join('')}</div></div>`;
 const ESCENAS = new Set(['aduana-del-estuche', 'la-goma-elastica', 'quien-es-quien', 'el-puzle-del-rincon', 'la-chincheta-que-gira', 'recortables', 'la-mudanza', 'gomas-y-chinchetas', 'pedidos-del-almacen', 'la-maquina-de-ceros', 'las-baldosas-del-recreo', 'la-merienda', 'el-examen-del-viernes']);
@@ -181,7 +183,7 @@ export function portada(config, { dibuja, POSES, quien, progreso = 0, record = n
     const rotulo = config.portada?.rotulo ?? (tipo === 'cajon' ? AREA[config.area] || 'CAJÓN' : '');
     const slug = location.pathname.split('/').filter(Boolean).pop();
     const caseta = config.escena === 'feria' && CASETAS[slug];
-    const arte = h('div', 'portada-arte', config.portada?.dibujo ? arteVida(config.portada) : caseta ? casetaIlustrada(caseta) : ESCENAS.has(slug) ? escenaIlustrada(slug) : (ARTE[tipo] || ARTE.cajon)(rotulo));
+    const arte = h('div', 'portada-arte', config.portada?.folio ? arteTexto(config.portada) : config.portada?.dibujo ? arteVida(config.portada) : caseta ? casetaIlustrada(caseta) : ESCENAS.has(slug) ? escenaIlustrada(slug) : (ARTE[tipo] || ARTE.cajon)(rotulo));
     const fig = h('div', 'portada-figura figura ' + quien, dibuja(quien, 'saluda', { veces: 2, luego: 'reposo' }));
     const frase = h('div', 'portada-bocadillo bocadillo');
     frase.textContent = config.portada?.frase || fraseHola;

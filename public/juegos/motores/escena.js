@@ -5,6 +5,7 @@ const h = (tag, cls, html = '') => { const n = document.createElement(tag); if (
 
 /* ---------------------------------------------------------------- fondos */
 const FONDOS = {
+  cuaderno: `<g opacity=".55"><path d="M1420 90 q-60 -50 -90 10 q-20 50 40 60 q70 0 50 -70" fill="#2f5bd3"/><circle cx="1290" cy="230" r="16" fill="#2f5bd3"/><circle cx="1500" cy="250" r="9" fill="#2f5bd3"/></g><g opacity=".6" fill="none" stroke="#1b1e3a" stroke-width="7" stroke-linecap="round"><path d="M150 760 v-150 a34 34 0 0 1 68 0 v190 a22 22 0 0 1 -44 0 v-150"/></g>`,
   laboratorio: `<g opacity=".5"><rect x="1380" y="60" width="150" height="260" rx="18" fill="#fffdf6" stroke="#1b1e3a" stroke-width="6"/><path d="M1455 60 v260 M1400 120 h40 M1470 120 h40" stroke="#1b1e3a" stroke-width="5"/><circle cx="1455" cy="40" r="18" fill="none" stroke="#1b1e3a" stroke-width="6"/></g><g opacity=".45"><path d="M90 820 l30 -140 h50 l30 140z" fill="#9bd84a" stroke="#1b1e3a" stroke-width="6"/><rect x="118" y="640" width="54" height="44" fill="#fffdf6" stroke="#1b1e3a" stroke-width="6"/></g>`,
   // el estuche de cremallera: tela rosa, cremallera turquesa, lápices en sus gomas
   // la mesa de manualidades: sobre la alfombrilla, recortes de cartulina, unas tijeras y un lápiz (solo en los bordes)

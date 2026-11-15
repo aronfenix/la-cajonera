@@ -1,0 +1,2 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:0;background:#fbf6e9;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;font:800 13px sans-serif}svg{width:100%;border:3px solid #1b1e3a;border-radius:10px;display:block}</style>
+<script type="module">import { FRASES, vineta } from './motores/texto-escenas.js'; for (const id of Object.keys(FRASES)) for (const k of ['a', 'b']) document.body.insertAdjacentHTML('beforeend', `<div>${vineta(id, k)}${id} ${k}</div>`); document.body.insertAdjacentHTML('beforeend', `<div>${vineta('x', null)}</div>`);</script>

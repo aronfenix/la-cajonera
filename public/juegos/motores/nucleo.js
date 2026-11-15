@@ -80,6 +80,7 @@ function ruido(t, dur, { f = 1200, q = 0.8, tipo = 'lowpass', vol = 0.1 } = {}) 
   src.connect(fil).connect(g).connect(ac.destination); src.start(t, Math.random() * 0.3); src.stop(t + dur + 0.02);
 }
 const ESCALA = [523, 587, 659, 698, 784, 880, 988, 1046, 1175, 1318];
+export const conSonido = () => sonidoOn;
 export function suena(que, k = 0) {
   if (!sonidoOn) return;
   try {
@@ -263,7 +264,7 @@ export async function arrancar(config, motor) {
   const TOP = adaptativo ? NIVELES.length - 1 : 0;
   const objetivo = config.nivelObjetivo ?? Math.ceil(TOP / 2); // dificultad mínima para poder completar
   const fijas = () => { const out = []; for (const r of config.rondas) for (let i = 0; i < (r.repetir || 1); i++) out.push(r); return out; };
-  const crea = (spec) => (spec.generar ? motor.generar(spec) : structuredClone(spec.variantes ? spec.variantes[Math.floor(Math.random() * spec.variantes.length)] : spec));
+  const crea = (spec) => (spec.generar ? motor.generar(spec, config) : structuredClone(spec.variantes ? spec.variantes[Math.floor(Math.random() * spec.variantes.length)] : spec));
 
   const pintaNivel = (L, total) => {
     nivelUI.replaceChildren(...Array.from({ length: total }, (_, k) => el('i', { class: k <= L ? 'on' : '', style: { height: 6 + (k * 14) / Math.max(1, total - 1) + 'px' } })));

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sin aliento · La cajonera</title>
+<meta name="description" content="Pon los puntos y las comas que le faltan a cada texto y escucha cómo queda leído con tus pausas. Puntuación para todo el curso.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "motor": "texto",
+  "area": "lengua",
+  "escena": "cuaderno",
+  "personaje": "fosforito",
+  "volver": "../../lengua/",
+  "titulo": "Sin aliento",
+  "subtitulo": "A la impresora del cole se le ha acabado la tinta de los puntos y las comas. Y a Fosforito le toca leer en voz alta lo que sale.",
+  "portada": {
+    "folio": true,
+    "objetivo": "Pon los puntos y las comas que faltan y escucha cómo queda el texto leído con tus pausas.",
+    "frase": "¡Lo leo todo seguido y me pongo morado!",
+    "rotulo": "PUNTUACIÓN"
+  },
+  "historia": [
+    {
+      "nota": "QUEDA POCA TINTA. PARA AHORRAR, SE IMPRIMIRÁ SIN PUNTOS NI COMAS.",
+      "firma": "La impresora"
+    },
+    {
+      "quien": "fosforito",
+      "pose": "asombro",
+      "texto": "¡Me toca leer esto en voz alta y no tiene ni un punto! ¿Dónde respiro?"
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "Donde acaba una idea, punto. Donde hay una pausa pequeña, coma. Tampoco es para tanto."
+    },
+    {
+      "quien": "goma",
+      "pose": "animo",
+      "texto": "Y si te sobra alguno, para eso estoy yo."
+    }
+  ],
+  "saludo": "Un punto es **una idea terminada**. Una coma, una pausa pequeña.",
+  "observa": "Si nadie te ha puesto el punto, ¿cómo sabes dónde termina una oración?",
+  "niveles": [
+    {
+      "modo": "puntua",
+      "signos": [
+        "."
+      ],
+      "generar": {
+        "f": 1
+      }
+    },
+    {
+      "modo": "sentido",
+      "generar": {
+        "ids": [
+          "comer",
+          "pintar"
+        ]
+      }
+    },
+    {
+      "modo": "puntua",
+      "signos": [
+        "."
+      ],
+      "generar": {
+        "f": 2,
+        "min": 2
+      }
+    },
+    {
+      "modo": "puntua",
+      "signos": [
+        ","
+      ],
+      "generar": {
+        "f": 3
+      }
+    },
+    {
+      "modo": "corrige",
+      "errores": 2,
+      "generar": {
+        "f": 2
+      }
+    },
+    {
+      "modo": "sentido",
+      "generar": {
+        "ids": [
+          "hambre",
+          "lucia"
+        ]
+      }
+    },
+    {
+      "modo": "puntua",
+      "signos": [
+        ",",
+        "."
+      ],
+      "generar": {
+        "f": 3,
+        "min": 2
+      }
+    },
+    {
+      "modo": "corrige",
+      "errores": 3,
+      "generar": {
+        "f": 3,
+        "min": 2
+      }
+    },
+    {
+      "modo": "sentido",
+      "generar": {
+        "ids": [
+          "paraguas"
+        ]
+      }
+    },
+    {
+      "modo": "puntua",
+      "signos": [
+        ",",
+        ".",
+        "¶"
+      ],
+      "generar": {
+        "f": 4,
+        "min": 4
+      }
+    }
+  ],
+  "textos": [
+    {
+      "f": 1,
+      "titulo": "La impresora",
+      "t": "La impresora del cole se ha quedado sin tinta. Ahora los textos salen sin puntos ni comas. ^Fosforito intenta leerlos en voz alta y se pone morado.",
+      "nota": "Tres ideas, tres puntos."
+    },
+    {
+      "f": 1,
+      "titulo": "El recreo",
+      "t": "El recreo dura media hora. A mí siempre me parece que dura cinco minutos. El reloj del patio{sv} tiene algo contra nosotros."
+    },
+    {
+      "f": 1,
+      "titulo": "Robinson llega a la isla",
+      "t": "El barco se hundió de madrugada. ^Robinson nadó hasta la playa sin mirar atrás. Cuando amaneció(,) estaba solo en la isla."
+    },
+    {
+      "f": 1,
+      "titulo": "El corazón",
+      "t": "El corazón late unas cien mil veces al día. No descansa ni cuando duermes. Es el músculo más trabajador del cuerpo."
+    },
+    {
+      "f": 1,
+      "titulo": "Las croquetas",
+      "t": "Mi abuela{sv} hace croquetas los domingos. Nadie sabe la receta. Ella dice que el secreto es no tener prisa."
+    },
+    {
+      "f": 2,
+      "titulo": "Lázaro y el jarro de vino",
+      "t": "^Lázaro servía a un ciego muy listo y muy tacaño. El ciego{sv} guardaba el vino en un jarro y no lo soltaba nunca. ^Lázaro hizo un agujerito en el fondo y lo tapó con cera. Cada tarde(,) se tumbaba debajo y bebía a escondidas. El jarro pesaba cada día menos y el ciego empezó a sospechar."
+    },
+    {
+      "f": 2,
+      "titulo": "Los charcos",
+      "t": "Ayer llovió toda la tarde. Hoy el patio está lleno de charcos. Los de primero{sv} los cruzan saltando por encima. Los de sexto los cruzan por el medio y luego dicen que ha sido sin querer."
+    },
+    {
+      "f": 2,
+      "titulo": "Comer cabeza abajo",
+      "t": "La comida no baja al estómago por su propio peso. La empujan los músculos del esófago. Por eso(,) un astronauta puede comer cabeza abajo. El viaje de la boca al estómago{sv} dura unos diez segundos."
+    },
+    {
+      "f": 2,
+      "titulo": "El río",
+      "t": "Un río nace en la montaña como un hilo de agua fría. Baja deprisa,{e} salta entre las rocas{y} y arrastra piedras. En la llanura(,) se calma y dibuja curvas. Al final(,) llega al mar(,) cansado y ancho."
+    },
+    {
+      "f": 2,
+      "titulo": "La mochila",
+      "t": "En la mochila llevo un estuche,{e} dos cuadernos,{e} el bocadillo{y} y una piedra muy bonita. La piedra{sv} no sirve para nada. La llevo por si acaso.",
+      "nota": "En una lista, coma entre los elementos y ninguna delante de la «y» final."
+    },
+    {
+      "f": 2,
+      "titulo": "Se acabó el recreo",
+      "para": ",",
+      "t": "—^Marta,{v} deja ya el balón. —Un momento,{v} profe,{v} que voy ganando. —^Marta,{v} el recreo terminó hace diez minutos.",
+      "nota": "El nombre de la persona a la que hablas va siempre separado por comas."
+    },
+    {
+      "f": 2,
+      "titulo": "Los tres del estuche",
+      "t": "^Goma,{i} la más veterana del estuche,{i} no se asusta por nada. ^Boli,{i} que presume de serio,{i} se ríe cuando nadie mira. ^Fosforito,{c} en cambio,{c} se emociona con todo.",
+      "nota": "Una aclaración va entre dos comas: si la quitas, la oración sigue en pie."
+    },
+    {
+      "f": 2,
+      "titulo": "Una o billones",
+      "t": "Todos los seres vivos están hechos de células. Algunos,{i} como las bacterias,{i} tienen solo una. Otros,{i} como tú,{i} tienen billones. Cada una hace su trabajo y todas dependen de las demás."
+    },
+    {
+      "f": 3,
+      "titulo": "El equipaje de Robinson",
+      "t": "^Robinson rescató del barco un hacha,{e} dos escopetas,{e} un saco de clavos{y} y un perro. Con eso(,) tenía que empezar de nuevo. Lo primero que construyó{sv} fue una cabaña. Lo segundo fue un calendario(,) porque no quería perder la cuenta de los días."
+    },
+    {
+      "f": 3,
+      "titulo": "La semana de la tiza",
+      "t": "El lunes desapareció la tiza. El martes desaparecieron el borrador,{e} las chinchetas{y} y la regla larga. El miércoles(,) el profe{sv} cerró el armario con llave. El jueves(,) alguien dejó una nota: «Devuelvo todo si quitáis el examen». El viernes hubo examen."
+    },
+    {
+      "f": 3,
+      "titulo": "Las uvas",
+      "t": "Un día les regalaron un racimo de uvas. El ciego propuso comerlas de una en una(,) por turnos. Lázaro vio que su amo las cogía de dos en dos y empezó a cogerlas de tres en tres. Al terminar, el ciego dijo que lo sabía todo. Lázaro preguntó cómo. El ciego respondió que él comía de dos en dos y Lázaro callaba."
+    },
+    {
+      "f": 3,
+      "titulo": "El esqueleto",
+      "t": "Tu esqueleto{sv} tiene doscientos seis huesos. El más largo es el fémur(,) en el muslo. El más pequeño está dentro del oído y mide menos que un grano de arroz. Sin ellos(,) serías un charco con ropa."
+    },
+    {
+      "f": 4,
+      "titulo": "El volcán",
+      "t": "Los volcanes no avisan con mucha antelación. Primero tiembla el suelo. Después sale humo por el cráter.¶ En Canarias lo saben bien. En 2021(,) un volcán de La Palma estuvo casi tres meses echando lava. Cuando se apagó(,) la isla era un poco más grande.",
+      "nota": "Primer párrafo: los volcanes en general. Segundo: uno en concreto. Por eso, punto y aparte."
+    },
+    {
+      "f": 4,
+      "titulo": "Colecciones",
+      "t": "Mi hermano pequeño{sv} colecciona palos. Tiene palos largos,{e} palos cortos{y} y un palo que(,) según él(,) es una espada. Los guarda debajo de la cama.¶ Mi madre colecciona paciencia. La guarda donde puede.",
+      "nota": "Se deja de hablar del hermano y se empieza a hablar de la madre: punto y aparte."
+    },
+    {
+      "f": 4,
+      "titulo": "La huella",
+      "t": "Una mañana(,) Robinson encontró una huella en la arena. No era suya. La miró durante mucho rato(,) sin atreverse a tocarla.¶ Aquella noche no durmió. Llevaba quince años creyendo que estaba solo en la isla.",
+      "nota": "Del día a la noche, de lo que ve a lo que piensa: punto y aparte."
+    }
+  ]
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

@@ -48,7 +48,7 @@ const p = await b.newPage({ viewport: { width: 1280, height: 800 } });
 for (const j of juegos) {
   const err = []; p.removeAllListeners(); p.on('pageerror', (e) => err.push(e.message)); p.on('console', (m) => m.type() === 'error' && err.push(m.text()));
   await p.goto(`${B}/juegos/${j}/`); await p.waitForTimeout(1400);
-  const ok = await p.evaluate(() => !!document.querySelector('.portada, .portada-capa, .mapa, .mesa-juego, .mapa-cajon, [class*="mapa"]'));
+  const ok = await p.evaluate(() => !!document.querySelector('.portada, .portada-capa, .mapa, .mesa-juego, .mapa-cajon, [class*="mapa"], .taller:not([hidden])'));
   err.forEach((e) => mal(`juego ${j}: ${e}`)); if (!ok) mal(`juego ${j}: no llega a pintar nada`);
 }
 console.log(`${juegos.length} juegos arrancados`);
