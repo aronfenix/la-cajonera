@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch({ executablePath: '/usr/bin/google-chrome' });
+const p = await b.newPage({ viewport: { width: 1280, height: 800 } }); const err = [];
+p.on('pageerror', (e) => err.push(e.message));
+const base = process.argv[2] || 'http://localhost:8765';
+await p.goto(base + '/juegos/puntua-tu-texto/'); await p.waitForTimeout(600);
+await p.fill('#texto', 'Robinson pasó la primera noche subido a un árbol. Tenía miedo de las fieras y del frío. Al amanecer bajó, miró el mar y vio que el barco seguía allí. ¿Qué podía hacer él solo?');
+await p.check('input[value=t]'); await p.click('#prepara');
+console.log(await p.textContent('#resumen'));
+const url = await p.inputValue('#enlace');
+await p.goto(url.replace('#', '?sinportada&prueba#')); await p.reload(); await p.waitForSelector('.reto', { timeout: 8000 }); await p.waitForTimeout(500);
+console.log('texto:', (await p.locator('.t-texto').innerText()).replace(/\n/g, ' '));
+await p.evaluate(() => window.__resuelve()); await p.locator('.acciones .tecla', { hasText: 'Comprobar' }).click(); await p.waitForTimeout(300);
+console.log((await p.locator('.correccion .texto p').first().innerText()).slice(0, 90), '|', err.join(' | ') || 'sin errores'); await b.close();

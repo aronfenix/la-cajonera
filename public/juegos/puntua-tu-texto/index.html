@@ -32,7 +32,7 @@
 <main class="taller" id="taller" hidden>
   <a class="volver" href="../../lengua/">← La cajonera</a>
   <h1>Puntúa tu texto</h1>
-  <p>Pega un texto bien puntuado. Sale un juego con ese texto sin puntos (o sin puntos ni comas), con lectura en voz alta y corrección.</p>
+  <p>Pega un texto bien escrito. Sale un juego con ese texto sin puntos, sin puntos ni comas o sin tildes, con lectura y corrección explicada.</p>
   <div class="taller-folio">
     <label for="titulo">Título (opcional)</label>
     <input type="text" id="titulo" maxlength="40" placeholder="Robinson Crusoe, capítulo 3">
@@ -43,6 +43,7 @@
       <label class="op"><input type="radio" name="s" value="p" checked> Solo los puntos</label>
       <label class="op"><input type="radio" name="s" value="pc"> Puntos y comas</label>
       <label class="op"><input type="radio" name="s" value="pca"> Puntos, comas y punto y aparte</label>
+      <label class="op"><input type="radio" name="s" value="t"> Las tildes</label>
     </fieldset>
     <div class="fila"><button type="button" class="tecla" id="prepara">Preparar el juego</button></div>
     <div id="salida" hidden>
@@ -63,17 +64,17 @@ let texto = ''; try { texto = h.get('t') ? dec(h.get('t')).trim() : ''; } catch 
 if (texto) {
   // modo juego: se monta la configuración con el texto del enlace y arranca el motor de siempre
   const { trocea } = await import('../motores/texto.js');
-  const signos = SIGNOS[h.get('s')] ?? SIGNOS.p;
+  const tildes = h.get('s') === 't', signos = SIGNOS[h.get('s')] ?? SIGNOS.p;
   let titulo = ''; try { titulo = h.get('n') ? dec(h.get('n')) : ''; } catch {}
   const trozos = trocea(texto, signos.includes('¶') ? 60 : 45);
   // cada texto nuevo empieza de cero
   try { const k = 'cajon-taller:' + location.pathname; if (localStorage.getItem(k) !== h.get('t').slice(0, 80)) { localStorage.removeItem('cajon-progreso:' + location.pathname); localStorage.setItem(k, h.get('t').slice(0, 80)); } } catch {}
   document.getElementById('config').textContent = JSON.stringify({
-    motor: 'texto', area: 'lengua', escena: 'cuaderno', personaje: 'fosforito', volver: './',
-    titulo: titulo || 'Puntúa tu texto', subtitulo: 'El texto de hoy ha salido de la impresora sin ' + (signos.length > 1 ? 'puntos ni comas' : 'puntos') + '.',
-    portada: { folio: true, objetivo: 'Pon los signos que faltan y pide que te lo lean antes de comprobar.', frase: '¡A ver por dónde respiro hoy!', rotulo: 'TEXTO DE HOY' },
-    saludo: 'Un punto es **una idea terminada**.',
-    rondas: trozos.map((t) => ({ modo: 'puntua', signos: t.includes('.¶') ? signos : signos.filter((s) => s !== '¶'), texto: t })),
+    motor: 'texto', area: 'lengua', escena: 'cuaderno', personaje: tildes ? 'boli' : 'fosforito', volver: './',
+    titulo: titulo || 'Puntúa tu texto', subtitulo: 'El texto de hoy ha salido de la impresora sin ' + (tildes ? 'tildes' : signos.length > 1 ? 'puntos ni comas' : 'puntos') + '.',
+    portada: { folio: true, piezas: tildes ? ['ó', 'á'] : undefined, objetivo: tildes ? 'Pon las tildes que faltan. La lupa te enseña cómo se lee cada palabra.' : 'Pon los signos que faltan y pide que te lo lean antes de comprobar.', frase: '¡A ver por dónde respiro hoy!', rotulo: 'TEXTO DE HOY' },
+    saludo: tildes ? 'La tilde solo hace falta cuando la palabra **no suena como se lee**.' : 'Un punto es **una idea terminada**.',
+    rondas: trozos.map((t) => tildes ? { modo: 'tilda', texto: t } : { modo: 'puntua', signos: t.includes('.¶') ? signos : signos.filter((s) => s !== '¶'), texto: t }),
   });
   await import('../motores/arranque.js');
 } else {
@@ -88,7 +89,7 @@ if (texto) {
     const url = location.origin + location.pathname + '#' + p;
     $('enlace').value = url; $('abre').href = url; $('salida').hidden = false;
     const puntos = (t.match(/\.(\s|$)/g) || []).length, comas = (t.match(/,/g) || []).length;
-    $('resumen').textContent = `${t.split(/\s+/).length} palabras, ${puntos} puntos${s === 'p' ? '' : ` y ${comas} comas`}. Pruébalo antes de pasarlo.`;
+    $('resumen').textContent = s === 't' ? `${t.split(/\s+/).length} palabras y ${(t.match(/[áéíóú]/gi) || []).length} tildes. Pruébalo antes de pasarlo.` : `${t.split(/\s+/).length} palabras, ${puntos} puntos${s === 'p' ? '' : ` y ${comas} comas`}. Pruébalo antes de pasarlo.`;
   };
   $('copia').onclick = async () => { try { await navigator.clipboard.writeText($('enlace').value); $('copia').textContent = 'Copiado'; } catch { $('enlace').select(); } };
   $('abre').onclick = () => setTimeout(() => location.reload(), 50);

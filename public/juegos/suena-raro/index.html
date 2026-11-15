@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suena raro · La cajonera</title>
+<meta name="description" content="Una lupa enseña cómo se lee cada palabra tal como está escrita. Pon tilde solo donde suene raro. Acentuación para todo el curso.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "motor": "texto",
+  "area": "lengua",
+  "escena": "cuaderno",
+  "personaje": "boli",
+  "volver": "../../lengua/",
+  "titulo": "Suena raro",
+  "subtitulo": "Ahora la impresora se come las tildes. Y sin tildes, las palabras se leen con el golpe en otro sitio.",
+  "portada": {
+    "folio": true,
+    "piezas": [
+      "ó",
+      "á"
+    ],
+    "objetivo": "Mira cómo se lee cada palabra tal como está escrita y pon tilde solo donde suene raro.",
+    "frase": "CA-mion. Así lo has escrito tú, no yo.",
+    "rotulo": "TILDES"
+  },
+  "historia": [
+    {
+      "nota": "TINTA BAJO MÍNIMOS. A PARTIR DE AHORA SE IMPRIME SIN TILDES.",
+      "firma": "La impresora"
+    },
+    {
+      "quien": "fosforito",
+      "pose": "asombro",
+      "texto": "¡He leído CA-mion delante de toda la clase! ¡Sonaba rarísimo!"
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "Normal. Sin tilde, la palabra se lee según la regla. Y la regla no sabe que se dice ca-MION."
+    },
+    {
+      "quien": "goma",
+      "pose": "pista",
+      "texto": "Mira cómo se lee tal como está. Si suena raro, le falta la tilde. Si suena bien, ni la toques."
+    }
+  ],
+  "saludo": "La tilde solo hace falta cuando la palabra **no suena como se lee**.",
+  "observa": "¿Por qué «canción» lleva tilde y «canciones» no, si es la misma palabra?",
+  "niveles": [
+    {
+      "modo": "palabra",
+      "generar": {
+        "f": 1
+      }
+    },
+    {
+      "modo": "tilda",
+      "generar": {
+        "f": 1
+      }
+    },
+    {
+      "modo": "palabra",
+      "generar": {
+        "f": 2,
+        "min": 2
+      }
+    },
+    {
+      "modo": "tilda",
+      "generar": {
+        "f": 2,
+        "min": 2
+      }
+    },
+    {
+      "modo": "palabra",
+      "generar": {
+        "f": 3,
+        "min": 3
+      }
+    },
+    {
+      "modo": "tilda",
+      "errores": 3,
+      "generar": {
+        "f": 2
+      }
+    },
+    {
+      "modo": "tilda",
+      "generar": {
+        "f": 3,
+        "min": 3
+      }
+    },
+    {
+      "modo": "palabra",
+      "generar": {
+        "f": 3,
+        "min": 2,
+        "n": 4
+      }
+    },
+    {
+      "modo": "tilda",
+      "errores": 4,
+      "generar": {
+        "f": 3,
+        "min": 2
+      }
+    }
+  ],
+  "palabras": [
+    {
+      "w": "camión",
+      "f": 1
+    },
+    {
+      "w": "sofá",
+      "f": 1
+    },
+    {
+      "w": "café",
+      "f": 1
+    },
+    {
+      "w": "ratón",
+      "f": 1
+    },
+    {
+      "w": "jardín",
+      "f": 1
+    },
+    {
+      "w": "lápiz",
+      "f": 1
+    },
+    {
+      "w": "árbol",
+      "f": 1
+    },
+    {
+      "w": "fácil",
+      "f": 1
+    },
+    {
+      "w": "azúcar",
+      "f": 1
+    },
+    {
+      "w": "canción",
+      "f": 1
+    },
+    {
+      "w": "compás",
+      "f": 1
+    },
+    {
+      "w": "mesa",
+      "f": 1
+    },
+    {
+      "w": "libro",
+      "f": 1
+    },
+    {
+      "w": "pared",
+      "f": 1
+    },
+    {
+      "w": "ventana",
+      "f": 1
+    },
+    {
+      "w": "papel",
+      "f": 1
+    },
+    {
+      "w": "examen",
+      "f": 2
+    },
+    {
+      "w": "joven",
+      "f": 2
+    },
+    {
+      "w": "volumen",
+      "f": 2
+    },
+    {
+      "w": "imagen",
+      "f": 2
+    },
+    {
+      "w": "resumen",
+      "f": 2
+    },
+    {
+      "w": "origen",
+      "f": 2
+    },
+    {
+      "w": "margen",
+      "f": 2
+    },
+    {
+      "w": "canciones",
+      "f": 2
+    },
+    {
+      "w": "camiones",
+      "f": 2
+    },
+    {
+      "w": "jóvenes",
+      "f": 2
+    },
+    {
+      "w": "exámenes",
+      "f": 2
+    },
+    {
+      "w": "árboles",
+      "f": 2
+    },
+    {
+      "w": "lápices",
+      "f": 2
+    },
+    {
+      "w": "inglés",
+      "f": 2
+    },
+    {
+      "w": "ingleses",
+      "f": 2
+    },
+    {
+      "w": "francesa",
+      "f": 2
+    },
+    {
+      "w": "feliz",
+      "f": 2
+    },
+    {
+      "w": "nariz",
+      "f": 2
+    },
+    {
+      "w": "reloj",
+      "f": 2
+    },
+    {
+      "w": "comen",
+      "f": 2
+    },
+    {
+      "w": "cantan",
+      "f": 2
+    },
+    {
+      "w": "lunes",
+      "f": 2
+    },
+    {
+      "w": "pájaro",
+      "f": 3
+    },
+    {
+      "w": "médico",
+      "f": 3
+    },
+    {
+      "w": "música",
+      "f": 3
+    },
+    {
+      "w": "teléfono",
+      "f": 3
+    },
+    {
+      "w": "rápido",
+      "f": 3
+    },
+    {
+      "w": "sábado",
+      "f": 3
+    },
+    {
+      "w": "brújula",
+      "f": 3
+    },
+    {
+      "w": "día",
+      "f": 3
+    },
+    {
+      "w": "río",
+      "f": 3
+    },
+    {
+      "w": "país",
+      "f": 3
+    },
+    {
+      "w": "baúl",
+      "f": 3
+    },
+    {
+      "w": "maíz",
+      "f": 3
+    },
+    {
+      "w": "grúa",
+      "f": 3
+    },
+    {
+      "w": "búho",
+      "f": 3
+    },
+    {
+      "w": "María",
+      "f": 3
+    },
+    {
+      "w": "héroe",
+      "f": 3
+    },
+    {
+      "w": "océano",
+      "f": 3
+    },
+    {
+      "w": "línea",
+      "f": 3
+    },
+    {
+      "w": "fue",
+      "f": 3
+    },
+    {
+      "w": "vio",
+      "f": 3
+    },
+    {
+      "w": "dio",
+      "f": 3
+    },
+    {
+      "w": "pie",
+      "f": 3
+    },
+    {
+      "w": "fe",
+      "f": 3
+    },
+    {
+      "w": "historia",
+      "f": 3
+    }
+  ],
+  "textos": [
+    {
+      "f": 1,
+      "titulo": "El camión",
+      "t": "El camión del colegio llegó tarde. El conductor pidió perdón y nos contó que un árbol había caído en la carretera."
+    },
+    {
+      "f": 1,
+      "titulo": "El violín",
+      "t": "Mi tío Andrés toca el violín en el salón. Cuando ensaya, el perro se esconde debajo del sofá."
+    },
+    {
+      "f": 1,
+      "titulo": "El melón",
+      "t": "Ayer comí melón en el jardín. Después jugué al fútbol con Inés hasta que se hizo de noche."
+    },
+    {
+      "f": 2,
+      "titulo": "El examen",
+      "t": "El examen fue fácil. El joven profesor dibujó un volcán y un árbol, y nos pidió un resumen de dos renglones.",
+      "nota": "«Examen», «joven» y «resumen» acaban en n y suenan en la penúltima: se leen bien sin tilde."
+    },
+    {
+      "f": 2,
+      "titulo": "Los camiones",
+      "t": "Los camiones llevan melones y limones al almacén. El camión viejo lleva solo un melón y dos limones.",
+      "nota": "«Camión» lleva tilde y «camiones» no: al añadir una sílaba, el golpe ya cae donde se lee."
+    },
+    {
+      "f": 2,
+      "titulo": "El lápiz",
+      "t": "Lucía dibuja con un lápiz azul. Sus lápices nuevos están en el cajón, pero ese es su lápiz de la suerte."
+    },
+    {
+      "f": 3,
+      "titulo": "El pájaro músico",
+      "t": "El médico miró la película en su teléfono. Era una historia cómica sobre un pájaro que quería ser músico.",
+      "nota": "Si el golpe va en la antepenúltima sílaba, lleva tilde siempre."
+    },
+    {
+      "f": 3,
+      "titulo": "Un país frío",
+      "t": "María vive en un país frío. Todos los días cruza el río en una grúa vieja y saluda a un búho.",
+      "nota": "En «país», «frío» o «día», la tilde separa dos vocales que, sin ella, se leerían pegadas."
+    },
+    {
+      "f": 3,
+      "titulo": "El baúl",
+      "t": "Raúl guardó el baúl en el desván. Dentro había un reloj, un mapa y una brújula sin cristal."
+    },
+    {
+      "f": 3,
+      "titulo": "El águila",
+      "t": "El sábado vimos un águila. Planeó sobre el río, vio un pez y bajó como un rayo. Fue rapidísimo.",
+      "nota": "«Vio» y «fue» tienen una sola sílaba: van sin tilde."
+    }
+  ]
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

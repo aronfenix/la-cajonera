@@ -61,6 +61,24 @@ const DIBUJOS = {
       + `<ellipse cx="118" cy="160" rx="24" ry="5" fill="#5ec3ff" ${st(2)}/><ellipse cx="262" cy="162" rx="22" ry="5" fill="#5ec3ff" ${st(2)}/>`,
   },
 };
+const bus = (x, y) => `<g transform="translate(${x} ${y})"><rect x="0" y="0" width="120" height="58" rx="10" fill="#ffc531" ${st(3.5)}/><path d="M12 12 h26 v20 h-26z M46 12 h26 v20 h-26z M80 12 h28 v20 h-28z" fill="#dff4ff" ${st(2.5)}/><circle cx="28" cy="60" r="11" fill="${T}"/><circle cx="92" cy="60" r="11" fill="${T}"/><circle cx="28" cy="60" r="4" fill="#c9cbe0"/><circle cx="92" cy="60" r="4" fill="#c9cbe0"/></g>`;
+const mochila = `<rect x="-34" y="-34" width="20" height="24" rx="6" fill="#e8417a" ${st(2.5)}/><path d="M-30 -34 q6 -9 12 0" fill="none" ${st(2.5)}/>`;
+const puerta = `<rect x="14" y="26" width="70" height="116" fill="#a8693a" ${st()}/><circle cx="72" cy="88" r="4" fill="#ffc531" ${st(2)}/>`;
+const hoja = (x, txt, examen) => `<g transform="translate(${x} 24)"><rect width="84" height="92" rx="5" fill="#fffdf6" ${st()}/><rect width="84" height="24" rx="5" fill="${examen ? '#e8417a' : '#5ec3ff'}" ${st()}/><text x="42" y="17" text-anchor="middle" font-size="13" font-weight="900" fill="${T}">${txt}</text>${examen ? `<g transform="rotate(-10 42 60)"><rect x="6" y="46" width="72" height="26" rx="5" fill="none" stroke="#d7263d" stroke-width="3.5"/><text x="42" y="65" text-anchor="middle" font-size="15" font-weight="900" fill="#d7263d">EXAMEN</text></g>` : `<path d="M16 46 h52 M16 60 h52 M16 74 h34" stroke="#c9cbe0" stroke-width="4" stroke-linecap="round"/>`}</g>`;
+Object.assign(DIBUJOS, {
+  espera: {
+    a: () => fondo('#dff4ff', '#c9d6a8') + bocadillo(40, 22, '¡Eh!') + nino(70, 96, { c: '#ff8a1f', brazos: 'arriba', pelo: '#1b1e3a', extra: mochila }) + `<path d="M108 100 h20 M104 116 h26" ${st(3)}/>` + nino(226, 96, { c: '#9bd84a', melena: true }) + `<text x="252" y="74" font-size="22" font-weight="900" fill="${T}">?</text>`,
+    b: () => fondo('#dff4ff', '#b9b9c6') + bus(186, 70) + `<path d="M150 84 h26 M144 102 h32 M152 120 h24" ${st(3)}/><circle cx="170" cy="136" r="7" fill="#c9cbe0"/><circle cx="156" cy="130" r="5" fill="#c9cbe0"/>` + nino(74, 98, { c: '#ff8a1f', cara: 'susto', brazos: 'arriba', pelo: '#1b1e3a', giro: 10 }),
+  },
+  prima: {
+    a: () => fondo('#fff0c2', '#e8c79a') + puerta + nino(128, 98, { c: '#e8417a', melena: true }) + etiqueta(128, 62, 'PRIMA') + nino(200, 98, { c: '#5ec3ff', melena: true, pelo: '#1b1e3a', brazos: 'arriba' }) + etiqueta(200, 62, 'LOLA') + nino(272, 98, { c: '#9bd84a' }) + etiqueta(272, 62, 'JUAN'),
+    b: () => fondo('#fff0c2', '#e8c79a') + puerta + nino(150, 98, { c: '#e8417a', melena: true, brazos: 'arriba' }) + etiqueta(150, 62, 'PRIMA LOLA') + nino(250, 98, { c: '#9bd84a' }) + etiqueta(250, 62, 'JUAN'),
+  },
+  examen: {
+    a: () => fondo('#e6f7d0', '#c8dcae') + hoja(22, 'HOY', false) + hoja(120, 'MAÑANA', true) + nino(262, 98, { c: '#ffc531', pelo: '#1b1e3a', extra: `<path d="M16 -14 q6 -8 12 0 q-6 8 -12 0" fill="none" ${st(2)}/>` }),
+    b: () => fondo('#e6f7d0', '#c8dcae') + hoja(22, 'HOY', true) + hoja(120, 'MAÑANA', false) + nino(262, 98, { c: '#ffc531', pelo: '#1b1e3a', cara: 'susto', brazos: 'arriba', extra: `<path d="M-24 -18 l-6 -6 M24 -18 l6 -6 M0 -22 v-8" ${st(2.5)}/>` }),
+  },
+});
 const duda = () => fondo('#fffdf6', '#ecebe4') + `<path d="M40 60 q20 -30 40 0 t40 0 M200 120 q20 -30 40 0 t40 0" fill="none" stroke="#c9cbe0" stroke-width="5" stroke-linecap="round"/><text x="160" y="118" text-anchor="middle" font-size="96" font-weight="900" fill="#c9cbe0" stroke="${T}" stroke-width="3">¿?</text>`;
 
 // comas: índice de la palabra que lleva la coma detrás. pide: lo que se le pide conseguir. dice: lo que significa.
@@ -81,4 +99,15 @@ export const FRASES = {
     lecturas: { a: { comas: [1, 4], pide: 'Todos los niños llevaban paraguas. Ninguno se mojó.', dice: 'todos llevaban paraguas y ninguno se mojó.' }, b: { comas: [], pide: 'Solo se libraron los del paraguas. Los demás, empapados.', dice: 'solo los que llevaban paraguas no se mojaron.' } },
     explica: 'Entre comas, **que llevaban paraguas** es una aclaración sobre *todos* los niños. Sin comas, señala *solo a algunos*: los que llevaban paraguas. Dos comas pequeñas cambian cuántos niños se mojan.' },
 };
+Object.assign(FRASES, {
+  espera: { pal: ['No', 'espera'], pista: '¿El «no» va por su cuenta, o está negando que alguien espere?',
+    lecturas: { a: { comas: [0], pide: 'Se ha dejado la mochila y le gritan que no se vaya.', dice: 'le piden a alguien que espere.' }, b: { comas: [], pide: 'El autobús se va sin él.', dice: 'alguien no espera a nadie.' } },
+    explica: 'Con coma, **No** va por un lado y **espera** es una orden: quédate. Sin coma, el *no* se pega al verbo y lo niega: no espera.' },
+  prima: { pal: ['Vinieron', 'mi', 'prima', 'Lola', 'y', 'Juan'], pista: 'Cuenta personas. ¿«Lola» es el nombre de la prima, o es otra invitada?',
+    lecturas: { a: { comas: [2], pide: 'A la puerta hay tres personas.', dice: 'vinieron tres: la prima, Lola y Juan.' }, b: { comas: [], pide: 'A la puerta hay dos personas.', dice: 'vinieron dos: la prima, que se llama Lola, y Juan.' } },
+    explica: 'Con coma, **mi prima** y **Lola** son dos personas de una lista. Sin coma, *Lola* es el nombre de la prima. Una coma puede cambiar cuánta gente viene a merendar.' },
+  examen: { antes: '—¿Cuándo es el examen?', pal: ['Hoy', 'no', 'mañana'], pista: 'El «no» se queda con la palabra que tiene al lado, sin coma por medio. ¿Con «hoy» o con «mañana»?',
+    lecturas: { a: { comas: [1], pide: 'Hoy se libran: el examen es mañana.', dice: 'el examen es mañana.' }, b: { comas: [0], pide: 'No hay escapatoria: el examen es hoy.', dice: 'el examen es hoy.' } },
+    explica: '**Hoy no, mañana**: el *no* se queda con *hoy*. **Hoy, no mañana**: el *no* se va con *mañana*. La misma coma, una palabra más allá, y el examen cambia de día.' },
+});
 export const vineta = (id, k) => `<svg viewBox="0 0 320 180" aria-hidden="true">${k && DIBUJOS[id]?.[k] ? DIBUJOS[id][k]() : duda()}</svg>`;

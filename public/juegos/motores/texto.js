@@ -2,6 +2,7 @@
 //   puntua  → un texto sin puntos ni comas: se ponen con el sello y se escucha cómo queda leído con esas pausas
 //   corrige → el texto llega puntuado, pero con errores: hay que encontrarlos y arreglarlos
 //   sentido → una frase que cambia de significado con la coma: la viñeta dibuja lo que dice en cada momento
+//   tilda / palabra → tildes (en texto-tildes.js): una lupa enseña cómo se lee cada palabra tal como está escrita
 // Los textos van en la configuración del juego (config.textos: [{ f, titulo, t, nota }]) con este marcado:
 //   .  ,      punto y coma obligatorios          .¶     punto y aparte
 //   (,)       coma opcional (vale ponerla o no)  ,{e}   coma con motivo: e lista, v a quien hablas, i aclaración, c conector
@@ -13,6 +14,7 @@ import { gsap } from './vendor/gsap.js';
 import { espera, temblor, chispasEn } from './efectos.js';
 import { dib } from './vida-dibujos.js';
 import { FRASES, vineta } from './texto-escenas.js';
+import { generarTildes, tilda, palabra } from './texto-tildes.js';
 
 const lento = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const limpia = (t) => t.replace(/^[—«¿¡"“(]+|[»"”).,;:?!…]+$/g, '');
@@ -27,7 +29,7 @@ const RE = /^(\^?)(.*?)(\.¶|\.|,\{[a-z]\}|\(,\)|,|\{[a-z]+\})?$/u;
 export function analiza(marcado) {
   const P = marcado.trim().split(/\s+/).map((tr) => {
     const [, , t, m = ''] = tr.replace('^', '').match(RE);
-    const p = { t, propio: tr.includes('^'), req: null, tipo: null, opc: false, trampa: null, cierra: /[?!…][»"”)]*$/.test(t), sinHueco: /[?!…:;][»"”)]*$/.test(t) };
+    const p = { t, propio: tr.includes('^'), req: null, tipo: null, opc: false, trampa: null, cierra: /[?!…][»"”)]*$/.test(t), sinHueco: /[:;][»"”)]*$/.test(t) };
     if (m === '.¶') p.req = '¶'; else if (m === '.') p.req = '.'; else if (m === '(,)') p.opc = true;
     else if (m[0] === ',') { p.req = ','; p.tipo = m[2] ?? null; } else if (m) p.trampa = m.slice(1, -1);
     return p;
@@ -71,6 +73,7 @@ export function generar(spec, config = {}) {
   const d = structuredClone(spec);
   const g = typeof d.generar === 'object' ? d.generar : {};
   delete d.generar;
+  if (d.modo === 'tilda' || d.modo === 'palabra') return generarTildes(d, g, config, saca);
   if (d.modo === 'sentido') {
     d.frase = saca('sentido', g.ids ?? Object.keys(FRASES));
     const ks = Object.keys(FRASES[d.frase].lecturas);
@@ -96,6 +99,8 @@ export function generar(spec, config = {}) {
 export function ronda(d, ctx) {
   if (d.modo === 'sentido') return sentido(d, ctx);
   if (d.modo === 'puntua' || d.modo === 'corrige') return puntua(d, ctx);
+  if (d.modo === 'tilda') return tilda(d, ctx);
+  if (d.modo === 'palabra') return palabra(d, ctx);
   throw new Error(`no encuentro el modo «${d.modo}». Si el juego se acaba de actualizar, recarga la página.`);
 }
 
@@ -135,7 +140,7 @@ function puntua(d, ctx) {
   const nP = sol.filter((s) => s === '.' || s === '¶').length, nC = sol.filter((s) => s === ',').length;
 
   // el aire de Fosforito: con la puntuación correcta nunca se ahoga
-  const pausaDe = (j, s) => P[j].fijo || s[j] || (P[j].cierra ? '.' : /[:;]/.test(P[j].t.slice(-1)) ? ',' : '');
+  const pausaDe = (j, s) => (P[j].cierra ? '.' : P[j].fijo || s[j] || (/[:;]/.test(P[j].t.slice(-1)) ? ',' : ''));
   const ahogos = (cap, s) => { let a = cap, n = 0; for (let j = 0; j < N; j++) { if (a <= 0) { n++; a = cap / 2; } a--; const z = pausaDe(j, s); if (z === ',') a = Math.min(cap, a + cap / 2); else if (z) a = cap; } return n; };
   let CAP = 12; while (ahogos(CAP, sol)) CAP++;
 
@@ -146,6 +151,7 @@ function puntua(d, ctx) {
     const J = (f) => barajar(P.map((_, j) => j).filter((j) => P[j].abierto && j < N - 1 && f(P[j], j)));
     const cand = [
       ...J((p) => p.trampa).map((j) => [j, ',']),
+      ...P.map((p, j) => j).filter((j) => P[j].cierra && P[j].abierto && signos.includes('.')).slice(0, 1).map((j) => [j, '.']),
       ...J((p) => p.r === '.').slice(0, 2).map((j) => [j, ',']),
       ...J((p) => p.r === ',').slice(0, 1).map((j) => [j, '']),
       ...J((p) => p.r === '.').slice(0, 1).map((j) => [j, '']),
@@ -249,7 +255,8 @@ function puntua(d, ctx) {
     P.forEach((p, j) => {
       if (!p.abierto) return;
       const s = sig[j], r = p.r; let t;
-      if (r === '.') t = s === '.' ? null : s === '¶' ? 'aparte-sobra' : s === ',' ? 'coma-por-punto' : 'falta-punto';
+      if (p.cierra) t = s ? 'tras-cierre' : null;
+      else if (r === '.') t = s === '.' ? null : s === '¶' ? 'aparte-sobra' : s === ',' ? 'coma-por-punto' : 'falta-punto';
       else if (r === '¶') t = s === '¶' ? null : s === '.' ? 'falta-aparte' : s === ',' ? 'coma-por-punto' : 'falta-punto';
       else if (r === ',') t = s === ',' ? null : s ? 'corte' : 'falta-coma';
       else if (p.o) t = !s || s === ',' ? null : 'corte';
@@ -262,15 +269,17 @@ function puntua(d, ctx) {
     const A = `«${limpia(P[j].t)}»`, B = j + 1 < N ? `«${limpia(P[j + 1].t)}»` : '';
     const resto = P.slice(j + 1, j + 5).map((p) => limpia(p.t).toLowerCase()).join(' ');
     switch (t) {
+      case 'tras-cierre': return `Los signos **?** y **!** ya cierran la oración: detrás de ${A} no se pone ${sig[j] === ',' ? 'coma' : 'punto'}.`;
       case 'falta-punto': return j === N - 1 ? 'El texto termina **sin punto final**.' : `Entre ${A} y ${B} termina una idea y empieza otra: ahí va **punto**.`;
       case 'coma-por-punto': return `Entre ${A} y ${B} has dejado una coma, pero lo que sigue es **otra oración entera**, con su propio verbo: hace falta punto.`;
       case 'corte': return `El punto después de ${A} **parte una oración por la mitad**: «${resto}…» no se sostiene sola.`;
       case 'coma-sobra': return P[j].trampa === 'sv' ? `Entre ${A} y ${B} no va coma: **no se separa a quien hace algo de lo que hace**.`
-        : P[j].trampa === 'y' ? `Delante de la «y» que cierra una lista **no va coma**: sobra la de ${A}.` : `La coma después de ${A} sobra: ahí no hay pausa.`;
+        : P[j].trampa === 'y' ? `Delante de la «y» o la «o» que cierra una lista **no va coma**: sobra la de ${A}.` : `La coma después de ${A} sobra: ahí no hay pausa.`;
       case 'falta-coma': return P[j].tipo === 'e' ? `Los elementos de una lista se separan con comas: falta una después de ${A}.`
         : P[j].tipo === 'v' ? `Cuando le hablas a alguien, su nombre va **separado por comas**: falta una después de ${A}.`
         : P[j].tipo === 'i' ? `Una aclaración metida en mitad de la oración va **entre dos comas**: falta la de después de ${A}.`
-        : P[j].tipo === 'c' ? `Expresiones como «en cambio» o «sin embargo» van **entre comas**: falta la de después de ${A}.`
+        : P[j].tipo === 'p' ? `Delante de «pero» va **coma**: falta la de después de ${A}.`
+        : P[j].tipo === 'c' ? `Expresiones como «sin embargo», «además» o «en cambio» van **separadas por comas**: falta la de después de ${A}.`
         : `Falta una coma después de ${A}.`;
       case 'falta-aparte': return `Después de ${A} se cambia de asunto: mejor **punto y aparte**.`;
       default: return `Después de ${A} se sigue hablando de lo mismo: basta con **punto y seguido**.`;
@@ -287,7 +296,7 @@ function puntua(d, ctx) {
     if (!E.length) {
       fin = true; pals.forEach((b, j) => !P[j].fijo && sig[j] && b.classList.add('bien')); chispasEn(folio, 14);
       const cuenta = [nP && `${nP} ${nP === 1 ? 'punto' : 'puntos'}`, nC && `${nC} ${nC === 1 ? 'coma' : 'comas'}`].filter(Boolean).join(' y ');
-      return ctx.fin(intentos === 1 ? 3 : 2, `**${cuenta}, ${nP && nC ? 'todo' : nC ? 'todas' : 'todos'} en su sitio.** ` + (d.nota ?? (corr ? 'Ni Boli lo habría corregido mejor.' : 'Cada punto cierra una idea completa.')));
+      return ctx.fin(intentos === 1 ? 3 : 2, `**${cuenta}, ${nP && nC ? 'todo' : nC ? 'todas' : 'todos'} en su sitio.** ` + (d.nota ?? (corr ? 'Ni Boli lo habría corregido mejor.' : nP ? 'Cada punto cierra una idea completa.' : 'Ni una coma de más, ni una de menos.')));
     }
     const puestos = E.filter((e) => sig[e.j]);
     puestos.forEach((e) => pals[e.j].classList.add('mal'));
