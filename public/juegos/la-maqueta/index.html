@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La maqueta · La cajonera</title>
+<meta name="description" content="Maqueta de cartulina en 360°: quién se encarga de cada servicio, cómo se vota y qué hace cada poder del Estado.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "motor": "visita",
+  "area": "sociales",
+  "escena": "estuche",
+  "personaje": "goma",
+  "volver": "../../sociales/",
+  "titulo": "La maqueta",
+  "subtitulo": "Una maqueta de cartulina del país en miniatura: la plaza, el colegio electoral y los tres poderes.",
+  "portada": {
+    "objetivo": "Mira alrededor y toca: quién se encarga de cada cosa, cómo se vota y qué hace cada poder.",
+    "frase": "Cuidado, que la cola está recién pegada.",
+    "rotulo": "MAQUETA"
+  },
+  "historia": [
+    {
+      "quien": "goma",
+      "pose": "seguro",
+      "texto": "El 29 de noviembre hay elecciones. Para entenderlas hemos hecho una maqueta de cartulina."
+    },
+    {
+      "quien": "goma",
+      "pose": "pista",
+      "texto": "Mírala por dentro: arrastra el dedo para girar y toca lo que veas."
+    }
+  ],
+  "saludo": "Arrastra para **mirar alrededor**. Hay cosas detrás de ti.",
+  "observa": "Si mañana se rompe algo en tu calle, en tu cole o en tu centro de salud, ¿a quién habría que decírselo en cada caso?",
+  "escenas": {
+    "plaza": {
+      "inicio": 0,
+      "grupos": [
+        {
+          "id": "ayuntamiento",
+          "nombre": "El ayuntamiento",
+          "color": "#9bd84a",
+          "resumen": "Lo de tu calle y tu pueblo, el **ayuntamiento**."
+        },
+        {
+          "id": "comunidad",
+          "nombre": "La comunidad autónoma",
+          "color": "#ff8a1f",
+          "resumen": "Colegios, sanidad y carreteras de la región, la **comunidad**."
+        },
+        {
+          "id": "estado",
+          "nombre": "El Estado",
+          "color": "#e8417a",
+          "resumen": "Lo que es igual en toda España, el **Estado**."
+        },
+        {
+          "id": "ue",
+          "nombre": "La Unión Europea",
+          "color": "#5ec3ff",
+          "resumen": "Lo que compartimos con otros países, la **Unión Europea**."
+        }
+      ],
+      "puntos": {
+        "ayuntamiento": {
+          "yaw": 0,
+          "pitch": 14,
+          "nombre": "El ayuntamiento",
+          "que": "Es el edificio desde el que se gobierna el pueblo."
+        },
+        "fuente": {
+          "yaw": 0,
+          "pitch": -8,
+          "nombre": "La fuente y el alcantarillado",
+          "que": "Por aquí llega el agua y se va la que ensuciamos.",
+          "grupo": "ayuntamiento",
+          "por": "El agua del grifo y el alcantarillado son cosa del **ayuntamiento**."
+        },
+        "basura": {
+          "yaw": 30,
+          "pitch": -6,
+          "nombre": "La recogida de basura",
+          "que": "El camión pasa cada noche.",
+          "grupo": "ayuntamiento",
+          "por": "Recoger la basura y limpiar las calles le toca al **ayuntamiento**."
+        },
+        "policia-municipal": {
+          "yaw": 60,
+          "pitch": -5,
+          "nombre": "La policía municipal",
+          "que": "Vigila el tráfico y las calles del pueblo.",
+          "grupo": "ayuntamiento",
+          "por": "La policía **municipal** lo dice en el nombre: es del **ayuntamiento** (municipio)."
+        },
+        "biblioteca": {
+          "yaw": 90,
+          "pitch": 0,
+          "nombre": "La biblioteca y el polideportivo",
+          "que": "Libros, deporte y actividades para los vecinos.",
+          "grupo": "ayuntamiento",
+          "por": "Biblioteca **municipal**, polideportivo, fiestas: cultura y deporte cercanos, del **ayuntamiento**."
+        },
+        "colegio": {
+          "yaw": 120,
+          "pitch": 0,
+          "nombre": "El colegio público",
+          "que": "Un colegio como el tuyo.",
+          "grupo": "comunidad",
+          "por": "La **educación** la gestiona la **comunidad autónoma**: maestros, colegios, calendario escolar."
+        },
+        "centro-salud": {
+          "yaw": 150,
+          "pitch": -2,
+          "nombre": "El centro de salud",
+          "que": "Donde vas cuando te pones malo.",
+          "grupo": "comunidad",
+          "por": "La **sanidad** la lleva la **comunidad autónoma**: centros de salud y hospitales."
+        },
+        "carretera": {
+          "yaw": 180,
+          "pitch": -4,
+          "nombre": "Las obras de la carretera M-501",
+          "que": "Una carretera que une varios pueblos de la región.",
+          "grupo": "comunidad",
+          "por": "Las carreteras que unen pueblos de una misma región son de la **comunidad**. Por eso esta empieza por **M**, de Madrid."
+        },
+        "feder": {
+          "yaw": -150,
+          "pitch": -3,
+          "nombre": "El parque renovado con fondos europeos",
+          "que": "Un cartel dice quién ha puesto parte del dinero.",
+          "grupo": "ue",
+          "por": "La **Unión Europea** reparte fondos (los del **FEDER**) para que las zonas que lo necesitan mejoren. El cartel lo avisa."
+        },
+        "dni": {
+          "yaw": -120,
+          "pitch": -2,
+          "nombre": "La oficina del DNI y el pasaporte",
+          "que": "Aquí te hacen el carné de identidad.",
+          "grupo": "estado",
+          "por": "El **DNI** es igual en toda España: lo hace la **Policía Nacional**, del **Estado**."
+        },
+        "correos": {
+          "yaw": -90,
+          "pitch": -2,
+          "nombre": "Correos",
+          "que": "Cartas y paquetes a cualquier sitio.",
+          "grupo": "estado",
+          "por": "**Correos** es una empresa del **Estado**: llega igual a todos los pueblos del país."
+        },
+        "euro": {
+          "yaw": -60,
+          "pitch": -6,
+          "nombre": "El euro",
+          "que": "La moneda con la que pagas en el quiosco.",
+          "grupo": "ue",
+          "por": "El **euro** lo compartimos con otros países de la **Unión Europea**. El Banco Central Europeo lo vigila."
+        },
+        "farola": {
+          "yaw": -30,
+          "pitch": -1,
+          "nombre": "La farola y la señal",
+          "que": "Luz por la noche y señales para el tráfico.",
+          "grupo": "ayuntamiento",
+          "por": "El alumbrado y las señales de las calles son del **ayuntamiento**."
+        }
+      },
+      "preguntas": [
+        {
+          "q": "Se ha fundido la farola de tu calle. ¿**A quién** se lo dices? Busca su edificio en la plaza.",
+          "vale": [
+            "ayuntamiento"
+          ],
+          "por": "Al **ayuntamiento**: las calles, la luz y la basura del pueblo son cosa suya."
+        },
+        {
+          "q": "Hay algo en esta plaza que **la Unión Europea** ha ayudado a pagar. Encuéntralo.",
+          "vale": [
+            "feder"
+          ],
+          "por": "El cartel lo dice: fondos **europeos**. La UE ayuda a mejorar las zonas que lo necesitan."
+        },
+        {
+          "q": "Busca un documento que es **igual en toda España**, lo pidas en el pueblo que lo pidas.",
+          "vale": [
+            "dni"
+          ],
+          "por": "El **DNI**. Es del Estado: el mismo para todos, en todo el país."
+        },
+        {
+          "q": "Busca algo que usamos igual en **Francia, Italia o Portugal**.",
+          "vale": [
+            "euro"
+          ],
+          "por": "El **euro**: la moneda de muchos países de la Unión Europea."
+        },
+        {
+          "q": "Te duele la tripa desde ayer. ¿Adónde vas? Ese servicio lo paga tu **comunidad autónoma**.",
+          "vale": [
+            "centro-salud"
+          ],
+          "por": "Al **centro de salud**. La sanidad es de la comunidad autónoma."
+        },
+        {
+          "q": "Busca algo de la plaza que cuida la **policía de tu pueblo**.",
+          "vale": [
+            "policia-municipal"
+          ],
+          "por": "La policía **municipal**: el tráfico y la seguridad de las calles del pueblo."
+        }
+      ],
+      "pano": "pano/plaza.webp"
+    },
+    "colegio-electoral": {
+      "inicio": 0,
+      "grupos": [
+        {
+          "id": "puede",
+          "nombre": "Puede votar",
+          "color": "#9bd84a"
+        },
+        {
+          "id": "no-puede",
+          "nombre": "Todavía no",
+          "color": "#ff8a1f"
+        }
+      ],
+      "puntos": {
+        "urna": {
+          "yaw": 0,
+          "pitch": -8,
+          "nombre": "La urna",
+          "que": "El sobre cerrado entra en la **urna**."
+        },
+        "mesa": {
+          "yaw": 25,
+          "pitch": -6,
+          "nombre": "La mesa electoral",
+          "que": "Enseñas el **DNI** y te buscan en la lista del **censo**."
+        },
+        "cartel": {
+          "yaw": 150,
+          "pitch": 8,
+          "nombre": "El cartel de las elecciones",
+          "que": "Pone qué elecciones son y qué día."
+        },
+        "papeletas": {
+          "yaw": -150,
+          "pitch": -8,
+          "nombre": "Las papeletas y los sobres",
+          "que": "Coges la papeleta del partido que eliges y un sobre."
+        },
+        "cabina": {
+          "yaw": -100,
+          "pitch": 0,
+          "nombre": "La cabina",
+          "que": "En la cabina metes la papeleta en el sobre sin que nadie vea cuál es. Usarla no es obligatorio, pero ayuda a que el voto sea **secreto**."
+        },
+        "recuento": {
+          "yaw": -45,
+          "pitch": 4,
+          "nombre": "La pizarra del recuento",
+          "que": "A las ocho se cierra y la mesa **cuenta** los votos delante de quien quiera mirar."
+        },
+        "votante-10": {
+          "yaw": 70,
+          "pitch": -4,
+          "nombre": "Una niña de 10 años",
+          "que": "Ha venido con su madre.",
+          "grupo": "no-puede",
+          "por": "**10 años**: todavía no. Para votar hay que tener **18**. Pero puede acompañar y mirar."
+        },
+        "votante-17": {
+          "yaw": 82,
+          "pitch": -4,
+          "nombre": "Un chico de 17 años",
+          "que": "Cumple los 18 en enero.",
+          "grupo": "no-puede",
+          "por": "**17 años**: por poco, pero no. El día de las elecciones hay que tener ya **18**."
+        },
+        "votante-18": {
+          "yaw": 94,
+          "pitch": -4,
+          "nombre": "Una chica de 18 años",
+          "que": "Es la primera vez que vota.",
+          "grupo": "puede",
+          "por": "**18 años**: sí. Es la edad para votar."
+        },
+        "votante-45": {
+          "yaw": 106,
+          "pitch": -4,
+          "nombre": "Un señor de 45 años",
+          "que": "Trae el DNI en la mano.",
+          "grupo": "puede",
+          "por": "**45 años**: sí."
+        },
+        "votante-80": {
+          "yaw": 118,
+          "pitch": -4,
+          "nombre": "Una señora de 80 años",
+          "que": "Lleva votando toda la vida.",
+          "grupo": "puede",
+          "por": "**80 años**: sí. No hay edad máxima para votar."
+        }
+      },
+      "preguntas": [
+        {
+          "q": "¿**Qué día** son estas elecciones? Búscalo.",
+          "vale": [
+            "cartel"
+          ],
+          "por": "El **29 de noviembre**. Son elecciones **generales**: se elige el Congreso y el Senado."
+        },
+        {
+          "q": "¿Dónde puedes preparar tu voto **sin que nadie lo vea**?",
+          "vale": [
+            "cabina"
+          ],
+          "por": "En la **cabina**. El voto es **secreto**: nadie tiene por qué saber qué has votado."
+        },
+        {
+          "q": "¿Quién comprueba que estás en la **lista del censo**?",
+          "vale": [
+            "mesa"
+          ],
+          "por": "La **mesa electoral**: vecinos elegidos por sorteo."
+        },
+        {
+          "q": "Las elecciones han acabado. ¿Dónde se ve **qué partido** tiene más votos en este colegio?",
+          "vale": [
+            "recuento"
+          ],
+          "por": "En el **recuento**. Se cuenta en público y cualquiera puede mirar."
+        }
+      ],
+      "pano": "pano/colegio-electoral.webp"
+    },
+    "hemiciclo": {
+      "inicio": 0,
+      "puntos": {
+        "tribuna": {
+          "yaw": 0,
+          "pitch": -4,
+          "nombre": "La tribuna",
+          "que": "Desde aquí habla quien defiende o critica una ley."
+        },
+        "presidencia": {
+          "yaw": 0,
+          "pitch": 15,
+          "nombre": "La mesa de la presidencia",
+          "que": "Dirige los debates y da la palabra."
+        },
+        "ley": {
+          "yaw": 30,
+          "pitch": -4,
+          "nombre": "El proyecto de ley",
+          "que": "Una ley que todavía no se ha aprobado."
+        },
+        "panel": {
+          "yaw": 60,
+          "pitch": 6,
+          "nombre": "El panel de votación",
+          "que": "Tres luces: sí, no y abstención."
+        },
+        "escanos": {
+          "yaw": 180,
+          "pitch": -10,
+          "nombre": "Los escaños",
+          "que": "Los asientos de los diputados, por colores de partido."
+        },
+        "publico": {
+          "yaw": -120,
+          "pitch": 20,
+          "nombre": "La tribuna del público",
+          "que": "Cualquiera puede venir a mirar."
+        },
+        "puerta-senado": {
+          "yaw": -60,
+          "pitch": 0,
+          "nombre": "La puerta al Senado",
+          "que": "Lleva a la otra cámara."
+        }
+      },
+      "preguntas": [
+        {
+          "q": "Estás en el Congreso, la casa del **poder legislativo**. ¿Qué se hace aquí? Busca la pista.",
+          "vale": [
+            "ley"
+          ],
+          "por": "Aquí se **hacen las leyes**: eso es el poder **legislativo**."
+        },
+        {
+          "q": "¿**Cuántos diputados** hay en el Congreso? Búscalo escrito.",
+          "vale": [
+            "escanos"
+          ],
+          "por": "**350**. Los elegimos votando en las elecciones generales."
+        },
+        {
+          "q": "¿Cómo se decide si una ley sale adelante?",
+          "vale": [
+            "panel"
+          ],
+          "por": "**Votando**. Si hay más síes que noes, la ley sigue su camino."
+        },
+        {
+          "q": "Las **Cortes Generales** son dos cámaras: el Congreso y otra más. Busca el camino a la otra.",
+          "vale": [
+            "puerta-senado"
+          ],
+          "por": "El **Senado**. Congreso y Senado juntos son las Cortes Generales."
+        },
+        {
+          "q": "¿Puede una persona cualquiera ver los debates? Busca dónde se sentaría.",
+          "vale": [
+            "publico"
+          ],
+          "por": "Sí: hay **tribuna para el público**. Lo que se decide aquí es de todos."
+        }
+      ],
+      "pano": "pano/hemiciclo.webp"
+    },
+    "gobierno": {
+      "inicio": 0,
+      "puntos": {
+        "presidente": {
+          "yaw": 0,
+          "pitch": -4,
+          "nombre": "La presidencia del Gobierno",
+          "que": "La silla principal de la mesa."
+        },
+        "ministros": {
+          "yaw": 90,
+          "pitch": -6,
+          "nombre": "Los ministerios",
+          "que": "Educación, Sanidad, Exteriores, Hacienda…"
+        },
+        "presupuesto": {
+          "yaw": 150,
+          "pitch": -6,
+          "nombre": "El presupuesto",
+          "que": "Las cuentas del país para un año."
+        },
+        "mapamundi": {
+          "yaw": -150,
+          "pitch": 8,
+          "nombre": "El mapamundi",
+          "que": "Para las relaciones con otros países."
+        },
+        "leyes": {
+          "yaw": -90,
+          "pitch": -6,
+          "nombre": "Las leyes aprobadas",
+          "que": "Carpetas que llegan desde las Cortes."
+        },
+        "corona": {
+          "yaw": -45,
+          "pitch": 10,
+          "nombre": "El cuadro de la corona",
+          "que": "Recuerda quién es el jefe del Estado."
+        }
+      },
+      "preguntas": [
+        {
+          "q": "Estás en la sala del **Gobierno**, el **poder ejecutivo**. ¿Quién lo dirige?",
+          "vale": [
+            "presidente"
+          ],
+          "por": "El **presidente o la presidenta del Gobierno**. Lo elige el Congreso."
+        },
+        {
+          "q": "El Gobierno **no hace** las leyes: las **pone en marcha**. Busca las que le llegan de las Cortes.",
+          "vale": [
+            "leyes"
+          ],
+          "por": "Las **leyes aprobadas**. Las Cortes las hacen; el Gobierno las **ejecuta**: de ahí «poder ejecutivo»."
+        },
+        {
+          "q": "¿Quién ayuda al presidente, cada uno en un tema? Búscalos.",
+          "vale": [
+            "ministros"
+          ],
+          "por": "Los **ministros y ministras**, cada uno con su ministerio."
+        },
+        {
+          "q": "España es una **monarquía parlamentaria**. Busca quién es el **jefe del Estado**.",
+          "vale": [
+            "corona"
+          ],
+          "por": "El **rey**. Representa al país, pero no gobierna: gobierna el Gobierno."
+        },
+        {
+          "q": "Cada año el Gobierno prepara **en qué se gasta el dinero** del país. Búscalo.",
+          "vale": [
+            "presupuesto"
+          ],
+          "por": "El **presupuesto**. Lo prepara el Gobierno y lo tienen que aprobar las Cortes."
+        }
+      ],
+      "pano": "pano/gobierno.webp"
+    },
+    "tribunal": {
+      "inicio": 0,
+      "puntos": {
+        "estrado": {
+          "yaw": 0,
+          "pitch": 2,
+          "nombre": "El tribunal",
+          "que": "Jueces y juezas con toga."
+        },
+        "balanza": {
+          "yaw": 40,
+          "pitch": 8,
+          "nombre": "La balanza",
+          "que": "El símbolo de la justicia."
+        },
+        "constitucion": {
+          "yaw": 100,
+          "pitch": -2,
+          "nombre": "La Constitución",
+          "que": "Un libro enorme sobre un pedestal."
+        },
+        "abogados": {
+          "yaw": 180,
+          "pitch": -6,
+          "nombre": "Las dos partes",
+          "que": "Cada una cuenta su versión."
+        },
+        "codigos": {
+          "yaw": -110,
+          "pitch": 4,
+          "nombre": "Las leyes",
+          "que": "Una estantería de libros gordos."
+        },
+        "publico": {
+          "yaw": -50,
+          "pitch": -6,
+          "nombre": "El público",
+          "que": "Los juicios suelen ser públicos."
+        }
+      },
+      "preguntas": [
+        {
+          "q": "Estás en un juzgado, el **poder judicial**. ¿Quién decide si alguien ha cumplido la ley?",
+          "vale": [
+            "estrado"
+          ],
+          "por": "Los **jueces y juezas**. Son **independientes**: ni el Gobierno ni las Cortes les dicen qué decidir."
+        },
+        {
+          "q": "Busca **la ley más importante**, la que está por encima de todas.",
+          "vale": [
+            "constitucion"
+          ],
+          "por": "La **Constitución** de 1978. Ninguna ley puede ir contra ella."
+        },
+        {
+          "q": "¿Con qué juzgan los jueces? No con lo que les parece: con…",
+          "vale": [
+            "codigos"
+          ],
+          "por": "Con las **leyes**, las que aprobaron las Cortes. Por eso los tres poderes se necesitan."
+        },
+        {
+          "q": "Antes de decidir, el tribunal **escucha a los dos lados**. Búscalos.",
+          "vale": [
+            "abogados"
+          ],
+          "por": "Las **dos partes**: cada una con su abogado o abogada."
+        },
+        {
+          "q": "Busca el **símbolo** de la justicia.",
+          "vale": [
+            "balanza"
+          ],
+          "por": "La **balanza**: pesar las dos versiones por igual."
+        }
+      ],
+      "pano": "pano/tribunal.webp"
+    }
+  },
+  "niveles": [
+    {
+      "modo": "busca",
+      "escena": "plaza",
+      "generar": {
+        "n": 3
+      }
+    },
+    {
+      "modo": "clasifica",
+      "escena": "plaza",
+      "generar": {
+        "grupos": [
+          "ayuntamiento",
+          "comunidad"
+        ],
+        "n": 5
+      }
+    },
+    {
+      "modo": "clasifica",
+      "escena": "colegio-electoral",
+      "generar": {
+        "n": 5
+      },
+      "enunciado": "Hay **cinco personas** en la cola. Toca cada una: ¿**puede votar**?",
+      "pista": "Mira la chapa de cada una: lleva su edad.",
+      "principio": "Para votar en España hay que tener **18 años** o más el día de las elecciones.",
+      "nota": "A partir de **18 años**, y sin edad máxima."
+    },
+    {
+      "modo": "ordena",
+      "escena": "colegio-electoral",
+      "generar": true,
+      "enunciado": "Toca los pasos **en orden**: lo que hace una persona desde que entra hasta que se cuenta su voto.",
+      "por": "Papeleta y sobre, cabina, mesa con el DNI, urna. Y al cerrar, el recuento.",
+      "antes": {
+        "cabina": "Antes de ir a la cabina necesitas algo en la mano: la papeleta y el sobre.",
+        "mesa": "Antes de ir a la mesa, la papeleta tiene que estar ya dentro del sobre.",
+        "urna": "Antes de votar, la mesa tiene que ver tu DNI y buscarte en la lista.",
+        "recuento": "Se cuenta al final, cuando ya ha votado todo el mundo."
+      },
+      "orden": [
+        "papeletas",
+        "cabina",
+        "mesa",
+        "urna",
+        "recuento"
+      ]
+    },
+    {
+      "modo": "clasifica",
+      "escena": "plaza",
+      "generar": {
+        "n": 7
+      }
+    },
+    {
+      "modo": "busca",
+      "escena": "colegio-electoral",
+      "generar": {
+        "n": 3
+      }
+    },
+    {
+      "modo": "busca",
+      "escena": "hemiciclo",
+      "generar": {
+        "n": 3
+      }
+    },
+    {
+      "modo": "busca",
+      "escena": "gobierno",
+      "generar": {
+        "n": 3
+      }
+    },
+    {
+      "modo": "busca",
+      "escena": "tribunal",
+      "generar": {
+        "n": 3
+      }
+    },
+    {
+      "modo": "clasifica",
+      "escena": "plaza",
+      "generar": {
+        "n": 10
+      }
+    }
+  ]
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>
