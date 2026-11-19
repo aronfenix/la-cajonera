@@ -5,4 +5,5 @@ tipo: ficha
 resumen: Sesión 4 de Plástica, con la explicación y los pasos.
 fecha: 2026-10-15
 orden: 1
+borrador: true
 ---
