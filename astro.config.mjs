@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 // SITE_URL y BASE_PATH los pone el flujo de publicación (.github/workflows/publicar.yml).
-// En GitHub Pages: https://aronfenix.github.io + /la-cajonera
+// Publicada en https://lacajonera.es (raíz). Antes: https://aronfenix.github.io + /la-cajonera
 // Con dominio propio: https://tudominio.es + /
 export default defineConfig({
   site: process.env.SITE_URL ?? 'https://aronfenix.github.io',

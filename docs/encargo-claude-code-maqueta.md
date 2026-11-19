@@ -3,7 +3,7 @@
 Para Claude Code trabajando en el PC de Álvaro con Unreal Engine (servidor MCP del editor y plugin de Epic para Claude Code). Lee esto entero antes de abrir nada.
 
 ## Qué se pide
-Cinco escenas pequeñas en Unreal, cada una renderizada como **una panorámica 360° fija**. No hay que hacer ningún juego en Unreal: ni mecánicas, ni personajes que se muevan, ni menús. Las panorámicas se usarán en la web «La cajonera» (https://aronfenix.github.io/la-cajonera/), en un visor que hace otro Claude: el alumno mira alrededor arrastrando con el dedo y toca objetos de la escena.
+Cinco escenas pequeñas en Unreal, cada una renderizada como **una panorámica 360° fija**. No hay que hacer ningún juego en Unreal: ni mecánicas, ni personajes que se muevan, ni menús. Las panorámicas se usarán en la web «La cajonera» (https://lacajonera.es/), en un visor que hace otro Claude: el alumno mira alrededor arrastrando con el dedo y toca objetos de la escena.
 
 Es para 5.º de Primaria, tema de Sociales «Un voto de confianza»: elecciones, reparto de competencias y división de poderes.
 

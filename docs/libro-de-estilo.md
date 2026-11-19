@@ -1,6 +1,6 @@
 # La cajonera · libro de estilo
 
-Para cualquiera que haga juegos, herramientas o materiales para **La cajonera** (https://aronfenix.github.io/la-cajonera/): ChatGPT, Claude o el propio Álvaro. Léelo entero antes de empezar. Al terminar, pasa la lista del final.
+Para cualquiera que haga juegos, herramientas o materiales para **La cajonera** (https://lacajonera.es/): ChatGPT, Claude o el propio Álvaro. Léelo entero antes de empezar. Al terminar, pasa la lista del final.
 
 Versión del 12-11-2026. Si algo de aquí choca con lo que ya está publicado y funciona, manda lo publicado. Avisa de la contradicción.
 
@@ -230,7 +230,7 @@ Todo juego vive en `public/juegos/<slug>/index.html`, y ese archivo **solo lleva
 - la pantalla final;
 - el progreso guardado en la tablet.
 
-Instrucciones de cada motor: https://aronfenix.github.io/la-cajonera/juegos/motores/
+Instrucciones de cada motor: https://lacajonera.es/juegos/motores/
 
 **Camino A, el preferido: escribir la configuración de un motor que ya existe.**
 - Matemáticas tiene 17 motores (recta, cifras, rejilla, geoplano, multiplica, formas, giros, reparto, ceros, examen, numeros, linea, medida, caja, mental, angulos, tablas).
