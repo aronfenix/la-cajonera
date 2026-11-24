@@ -18,7 +18,7 @@ def ficha(slug, titulo, resumen, orden, cuerpo):
     q = lambda t: json.dumps(t, ensure_ascii=False)
     portada = f'portada: /src/media/portadas/{slug}.jpg\n' if os.path.exists(f'{PORTADAS}/{slug}.jpg') else ''
     with open(f'{FICHAS}/{slug}.md', 'w') as f:
-        f.write(f'---\ntitulo: {q(titulo)}\ntema: sociales-tema-2\ntipo: juego\nresumen: {q(resumen)}\nfecha: {FECHA}\n{portada}enlace: /juegos/{slug}/\norden: {orden}\nborrador: true\n---\n\n{cuerpo}\n')
+        f.write(f'---\ntitulo: {q(titulo)}\ntema: sociales-tema-2\ntipo: juego\nresumen: {q(resumen)}\nfecha: {FECHA}\n{portada}enlace: /juegos/{slug}/\norden: {orden}\n---\n\n{cuerpo}\n')
 
 
 # ------------------------------------------------------------------ el examen

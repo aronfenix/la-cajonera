@@ -9,7 +9,6 @@ enlace: /videos/sociales/v4-como-se-vota/
 duracion: "3:24"
 ia: "La voz del vídeo está generada con IA (ElevenLabs) a partir de mi propia voz."
 orden: 2.5
-borrador: true
 ---
 
 Cuarto de los cinco vídeos del tema. Las preguntas de comprobación están en la misma página, debajo del vídeo.

@@ -6,7 +6,6 @@ resumen: "El final de la aventura: dos retos de cada compartimento de «El cajó
 fecha: 2026-11-24
 enlace: /juegos/el-examen-del-29n/
 orden: 8
-borrador: true
 ---
 
 Se abre en el mapa cuando los cinco compartimentos están aprobados, aunque se puede jugar suelto en cualquier momento. Son diez retos fijos, sacados de los siete juegos del tema, en dificultad media.

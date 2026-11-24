@@ -45,5 +45,5 @@ with open(f'{BASE}/{SLUG}/index.html', 'w') as f:
 q = lambda t: json.dumps(t, ensure_ascii=False)
 portada = f'portada: /src/media/portadas/{SLUG}.jpg\n' if os.path.exists(f'{PORTADAS}/{SLUG}.jpg') else ''
 with open(f'{FICHAS}/{SLUG}.md', 'w') as f:
-    f.write(f'---\ntitulo: {q(cfg["titulo"])}\ntema: sociales-tema-2\ntipo: juego\nresumen: {q(RESUMEN)}\nfecha: {FECHA}\nborrador: true\n{portada}enlace: /juegos/{SLUG}/\norden: 2\n---\n\n{CUERPO}\n')
+    f.write(f'---\ntitulo: {q(cfg["titulo"])}\ntema: sociales-tema-2\ntipo: juego\nresumen: {q(RESUMEN)}\nfecha: {FECHA}\n{portada}enlace: /juegos/{SLUG}/\norden: 2\n---\n\n{CUERPO}\n')
 print('escrito', SLUG)

@@ -4,7 +4,6 @@ tema: sociales-tema-2
 tipo: juego
 resumen: "La separación de poderes como tres llaves de un patio-isla: si alguien junta dos, abusa; si una no tiene dueño, nadie hace ese trabajo. Termina con las instituciones de España."
 fecha: 2026-11-23
-borrador: true
 enlace: /juegos/la-isla-del-recreo/
 orden: 6
 ---

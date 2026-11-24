@@ -47,5 +47,5 @@ cuerpo = ('Cinco mecánicas con una ley real, aprobada en 2022: llevar el expedi
   'reconocer quién se sienta en cada sitio, negociar el texto para que voten que sí el Parlamento y el Consejo a la vez, marcar en un mapa de Europa dónde obliga la ley, dónde se paga en euros o adónde se puede ir a trabajar sin permiso, '
   'y colocar países en una tabla de UE sí/no y euro sí/no. Los errores que ataca: «la UE es un país», «Europa y la UE son lo mismo», «el euro y la UE son lo mismo» y «al Parlamento Europeo lo nombra el Gobierno».')
 with open(f'{FICHAS}/{SLUG}.md', 'w') as f:
-    f.write(f'---\ntitulo: {q(cfg["titulo"])}\ntema: sociales-tema-2\ntipo: juego\nresumen: {q(resumen)}\nfecha: {FECHA}\n{portada}enlace: /juegos/{SLUG}/\norden: 7\nborrador: true\n---\n\n{cuerpo}\n')
+    f.write(f'---\ntitulo: {q(cfg["titulo"])}\ntema: sociales-tema-2\ntipo: juego\nresumen: {q(resumen)}\nfecha: {FECHA}\n{portada}enlace: /juegos/{SLUG}/\norden: 7\n---\n\n{cuerpo}\n')
 print('ok', SLUG)

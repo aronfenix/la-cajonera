@@ -4,7 +4,6 @@ tema: sociales-tema-2
 tipo: juego
 resumen: "Un día en el ayuntamiento de un pueblo de Madrid: cada petición de los vecinos se paga con la caja del pueblo o se manda por carta a la Comunidad, al Estado o a la Unión Europea."
 fecha: 2026-11-20
-borrador: true
 enlace: /juegos/alcaldesa-por-un-dia/
 orden: 2
 ---

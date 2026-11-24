@@ -9,7 +9,6 @@ enlace: /videos/sociales/v5-union-europea/
 duracion: "2:46"
 ia: "La voz del vídeo está generada con IA (ElevenLabs) a partir de mi propia voz."
 orden: 6.5
-borrador: true
 ---
 
 Quinto de los cinco vídeos del tema. Las preguntas de comprobación están en la misma página, debajo del vídeo.

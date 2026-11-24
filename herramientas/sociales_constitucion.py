@@ -47,5 +47,5 @@ cuerpo = ('Cuatro mecánicas. En la principal, la asamblea de quince objetos apr
   'criticar una norma o no votar se puede; mandar callar o saltarse una norma porque mandas, no. En «monta una norma» se arregla un problema del cajón con piezas y la norma se prueba: '
   '¿lo arregla? ¿aguanta en el Tribunal? Y en la asamblea del jueves se ve que cambiar la Constitución pide más votos que una norma normal (3 de cada 5, como en las Cortes).')
 with open(f'{FICHAS}/{SLUG}.md', 'w') as f:
-    f.write(f'---\ntitulo: {q(cfg["titulo"])}\ntema: sociales-tema-2\ntipo: juego\nresumen: {q(resumen)}\nfecha: {FECHA}\n{portada}enlace: /juegos/{SLUG}/\norden: 1\nborrador: true\n---\n\n{cuerpo}\n')
+    f.write(f'---\ntitulo: {q(cfg["titulo"])}\ntema: sociales-tema-2\ntipo: juego\nresumen: {q(resumen)}\nfecha: {FECHA}\n{portada}enlace: /juegos/{SLUG}/\norden: 1\n---\n\n{cuerpo}\n')
 print('ok', SLUG)

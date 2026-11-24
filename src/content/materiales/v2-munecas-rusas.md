@@ -9,7 +9,6 @@ enlace: /videos/sociales/v2-munecas-rusas/
 duracion: "3:18"
 ia: "La voz del vídeo está generada con IA (ElevenLabs) a partir de mi propia voz."
 orden: 1.5
-borrador: true
 ---
 
 Segundo de los cinco vídeos del tema. Las preguntas de comprobación están en la misma página, debajo del vídeo.

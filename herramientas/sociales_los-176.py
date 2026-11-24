@@ -48,5 +48,5 @@ cuerpo = ('Primero se predice qué pasa en una votación de investidura (176 sí
           'Si en esta tablet se ha jugado La máquina de repartir, usa ese Congreso.')
 portada = f'portada: /src/media/portadas/{SLUG}.jpg\n' if os.path.exists(f'{PORTADAS}/{SLUG}.jpg') else ''
 with open(f'{FICHAS}/{SLUG}.md', 'w') as f:
-    f.write(f'---\ntitulo: {q(cfg["titulo"])}\ntema: sociales-tema-2\ntipo: juego\nresumen: {q(resumen)}\nfecha: {FECHA}\n{portada}enlace: /juegos/{SLUG}/\norden: 5\nborrador: true\n---\n\n{cuerpo}\n')
+    f.write(f'---\ntitulo: {q(cfg["titulo"])}\ntema: sociales-tema-2\ntipo: juego\nresumen: {q(resumen)}\nfecha: {FECHA}\n{portada}enlace: /juegos/{SLUG}/\norden: 5\n---\n\n{cuerpo}\n')
 print('escrito', SLUG)
