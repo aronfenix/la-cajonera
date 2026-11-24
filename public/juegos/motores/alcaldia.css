@@ -1,0 +1,118 @@
+/* Sociales (El cajón vota) · motor «alcaldia»: la mesa de la alcaldesa, el mapa del pueblo clavado en el corcho y sus marcadores. */
+
+.al-tablero{display:grid;gap:14px;max-width:1180px}
+
+/* ---------- marcadores: caja, vecinos y cola */
+.al-marcadores{display:flex;flex-wrap:wrap;gap:10px 14px}
+.al-marcador{display:flex;align-items:center;gap:10px;min-height:52px;padding:6px 16px 6px 10px;border:var(--borde);border-radius:14px 10px 16px 12px;background:var(--papel) url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra-baja)}
+.al-marcador:nth-child(1){rotate:-.8deg}.al-marcador:nth-child(2){rotate:.5deg}.al-marcador:nth-child(3){rotate:-.4deg}
+.al-icono{flex:none;width:36px;height:36px}
+.al-icono svg{width:100%;height:100%}
+.al-marcador-txt{display:grid;line-height:1.05}
+.al-marcador-txt small{font-size:13px;font-weight:700;color:var(--gris)}
+.al-valor{font-family:var(--fuerte);font-weight:900;font-size:22px;white-space:nowrap}
+.al-fila{display:flex;align-items:center;gap:8px}
+.al-barra{display:flex;gap:3px}
+.al-barra i{display:block;width:10px;height:16px;border:2px solid var(--tinta);border-radius:3px;background:#fff}
+.al-barra i.on{background:var(--amarillo)}.al-barra i.on.bien{background:var(--lima)}.al-barra i.on.mal{background:#ff8fa3}
+.al-vec-txt{font-size:17px}
+
+/* ---------- mesa y mapa */
+.al-cuerpo{display:grid;grid-template-columns:minmax(300px,.85fr) minmax(0,1.3fr);gap:20px;align-items:start}
+.al-mesa{display:grid;gap:14px}
+
+/* la petición: un impreso del ayuntamiento */
+.al-peticion{position:relative;padding:14px 18px 16px;border:var(--borde);border-radius:4px 12px 6px 14px;background:var(--papel) url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra);rotate:-.6deg;min-height:150px}
+.al-peticion::before{content:"";position:absolute;left:50%;top:-12px;width:70px;height:22px;translate:-50% 0;background:rgba(242,226,180,.86);rotate:-3deg;box-shadow:0 1px 2px rgba(0,0,0,.15)}
+.al-peticion header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 12px;margin-bottom:8px;padding-bottom:8px;border-bottom:2px dashed rgba(27,30,58,.25)}
+.al-quien{display:flex;align-items:center;gap:6px;font-weight:800;font-size:16px}
+.al-quien svg{width:24px;height:24px;flex:none}
+.al-coste{padding:3px 10px;border:2.5px solid var(--tinta);border-radius:999px;background:#fff27a;font-family:var(--fuerte);font-weight:800;font-size:16px;white-space:nowrap;rotate:2deg}
+.al-coste.gratis{background:#e9ecf5}
+.al-pide{margin:0;font-size:clamp(18px,1.9vw,21px);line-height:1.38}
+.al-pide b{background:linear-gradient(176deg,transparent 0 22%,rgba(255,197,49,.85) 24% 86%,transparent 88%);padding:0 .1em}
+.al-pide.fin{font-family:var(--fuerte);font-weight:800}
+.al-etiquetas{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.al-etq{padding:2px 10px;border:2px solid var(--tinta);border-radius:6px;font-weight:800;font-size:14px}
+.al-etq.obra{background:#ffd9b0}
+.al-etq.fondo{background:#cfeaff}
+.al-etq.devuelta{background:#ffd9e3;color:#a01628}
+.al-sello{position:absolute;right:14px;bottom:10px;padding:2px 12px;border:4px solid #c8201a;border-radius:8px;color:#c8201a;font-family:var(--fuerte);font-weight:900;font-size:26px;letter-spacing:.06em;rotate:-12deg;opacity:.88;pointer-events:none;mix-blend-mode:multiply}
+
+/* qué hacer con ella */
+.al-decide{display:grid;gap:10px}
+.al-decide[hidden]{display:none}
+.al-buzones{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.al-accion{--c:var(--papel);position:relative;display:flex;align-items:center;gap:10px;min-height:58px;padding:6px 14px 6px 10px;border:var(--borde);border-radius:14px;background:var(--papel);color:var(--tinta);font:inherit;text-align:left;cursor:pointer;box-shadow:inset 9px 0 0 var(--c),0 4px 0 var(--tinta),3px 9px 12px -6px rgba(10,20,25,.5);transition:transform .08s,box-shadow .08s;touch-action:manipulation}
+.al-accion:hover:not(:disabled){transform:translateY(-2px)}
+.al-accion:active:not(:disabled){transform:translateY(4px);box-shadow:inset 9px 0 0 var(--c),0 0 0 var(--tinta)}
+.al-accion .al-sobre{flex:none;width:34px;height:34px;margin-left:6px}
+.al-accion .al-sobre svg{width:100%;height:100%}
+.al-accion-txt{display:grid;line-height:1.1}
+.al-accion-txt small{font-size:13px;font-weight:700;color:var(--gris)}
+.al-accion-txt b{font-family:var(--fuerte);font-weight:800;font-size:18px}
+.al-ayto{--c:var(--lima);background:#eef9df;min-height:64px}
+.al-ayto .al-accion-txt b{font-size:21px}
+.al-buzon{background:color-mix(in srgb,var(--c) 18%,var(--papel))}
+.al-accion:disabled{cursor:default;opacity:.5;box-shadow:inset 9px 0 0 var(--c);transform:translateY(4px)}
+.al-accion.tachado::after{content:"";position:absolute;left:8%;right:8%;top:50%;height:4px;border-radius:2px;background:var(--rojo);rotate:-6deg}
+.al-buzones.cuatro{grid-template-columns:repeat(2,minmax(0,1fr))}
+.al-dipu{--c:#c9ccc6}
+
+/* el mapa: una cartulina clavada en el corcho */
+.al-mapa{position:relative;padding:10px;border:var(--borde);border-radius:10px;background:#fffdf6;box-shadow:var(--sombra);rotate:.7deg}
+.al-mapa::before,.al-mapa::after{content:"";position:absolute;top:-9px;width:22px;height:22px;border:3px solid var(--tinta);border-radius:50%;background:#d7263d;box-shadow:inset -4px -4px 0 rgba(0,0,0,.18),2px 4px 0 rgba(0,0,0,.25);z-index:2}
+.al-mapa::before{left:18px}.al-mapa::after{right:18px;background:var(--cobalto)}
+.al-mapa-svg{display:block;width:100%;height:auto;overflow:visible}
+.al-mapa-rotulo{position:absolute;left:50%;top:-16px;translate:-50% 0;padding:2px 14px;border:3px solid var(--tinta);border-radius:6px;background:var(--amarillo);font-family:var(--fuerte);font-weight:900;font-size:17px;letter-spacing:.05em;rotate:-2deg;box-shadow:var(--sombra-baja)}
+.al-rotulo{font-family:var(--fuerte);font-weight:800;font-size:13px;fill:var(--tinta)}
+.al-rotulo.pequeno{font-size:10.5px}.al-rotulo.mini{font-size:9px}.al-rotulo.grande{font-size:19px;font-weight:900}.al-rotulo.pin{font-size:11px;font-weight:900}
+.al-rotulo.tiza{fill:#fffdf6;font-size:13px}
+.al-despues{display:none}
+.al-despues.hecho{display:inline}
+.al-antes.hecho{display:none}
+.al-mapa:not(.obra-parque) .al-obra{display:none}
+.al-munecas{display:none}
+.al-mapa.fin .al-munecas{display:inline}
+.al-aviso-in{transform-box:fill-box;transform-origin:50% 50%;animation:al-late 1.4s ease-in-out infinite}
+.al-aviso.ahora circle{fill:var(--amarillo)}
+.al-aviso.ahora .al-aviso-in{animation-duration:.8s}
+@keyframes al-late{50%{transform:scale(1.18)}}
+.al-volador{display:block}
+.al-volador svg{width:100%;height:100%}
+
+/* ---------- la portada */
+.portada-arte .al-arte{position:relative;width:min(100%,600px);aspect-ratio:800/430;display:block}
+.al-arte-mapa{position:absolute;inset:6% 2% 0;padding:10px;border:5px solid var(--tinta);border-radius:14px;background:#fffdf6;box-shadow:12px 18px 0 rgba(40,15,0,.3);rotate:-3deg}
+.al-arte-mapa svg{width:100%;height:100%;display:block}
+.al-arte-rotulo{position:absolute;left:50%;top:0;translate:-50% 0;padding:4px 18px;border:4px solid var(--tinta);border-radius:8px;background:var(--amarillo);font-family:var(--fuerte);font-weight:900;font-size:clamp(16px,2.4vw,26px);letter-spacing:.05em;rotate:-4deg;box-shadow:var(--sombra-baja);z-index:2}
+.al-arte-chincheta{position:absolute;width:28px;height:28px;border:4px solid var(--tinta);border-radius:50%;background:#d7263d;box-shadow:inset -5px -5px 0 rgba(0,0,0,.18),3px 5px 0 rgba(0,0,0,.25);z-index:2}
+.al-arte-chincheta.c1{left:4%;top:9%}.al-arte-chincheta.c2{right:3%;bottom:4%;background:var(--cobalto)}
+.al-arte .pieza{position:absolute;width:15%;aspect-ratio:1;filter:drop-shadow(4px 6px 0 rgba(40,15,0,.3))}
+.al-arte .pieza svg{width:100%;height:100%}
+.al-arte .pz1{left:-4%;bottom:6%;rotate:-14deg}
+.al-arte .pz2{right:6%;top:-2%;width:11%;rotate:8deg}
+.al-arte .pz3{right:-4%;bottom:26%;rotate:12deg}
+
+@media (max-width:999px){
+  .al-cuerpo{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .al-marcadores{gap:8px}
+  .al-marcador{flex:1 1 auto;min-height:46px;padding:4px 10px 4px 8px}
+  .al-icono{width:28px;height:28px}
+  .al-valor{font-size:18px}
+  .al-marcador-txt small{font-size:12px}
+  .al-barra i{width:7px;height:13px}
+  .al-vec-txt{display:none}
+  .al-buzones,.al-buzones.cuatro{grid-template-columns:1fr 1fr}
+  .al-accion{min-height:54px;padding:6px 8px 6px 6px;gap:6px}
+  .al-accion .al-sobre{width:26px;height:26px;margin-left:8px}
+  .al-accion-txt b{font-size:15px}
+  .al-ayto .al-accion-txt b{font-size:18px}
+  .al-peticion{min-height:0;padding:12px 14px 14px}
+  .al-mapa{padding:6px}
+  .al-mapa-rotulo{font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){.al-aviso-in{animation:none}}
+body.pizarra .al-peticion,body.pizarra .al-mapa{box-shadow:none}

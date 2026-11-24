@@ -1,0 +1,137 @@
+/* Sociales (El cajón vota) · motor «llaves»: la isla del recreo sobre el patio, sus habitantes, las tres llaves y el diario de la semana. */
+
+.ll-tablero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,1fr);gap:20px;align-items:start;max-width:1180px}
+
+/* ---------- la isla: arena sobre agua, recortada en cartulina */
+.ll-isla{position:relative;padding:30px 22px 26px;border:var(--borde);border-radius:34px;background:#5ec3ff;box-shadow:var(--sombra);rotate:-.4deg}
+.ll-isla::before{content:"";position:absolute;inset:16px 14px 14px;border:3px solid var(--tinta);border-radius:44% 38% 46% 40% / 30% 36% 30% 34%;background:radial-gradient(ellipse at 40% 35%,#f8dfa3,#f2d18d 60%,#e6bf72);box-shadow:inset 0 0 0 8px rgba(255,255,255,.35)}
+.ll-isla.espana{background:#cfe3d4}
+.ll-isla.espana::before{border-radius:22px;background:var(--papel) url('tex/papel.webp');background-blend-mode:multiply;box-shadow:none}
+.ll-isla-rotulo{position:absolute;left:50%;top:-16px;z-index:3;translate:-50% 0;padding:2px 16px;border:3px solid var(--tinta);border-radius:6px;background:var(--amarillo);font-family:var(--fuerte);font-weight:900;font-size:17px;letter-spacing:.05em;rotate:-2deg;box-shadow:var(--sombra-baja)}
+.ll-pjs{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.ll-pj{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;width:168px;min-height:200px;padding:8px 8px 10px;border:var(--borde);border-radius:14px 18px 12px 16px;background:var(--papel) url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra-baja);cursor:pointer;transition:transform .15s var(--muelle),box-shadow .15s;touch-action:manipulation}
+.ll-pj:nth-child(odd){rotate:-1deg}.ll-pj:nth-child(even){rotate:.9deg}
+.ll-pj:focus-visible{outline:4px solid var(--cobalto);outline-offset:3px}
+.ll-pj.apunta{box-shadow:0 0 0 4px var(--amarillo),var(--sombra-baja)}
+.ll-pj.apunta:hover{transform:translateY(-3px)}
+.ll-pj.sobre{transform:scale(1.04);box-shadow:0 0 0 6px var(--amarillo),var(--sombra-baja)}
+.ll-pj.doble{background-color:#ffe6ec}
+.ll-pj.actua{transform:translateY(-6px) scale(1.04);box-shadow:0 0 0 5px var(--cielo),var(--sombra)}
+.ll-pj-dib{display:block;width:72px;height:72px}
+.ll-pj-dib svg{width:100%;height:100%;overflow:visible}
+.ll-pj.inst .ll-pj-dib{width:64px;height:64px}
+.ll-pj-nombre{font-family:var(--fuerte);font-weight:900;font-size:18px;line-height:1.05;text-align:center}
+.ll-pj-rasgo{font-size:14px;line-height:1.25;text-align:center;font-weight:600}
+.ll-llavero{display:flex;flex-direction:column;align-items:stretch;gap:4px;width:100%;min-height:40px;margin-top:auto;padding-top:6px;border-top:2px dashed rgba(27,30,58,.25)}
+
+/* ---------- las llaves */
+.ll-llave{display:flex;align-items:center;gap:8px;min-height:48px;padding:4px 10px 4px 4px;border:3px solid var(--tinta);border-radius:12px;background:var(--papel);color:var(--tinta);font:inherit;text-align:left;cursor:grab;box-shadow:0 4px 0 var(--tinta);touch-action:none;transition:transform .1s}
+.ll-llave:focus-visible{outline:4px solid var(--cobalto);outline-offset:2px}
+.ll-llave.elegida{background:#fff0c2;box-shadow:0 0 0 4px var(--amarillo),0 4px 0 var(--tinta);transform:translateY(-2px) rotate(-2deg)}
+.ll-llave.levantado{opacity:.35}
+.ll-llave-dib{flex:none;width:72px;height:36px}
+.ll-llave-dib svg{width:100%;height:100%}
+.ll-llave-txt{display:grid;line-height:1.1}
+.ll-llave-txt b{font-family:var(--fuerte);font-weight:800;font-size:17px}
+.ll-llave-txt small{font-size:13px;font-weight:600;color:var(--gris)}
+.ll-llave.puesta{min-height:44px;padding:2px 6px 2px 2px;box-shadow:0 3px 0 var(--tinta)}
+.ll-llave.puesta .ll-llave-dib{width:52px;height:26px}
+.ll-llave.puesta .ll-llave-txt b{font-size:14px}
+.ll-llave.fantasma{box-shadow:var(--sombra)}
+
+/* ---------- el lado: marcadores, bandeja de llaves y diario */
+.ll-lado{display:grid;gap:14px}
+.ll-marcadores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ll-marcador{display:flex;align-items:center;gap:8px;padding:6px 10px 6px 8px;border:var(--borde);border-radius:12px;background:var(--papel);box-shadow:var(--sombra-baja);transition:background .3s}
+.ll-marcador.bien{background:#e6f7d0}.ll-marcador.mal{background:#ffd9e3}
+.ll-marca-ico{flex:none;width:28px;height:28px}
+.ll-marca-ico svg{width:100%;height:100%}
+.ll-marca-txt{display:grid;gap:3px;min-width:0}
+.ll-marca-txt small{font-family:var(--fuerte);font-weight:800;font-size:15px}
+.ll-barra{display:flex;gap:3px}
+.ll-barra i{width:11px;height:14px;border:2px solid var(--tinta);border-radius:3px;background:#fff}
+.ll-barra i.on{background:var(--lima)}
+.ll-barra.quejas i.on{background:#ff8fa3}
+.ll-marcador.justicia .ll-barra i.on{background:var(--cielo)}
+.ll-bandeja{display:grid;gap:8px;padding:10px 12px 12px;border:3px dashed rgba(27,30,58,.55);border-radius:16px;background:rgba(255,253,246,.85)}
+.ll-bandeja.apunta,.ll-bandeja.sobre{border-color:var(--amarillo-osc);background:#fff7d6}
+.ll-bandeja[hidden]{display:none}
+.ll-bandeja-tit{font-family:var(--fuerte);font-size:16px}
+.ll-bandeja-llaves{display:grid;gap:10px}
+.ll-bandeja-vacia{font-size:15px;color:var(--gris);font-weight:700}
+
+.ll-diario{display:grid;gap:8px;margin:0;padding:0;list-style:none;max-height:none}
+.ll-diario[hidden]{display:none}
+.ll-dia{position:relative;padding:8px 12px 8px 14px;border:3px solid var(--tinta);border-radius:10px;background:var(--papel);box-shadow:var(--sombra-baja)}
+.ll-dia::before{content:"";position:absolute;left:-3px;top:-3px;bottom:-3px;width:10px;border-radius:10px 0 0 10px;background:var(--lima);border:3px solid var(--tinta)}
+.ll-dia.mal::before{background:#ff6f8a}
+.ll-dia.tit{padding:2px 10px;border:0;background:none;box-shadow:none;font-family:var(--fuerte);font-weight:900;font-size:17px;color:#fffdf6;text-shadow:0 2px 0 var(--tinta)}
+.ll-dia.tit::before{display:none}
+.ll-dia.pasado{opacity:.95}
+.ll-dia-nom{font-family:var(--fuerte);font-weight:900;font-size:15px}
+.ll-inc{margin:2px 0 4px;font-size:15px;line-height:1.3;color:var(--gris)}
+.ll-res-fila{display:flex;align-items:center;gap:8px}
+.ll-res-dib{flex:none;display:grid;place-items:center;width:34px;height:34px}
+.ll-res-dib svg{width:100%;height:100%}
+.ll-res-dib.vacio{border:2.5px dashed var(--tinta);border-radius:50%;font-family:var(--fuerte);font-weight:900}
+.ll-res{margin:0;font-size:16px;line-height:1.3;font-weight:700}
+.ll-deltas{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.ll-deltas i{font-style:normal;padding:0 8px;border:2px solid var(--tinta);border-radius:999px;font-size:13px;font-weight:800}
+.ll-deltas i.bueno{background:#e6f7d0}.ll-deltas i.malo{background:#ffd9e3}
+
+/* ---------- el Tribunal Constitucional */
+.ll-vigila{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,1fr);gap:20px;align-items:start;max-width:1100px}
+.ll-vigila-izq{display:grid;gap:12px}
+.ll-cofre{display:flex;align-items:center;gap:12px;width:fit-content;padding:8px 16px 8px 10px;border:var(--borde);border-radius:14px;background:#ffd9e3;box-shadow:var(--sombra-baja);rotate:-1deg}
+.ll-cofre-dib{width:54px;height:54px}.ll-cofre-dib svg{width:100%;height:100%}
+.ll-cofre-txt{display:grid;line-height:1.2}
+.ll-cofre-txt b{font-family:var(--fuerte);font-size:19px}
+.ll-cofre-txt small{font-size:14px;font-weight:600}
+.ll-ley-cuenta{display:flex;gap:8px;margin:0;padding:0;list-style:none}
+.ll-ley-cuenta li{width:28px;height:10px;border:2.5px solid var(--tinta);border-radius:6px;background:#fff}
+.ll-ley-cuenta li.ahora{background:var(--amarillo)}.ll-ley-cuenta li.bien{background:var(--lima)}.ll-ley-cuenta li.mal{background:#ff6f8a}
+.ll-ley{position:relative;min-height:170px;padding:16px 22px 22px;border:var(--borde);border-radius:6px 16px 6px 16px;background:#fffaf0 url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra);rotate:.6deg}
+.ll-ley-cab{display:block;font-size:14px;font-weight:700;color:var(--gris)}
+.ll-ley p{margin:10px 0 0;font-family:var(--fuerte);font-weight:800;font-size:clamp(21px,2.3vw,27px);line-height:1.25}
+.ll-sello{position:absolute;right:16px;bottom:12px;padding:2px 14px;border:4px solid currentColor;border-radius:8px;font-family:var(--fuerte);font-weight:900;font-size:26px;letter-spacing:.06em;rotate:-10deg;mix-blend-mode:multiply}
+.ll-sello.anulada{color:#c8201a}.ll-sello.valida{color:#2e7d5b}
+.ll-ops{display:grid;gap:10px}
+.ll-op{display:flex;align-items:center;gap:12px;min-height:62px;padding:6px 14px 6px 8px;border:var(--borde);border-radius:14px;background:var(--papel);color:var(--tinta);font:inherit;text-align:left;cursor:pointer;box-shadow:0 4px 0 var(--tinta),3px 9px 12px -6px rgba(10,20,25,.5);touch-action:manipulation}
+.ll-op:hover:not(:disabled){transform:translateY(-2px)}
+.ll-op:disabled{opacity:.55;cursor:default;transform:translateY(3px);box-shadow:none}
+.ll-op-dib{flex:none;width:46px;height:46px}.ll-op-dib svg{width:100%;height:100%}
+.ll-op b{font-family:var(--fuerte);font-weight:800;font-size:18px;line-height:1.15}
+
+/* ---------- la portada */
+.portada-arte .ll-arte{position:relative;width:min(100%,580px);aspect-ratio:640/420;display:block}
+.ll-arte-svg{position:absolute;inset:4% 0 0;width:100%;height:96%;filter:drop-shadow(10px 16px 0 rgba(42,16,0,.35));rotate:-2deg}
+.ll-arte-rotulo{position:absolute;left:50%;top:0;translate:-50% 0;padding:4px 18px;border:4px solid var(--tinta);border-radius:8px;background:var(--amarillo);font-family:var(--fuerte);font-weight:900;font-size:clamp(15px,2.2vw,24px);letter-spacing:.05em;rotate:-3deg;box-shadow:var(--sombra-baja);white-space:nowrap;z-index:2}
+.ll-arte .pieza{position:absolute;width:26%;aspect-ratio:2/1;filter:drop-shadow(4px 6px 0 rgba(42,16,0,.3))}
+.ll-arte .pieza svg{width:100%;height:100%}
+.ll-arte .pz1{left:-3%;top:16%;rotate:-18deg}
+.ll-arte .pz2{right:-4%;top:30%;rotate:14deg}
+.ll-arte .pz3{left:34%;bottom:-4%;rotate:-6deg}
+
+@media (max-width:999px){
+  .ll-tablero,.ll-vigila{grid-template-columns:1fr}
+  .ll-lado{grid-row:1}
+  .ll-bandeja-llaves{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+}
+@media (max-width:760px){
+  .ll-isla{padding:24px 10px 18px;border-radius:24px}
+  .ll-pjs{gap:8px}
+  .ll-pj{width:calc(50% - 6px);min-height:0;padding:6px 6px 8px}
+  .ll-pj-dib{width:52px;height:52px}
+  .ll-pj-nombre{font-size:16px}
+  .ll-pj-rasgo{font-size:13px}
+  .ll-marcadores{gap:6px}
+  .ll-marcador{padding:4px 6px;gap:4px}
+  .ll-marca-ico{width:22px;height:22px}
+  .ll-marca-txt small{font-size:13px}
+  .ll-barra i{width:7px;height:11px}
+  .ll-bandeja-llaves{grid-template-columns:1fr}
+  .ll-llave.puesta .ll-llave-dib{width:40px;height:20px}
+  .ll-llave.puesta .ll-llave-txt b{font-size:13px}
+  .ll-op b{font-size:16px}
+}
+body.pizarra .ll-pj,body.pizarra .ll-isla{box-shadow:none}

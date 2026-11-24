@@ -1,0 +1,129 @@
+/* Sociales, tema 2: «La Constitución del cajón» (motor constitucion). Hoja de la Constitución, asamblea de objetos y sellos. */
+
+.cn-tribunal,.cn-queja,.cn-construye{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px 26px;align-items:start}
+.cn-queja:not(.con-hoja){grid-template-columns:minmax(0,1fr);max-width:760px}
+.cn-lado{display:grid;gap:14px;min-width:0}
+@media (max-width:820px){.cn-tribunal,.cn-queja,.cn-construye{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- la norma, en una nota pegada con celo */
+.cn-propuesta,.cn-caso{position:relative;padding:14px 20px 16px;border:var(--borde);border-radius:3px 8px 4px 10px;background:#fff7c9 url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra-baja);rotate:-.7deg}
+.cn-propuesta::before,.cn-caso::before{content:"";position:absolute;left:50%;top:-12px;width:84px;height:22px;translate:-50% 0;background:rgba(242,226,180,.86);rotate:-3deg;clip-path:polygon(0 8%,6% 0,12% 10%,18% 0,24% 6%,100% 0,100% 100%,94% 92%,88% 100%,82% 90%,76% 100%,0 100%)}
+.cn-propuesta small,.cn-caso small{display:block;margin-bottom:4px;color:var(--gris);font-weight:800;font-size:14px;letter-spacing:.02em}
+.cn-propuesta p,.cn-caso p{margin:0;font-family:var(--fuerte);font-weight:800;font-size:clamp(20px,2.3vw,26px);line-height:1.2;text-wrap:balance}
+.cn-caso{background-color:#fffdf6;rotate:.5deg}
+.cn-caso p{font-family:inherit;font-weight:700;font-size:clamp(18px,2vw,22px);line-height:1.35}
+.cn-propuesta.borrador{background-color:#fffdf6}
+
+/* ---------- el sello del Tribunal */
+.cn-sello{position:absolute;right:4%;top:50%;z-index:3;translate:0 -50%;padding:4px 14px 6px;border:5px double currentColor;border-radius:10px;font-family:var(--fuerte);font-weight:900;font-size:clamp(22px,3vw,34px);letter-spacing:.04em;rotate:-10deg;mix-blend-mode:multiply;pointer-events:none;background:rgba(255,255,255,.25)}
+.cn-sello.rojo{color:#c8201a}
+.cn-sello.verde{color:#2e7d5b}
+.cn-prop .cn-sello{right:auto;left:46%;font-size:clamp(18px,2.2vw,24px)}
+
+/* ---------- la asamblea: los quince objetos con su voto */
+.cn-asamblea{display:flex;flex-wrap:wrap;gap:6px 4px;margin:0;padding:12px 12px 10px;list-style:none;border:var(--borde);border-radius:16px;background:#c99a63 url('tex/madera.webp');background-size:256px 128px;background-blend-mode:multiply;box-shadow:inset 0 6px 12px rgba(50,25,0,.45),var(--sombra-baja)}
+.cn-vecino{position:relative;display:grid;justify-items:center;width:clamp(38px,5.2vw,52px);transition:opacity .4s,filter .4s,translate .4s}
+.cn-obj{display:block;width:100%;aspect-ratio:3/4}
+.cn-obj svg{width:100%;height:100%;filter:drop-shadow(2px 3px 0 rgba(40,20,0,.35))}
+.cn-voto{display:grid;place-items:center;width:24px;height:24px;margin-top:-4px;border:2.5px solid var(--tinta);border-radius:50%;font-style:normal;font-weight:900;font-size:14px;line-height:1}
+.cn-voto.si{background:var(--lima)}
+.cn-voto.si::after{content:"✓"}
+.cn-voto.no{background:#ff9aa8}
+.cn-voto.no::after{content:"✕"}
+.cn-vecino.afectado.ef-fondo{opacity:.45;filter:grayscale(1);translate:0 6px}
+.cn-vecino.afectado.ef-celo .cn-obj::after,.cn-vecino.afectado.ef-voto .cn-obj::after{content:"";position:absolute;left:-8%;right:-8%;top:44%;height:12px;background:rgba(242,226,180,.95);border:1.5px solid rgba(27,30,58,.5);rotate:-12deg}
+.cn-vecino.afectado.ef-voto .cn-voto{opacity:.2}
+.cn-obj{position:relative}
+.cn-recuento{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0}
+.cn-recuento span{padding:3px 12px;border:2.5px solid var(--tinta);border-radius:999px;font-weight:800;font-size:18px}
+.cn-recuento .si{background:#e6f7d0}
+.cn-recuento .no{background:#ffe1e5}
+.cn-recuento b{margin-left:4px;font-family:var(--fuerte);font-size:19px;color:#fffdf6;text-shadow:0 2px 0 var(--tinta),0 0 4px var(--tinta)}
+
+/* ---------- la hoja de la Constitución */
+.cn-constitucion{position:relative;display:grid;gap:8px;padding:14px 14px 16px;border:var(--borde);border-radius:6px 6px 14px 14px;background:var(--papel) url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra);rotate:.6deg}
+.cn-constitucion h3{margin:0 0 2px;text-align:center}
+.cn-constitucion h3 span{display:inline-block;padding:2px 14px 4px;border-bottom:4px double var(--tinta);font-family:'Rotulo',var(--fuerte);font-weight:900;font-size:clamp(20px,2.2vw,26px);letter-spacing:.02em}
+.cn-articulos{display:grid;gap:7px;margin:0;padding:0;list-style:none}
+.cn-art{display:grid;gap:2px;width:100%;min-height:46px;padding:7px 12px;border:2.5px solid var(--tinta);border-radius:10px;background:#fffdf6;color:var(--tinta);font:inherit;text-align:left;cursor:pointer;transition:transform .15s var(--muelle),background .15s}
+.cn-art b{font-family:var(--fuerte);font-weight:800;font-size:17px;line-height:1.1}
+.cn-art span{font-size:15px;line-height:1.3}
+.cn-art:hover:not(:disabled){transform:translateX(3px)}
+.cn-art:disabled{cursor:default}
+.cn-art:focus-visible,.cn-pieza:focus-visible,.cn-quien:focus-visible{outline:4px solid var(--cobalto);outline-offset:3px}
+.cn-art[aria-pressed="true"]{background:#fff0c2;box-shadow:0 0 0 4px var(--amarillo)}
+.cn-art.bien{background:#ffe1e5;box-shadow:0 0 0 4px #ff9aa8}
+.cn-ninguno{justify-items:center;text-align:center;background:#eef1f8}
+.cn-constitucion.compacta .cn-art{min-height:38px;padding:5px 12px}
+.cn-constitucion.compacta .cn-art b{font-size:16px}
+.cn-constitucion.lectura .cn-art{min-height:0;padding:4px 6px;border-color:transparent;background:none}
+.cn-constitucion.lectura .cn-art.bien{border-color:var(--tinta)}
+.cn-constitucion.apagada{opacity:.45;pointer-events:none}
+
+/* ---------- quejas: quién se la ha saltado */
+.cn-quienes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cn-quien{display:grid;justify-items:center;gap:6px;min-height:44px;padding:10px 8px 10px;border:var(--borde);border-radius:14px 16px 12px 18px;background:var(--papel) url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra-baja);color:var(--tinta);font:inherit;cursor:pointer}
+.cn-quien b{font-family:var(--fuerte);font-weight:800;font-size:clamp(16px,1.8vw,20px)}
+.cn-quien:nth-child(2){rotate:.7deg}.cn-quien:nth-child(1){rotate:-.6deg}
+.cn-quien[aria-pressed="true"]{background-color:#fff0c2;box-shadow:0 0 0 4px var(--amarillo),var(--sombra-baja)}
+.cn-quien.bien{background-color:#e6f7d0;box-shadow:0 0 0 4px var(--lima),var(--sombra-baja)}
+.cn-quien.mal{background-color:#ffe1e5;box-shadow:0 0 0 4px #ff9aa8,var(--sombra-baja)}
+.cn-quien:disabled{cursor:default}
+.cn-cara{position:relative;display:block;width:clamp(56px,8vw,84px);aspect-ratio:3/4;overflow:visible}
+.cn-cara svg{width:100%;height:100%}
+.cn-cara.sprite-caja .sprite{width:150%;bottom:-12%}
+.cn-balanza{aspect-ratio:1;width:clamp(48px,7vw,70px);margin-top:auto}
+
+/* ---------- monta una norma */
+.cn-frase{margin:0;font-family:var(--fuerte);font-weight:800;font-size:clamp(20px,2.3vw,26px);line-height:1.25}
+.cn-frase .hueco{display:inline-block;min-width:3em;color:transparent;border-bottom:3px dashed rgba(27,30,58,.45)}
+.cn-filas{display:grid;gap:10px}
+.cn-fila{display:grid;gap:6px}
+.cn-fila>b{font-family:var(--fuerte);font-size:17px;color:#fffdf6;text-shadow:0 2px 0 var(--tinta),0 0 4px var(--tinta)}
+.cn-piezas{display:flex;flex-wrap:wrap;gap:8px}
+.cn-pieza{min-height:46px;padding:6px 14px;border:2.5px solid var(--tinta);border-radius:12px;background:var(--papel);box-shadow:0 3px 0 var(--tinta);color:var(--tinta);font:inherit;font-weight:700;font-size:17px;line-height:1.15;cursor:pointer;transition:transform .12s}
+.cn-pieza:active:not(:disabled){transform:translateY(3px);box-shadow:0 0 0 var(--tinta)}
+.cn-pieza[aria-checked="true"]{background:var(--amarillo)}
+.cn-pieza:disabled{cursor:default;opacity:.75}
+.cn-prueba{display:grid;gap:10px;padding:14px 16px;border:var(--borde);border-radius:14px;background:var(--papel);box-shadow:var(--sombra-baja)}
+.cn-medidores{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.cn-medidor{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 12px;min-height:44px;padding:6px 12px;border:2.5px dashed rgba(27,30,58,.4);border-radius:10px}
+.cn-medidor b{font-family:var(--fuerte);font-size:18px}
+.cn-res{font-weight:800}
+.cn-medidor.bien{border-style:solid;border-color:var(--tinta);background:#e6f7d0}
+.cn-medidor.mal{border-style:solid;border-color:var(--tinta);background:#ffe1e5}
+.cn-medidor.bien .cn-res::before{content:"✓ "}
+.cn-medidor.mal .cn-res::before{content:"✕ "}
+.cn-efecto{margin:0;font-size:17px;line-height:1.35}
+.cn-efecto:empty{display:none}
+.cn-referendum{gap:4px}
+.cn-referendum .cn-vecino{width:clamp(30px,4vw,40px)}
+.cn-titulo-ref{flex:0 0 100%;margin-bottom:4px;font-family:var(--fuerte);font-weight:900;font-size:19px;color:#fffdf6;text-shadow:0 2px 0 var(--tinta),0 0 4px var(--tinta)}
+
+/* ---------- reforma: la asamblea del jueves */
+.cn-reforma{display:grid;gap:14px;max-width:980px}
+.cn-regla{width:fit-content;margin:0;padding:8px 14px;border:2.5px solid var(--tinta);border-radius:10px;background:#e3ecff;font-size:17px;line-height:1.35;box-shadow:var(--sombra-baja)}
+.cn-props{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.cn-prop{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"et de" "tx de" "vo de";gap:4px 16px;align-items:center;padding:8px 14px;border:var(--borde);border-radius:12px;background:var(--papel) url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra-baja)}
+.cn-prop:nth-child(odd){rotate:-.4deg}.cn-prop:nth-child(even){rotate:.4deg}
+.cn-prop.constitucion{background-color:#f3ecff}
+.cn-prop p{grid-area:tx;margin:0;font-weight:700;font-size:clamp(17px,1.9vw,20px);line-height:1.3}
+.cn-etiqueta{grid-area:et;width:fit-content;padding:2px 10px;border:2px solid var(--tinta);border-radius:6px;background:var(--amarillo);font-family:var(--fuerte);font-weight:800;font-size:14px}
+.cn-prop.constitucion .cn-etiqueta{background:var(--fucsia);color:#fff}
+.cn-votos{grid-area:vo;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:16px}
+.cn-puntos{display:flex;gap:3px}
+.cn-puntos i{width:13px;height:13px;border:2px solid var(--tinta);border-radius:50%}
+.cn-puntos i.si{background:var(--lima)}
+.cn-puntos i.no{background:#ff9aa8}
+.cn-decide{grid-area:de;display:flex;gap:8px}
+.cn-prop.bien{box-shadow:0 0 0 4px var(--lima),var(--sombra-baja)}
+.cn-prop.mal{box-shadow:0 0 0 4px #ff9aa8,var(--sombra-baja)}
+@media (max-width:620px){
+  .cn-prop .cn-sello{left:auto;right:3%;top:24%}
+  .cn-prop{grid-template-columns:minmax(0,1fr);grid-template-areas:"et" "tx" "vo" "de"}
+  .cn-decide .cn-pieza{flex:1}
+  .cn-quienes{gap:8px}
+  .cn-quien{padding:8px 4px}
+}
+body.pizarra .cn-propuesta,body.pizarra .cn-constitucion,body.pizarra .cn-prop,body.pizarra .cn-quien{box-shadow:none}
+.tecla.cn-deja{--c:#e3ecff}

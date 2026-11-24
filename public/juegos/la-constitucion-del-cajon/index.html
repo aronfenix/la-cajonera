@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Constitución del cajón · La cajonera</title>
+<meta name="description" content="Haz de Tribunal del cajón: decide qué normas votadas por la mayoría chocan con la Constitución, resuelve quejas y monta normas que aguanten.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "motor": "constitucion",
+  "area": "sociales",
+  "escena": "cajon",
+  "volver": "../el-cajon-vota/",
+  "personaje": "goma",
+  "titulo": "La Constitución del cajón",
+  "subtitulo": "En el cajón viven quince objetos. Votan sus normas en asamblea, pero hay una regla por encima de todas.",
+  "portada": {
+    "objetivo": "Haz de Tribunal: decide qué normas aguantan y cuáles chocan con la Constitución, aunque las vote la mayoría.",
+    "frase": "Votar no lo arregla todo.",
+    "rotulo": "CONSTITUCIÓN"
+  },
+  "historia": [
+    {
+      "nota": "A PARTIR DE HOY, EL CAJÓN SE ORGANIZA SOLO. YO NO PIENSO PONER ORDEN.",
+      "firma": "El profe"
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "Perfecto. Mando yo. Primera norma: el que manda no recoge."
+    },
+    {
+      "quien": "fosforito",
+      "pose": "asombro",
+      "texto": "¡Eso no! ¡Lo votamos! Lo que diga la mayoría, va a misa."
+    },
+    {
+      "quien": "goma",
+      "pose": "pista",
+      "texto": "Antes de votar nada, unas reglas que valgan para todos. Hasta para el que mande. Y que no se puedan borrar a la ligera."
+    }
+  ],
+  "saludo": "La mayoría decide muchas cosas. **Quitar derechos, no.**",
+  "observa": "Si la mayoría de la clase votara que los de la última fila no pueden hablar, ¿valdría? ¿Por qué la Constitución es más difícil de cambiar que una norma de clase?",
+  "niveles": [
+    {
+      "modo": "tribunal",
+      "generar": {
+        "f": 1
+      }
+    },
+    {
+      "modo": "queja",
+      "generar": {
+        "f": 1
+      }
+    },
+    {
+      "modo": "tribunal",
+      "generar": {
+        "f": 2
+      }
+    },
+    {
+      "modo": "construye",
+      "generar": true
+    },
+    {
+      "modo": "reforma",
+      "generar": {
+        "f": 1
+      }
+    },
+    {
+      "modo": "queja",
+      "generar": {
+        "f": 3,
+        "min": 2
+      }
+    },
+    {
+      "modo": "tribunal",
+      "generar": {
+        "f": 3,
+        "min": 2
+      }
+    },
+    {
+      "modo": "reforma",
+      "generar": {
+        "f": 2,
+        "trampa": true
+      }
+    }
+  ]
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

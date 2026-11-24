@@ -1,0 +1,8 @@
+{
+  "_nota": "Título corto (2-4 palabras) de cada escena de cada vídeo, en el mismo orden que data/guiones.json y data/tiempos.json. Lo usa leccion.html para los marcadores de capítulo.",
+  "1": ["¿Quién decide?", "Decidía una persona", "El poder del pueblo", "Elegimos representantes", "Votar es prestar", "Tres grupos de vecinos", "Los partidos políticos", "Las reglas del juego", "Referéndum de 1978", "Libertad y pluralismo", "Derechos y deberes", "Quién vota y cuándo", "Piensa y repasa"],
+  "2": ["¿A quién se lo digo?", "Las muñecas rusas", "Los municipios", "El ayuntamiento", "Lo más cercano", "Las provincias", "Las comunidades autónomas", "El Estatuto", "Tu cole, dos muñecas", "Las lenguas", "Estado y Unión Europea", "Ideas clave"],
+  "3": ["Un partido con trampa", "División de poderes", "Poder legislativo", "Poder ejecutivo", "Poder judicial", "Tribunal Constitucional", "Del voto al Gobierno", "El rey", "En pequeño también", "Ideas clave"],
+  "4": ["Colegios electorales", "Campaña y reflexión", "Quién vota", "La mesa electoral", "Dos papeletas", "El escrutinio", "Diputados por provincia", "La ley D'Hondt", "Repartir los escaños", "El Senado", "La investidura", "Pactos y piensa", "Ideas clave"],
+  "5": ["Monedas de euro", "27 países", "Un poco de historia", "El mapa de la UE", "La bandera", "Las instituciones", "Viajar y comerciar", "El euro", "Fondos europeos", "Ideas clave"]
+}

@@ -732,8 +732,9 @@ body.mapa-cajon .estado{flex:1 1 260px}
 @media (max-width:900px){.cajon-ilustrado{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.cajon-ilustrado{grid-template-columns:1fr}.marco-cajon{padding:12px 12px 40px}.texto-progreso{display:none}}
 body.mapa-cajon .mesa-juego{padding-right:clamp(12px,2.4vw,30px)}
-.premio-pegatina{display:flex;align-items:center;gap:16px;width:fit-content;margin:0 0 18px;padding:12px 20px 12px 12px;border:var(--borde);border-radius:16px;background:#fff7d6;box-shadow:var(--sombra-baja)}
-.premio-pegatina .pegatina-album{width:96px;height:96px}
+.premio-pegatina{display:flex;align-items:center;gap:16px;width:fit-content;max-width:100%;box-sizing:border-box;margin:0 0 18px;padding:12px 20px 12px 12px;border:var(--borde);border-radius:16px;background:#fff7d6;box-shadow:var(--sombra-baja)}
+.premio-pegatina .pegatina-album{width:96px;height:96px;flex:none}
+.premio-pegatina>div:last-child{min-width:0}
 .premio-pegatina b{display:block;font-family:var(--fuerte);font-weight:900;font-size:22px}
 .premio-pegatina small{font-weight:700;color:var(--gris)}
 

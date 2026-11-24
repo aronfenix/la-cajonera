@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El cajón vota · La cajonera</title>
+<meta name="description" content="Aventura de Sociales: el domingo hay elecciones y el lunes el profe quiere saber quién manda en el cajón. Constitución, competencias, poderes, elecciones y Unión Europea.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body data-area="sociales">
+<!-- Mapa de una aventura. Para otro bloque: copiar esta carpeta y cambiar los compartimentos. -->
+<script type="application/json" id="mapa">
+{
+  "titulo": "El cajón vota",
+  "subtitulo": "El domingo 29 hay elecciones y en el cajón nadie sabe quién manda. Cinco compartimentos, cinco preguntas. Se puede jugar en orden o empezar por cualquiera.",
+  "escena": "colegio-electoral",
+  "volver": "../../sociales/",
+  "textos": {
+    "sello": "APROBADO",
+    "hechos": "aprobados",
+    "icono": "el-examen-del-29n",
+    "listo": "Ya sabes quién manda en el cajón. Ahora, el examen.",
+    "boton": "Hacer el examen",
+    "repetir": "Repetir el examen"
+  },
+  "historia": [
+    {
+      "nota": "EL DOMINGO HAY ELECCIONES. EL LUNES QUIERO SABER QUIÉN MANDA EN ESTE CAJÓN.",
+      "firma": "El profe"
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "Mando yo. Tengo tinta roja."
+    },
+    {
+      "quien": "goma",
+      "pose": "pista",
+      "texto": "La tinta no es un voto, Boli. Aquí nadie manda solo: hay reglas, hay votos y hay alguien que vigila."
+    },
+    {
+      "quien": "fosforito",
+      "pose": "celebra",
+      "texto": "¡Cinco compartimentos! ¡Empiezo por las reglas, que las subrayo todas!"
+    }
+  ],
+  "compartimentos": [
+    {
+      "nombre": "Las reglas de todos",
+      "material": "acta",
+      "quien": "goma",
+      "color": "#ffc531",
+      "juegos": [
+        {
+          "slug": "la-constitucion-del-cajon",
+          "titulo": "La Constitución del cajón"
+        }
+      ]
+    },
+    {
+      "nombre": "¿Quién se encarga?",
+      "material": "acta",
+      "quien": "boli",
+      "color": "#9bd84a",
+      "juegos": [
+        {
+          "slug": "alcaldesa-por-un-dia",
+          "titulo": "Alcaldesa por un día"
+        }
+      ]
+    },
+    {
+      "nombre": "Tres llaves",
+      "material": "acta",
+      "quien": "goma",
+      "color": "#cda8ff",
+      "juegos": [
+        {
+          "slug": "la-isla-del-recreo",
+          "titulo": "La isla del recreo"
+        }
+      ]
+    },
+    {
+      "nombre": "La noche electoral",
+      "material": "noche",
+      "quien": "boli",
+      "color": "#e8417a",
+      "juegos": [
+        {
+          "slug": "la-noche-del-escrutinio",
+          "titulo": "La noche del escrutinio"
+        },
+        {
+          "slug": "la-maquina-de-repartir",
+          "titulo": "La máquina de repartir"
+        },
+        {
+          "slug": "los-176",
+          "titulo": "176"
+        }
+      ]
+    },
+    {
+      "nombre": "La muñeca grande",
+      "material": "acta",
+      "quien": "fosforito",
+      "color": "#5ec3ff",
+      "juegos": [
+        {
+          "slug": "la-ley-del-cargador",
+          "titulo": "La ley del cargador"
+        }
+      ]
+    }
+  ],
+  "final": {
+    "nombre": "El examen del 29-N",
+    "slug": "el-examen-del-29n",
+    "cerrado": "Se abre cuando los cinco compartimentos estén aprobados.",
+    "abierto": "Hecho. El profe ya sabe quién manda en el cajón.",
+    "historia": [
+      {
+        "quien": "boli",
+        "pose": "seguro",
+        "texto": "Lunes. El profe ha preguntado quién manda en el cajón."
+      },
+      {
+        "quien": "fosforito",
+        "pose": "celebra",
+        "texto": "¡Y le hemos dicho que nadie solo! ¡Las reglas, los votos y quien vigila!"
+      },
+      {
+        "quien": "goma",
+        "pose": "animo",
+        "texto": "Ha puesto cara de examen aprobado. Es su cara de siempre, pero un poco más."
+      }
+    ]
+  }
+}
+</script>
+<script type="module">
+import { montaMapa } from '../motores/mapa.js';
+montaMapa(JSON.parse(document.getElementById('mapa').textContent));
+</script>
+</body>
+</html>

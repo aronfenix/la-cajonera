@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La ley del cargador · La cajonera</title>
+<meta name="description" content="Lleva la ley europea del cargador común (USB-C) por la Comisión, el Parlamento Europeo y el Consejo, negocia sus cambios y descubre en qué países obliga.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "motor": "cargador",
+  "area": "sociales",
+  "escena": "corcho",
+  "volver": "../el-cajon-vota/",
+  "personaje": "fosforito",
+  "titulo": "La ley del cargador",
+  "subtitulo": "Una ley europea de verdad: el mismo cargador para todos los móviles. Llévala por las instituciones hasta las tiendas.",
+  "portada": {
+    "arte": "cajon",
+    "objetivo": "Lleva la ley del cargador común por la Comisión, el Parlamento Europeo y el Consejo, y averigua en qué países obliga.",
+    "frase": "Un cable. Veintisiete países. Cero excusas.",
+    "rotulo": "CABLES"
+  },
+  "historia": [
+    {
+      "nota": "CAJÓN DE LOS CABLES: 14 CARGADORES. NINGUNO SIRVE PARA LA TABLET.",
+      "firma": "El profe"
+    },
+    {
+      "quien": "fosforito",
+      "pose": "asombro",
+      "texto": "¡Cada aparato con su cargador! ¡Hace falta una ley! ¡Una ley de España!"
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "¿De España? Los móviles se venden igual en Portugal, en Francia y en Polonia."
+    },
+    {
+      "quien": "goma",
+      "pose": "pista",
+      "texto": "Entonces, una ley europea. Existe de verdad. Y para llegar a las tiendas tuvo que hacer un viaje bastante largo."
+    }
+  ],
+  "saludo": "La Comisión **propone**, el Parlamento y el Consejo **votan**, los 27 **aplican**.",
+  "observa": "¿Por qué una ley de cargadores tiene más sentido para 27 países a la vez que para uno solo? ¿Qué ley europea te gustaría proponer a ti?",
+  "niveles": [
+    {
+      "modo": "ruta",
+      "generar": {
+        "f": 1,
+        "pasos": 1
+      }
+    },
+    {
+      "modo": "quien",
+      "generar": {
+        "f": 2,
+        "n": 3,
+        "extra": [
+          "congreso"
+        ]
+      }
+    },
+    {
+      "modo": "mapa",
+      "generar": {
+        "f": 1,
+        "criterios": [
+          "ley"
+        ]
+      }
+    },
+    {
+      "modo": "ruta",
+      "generar": {
+        "f": 2,
+        "desde": [
+          "idea"
+        ],
+        "pasos": "todo",
+        "extra": [
+          "gobierno",
+          "congreso"
+        ]
+      }
+    },
+    {
+      "modo": "negocia",
+      "generar": {
+        "f": 1
+      }
+    },
+    {
+      "modo": "tabla",
+      "generar": {
+        "n": 5
+      }
+    },
+    {
+      "modo": "mapa",
+      "generar": {
+        "f": 3,
+        "criterios": [
+          "ley",
+          "euro",
+          "trabajo"
+        ]
+      }
+    },
+    {
+      "modo": "negocia",
+      "generar": {
+        "f": 2
+      }
+    }
+  ]
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

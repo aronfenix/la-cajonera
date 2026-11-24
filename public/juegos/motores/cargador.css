@@ -1,0 +1,139 @@
+/* Sociales, tema 2: «La ley del cargador» (motor cargador). Instituciones de cartulina, el expediente y el mapa de Europa. */
+
+.cg-lado{display:grid;gap:12px;align-content:start;min-width:0}
+
+/* ---------- las instituciones */
+.cg-tablero{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cg-sitio{position:relative;display:grid;justify-items:center;align-content:start;gap:4px;min-height:44px;padding:10px 8px 10px;border:var(--borde);border-radius:14px 16px 12px 18px;background:var(--papel) url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra-baja);color:var(--tinta);font:inherit;cursor:pointer;transition:transform .15s var(--muelle)}
+.cg-sitio:nth-child(odd){rotate:-.7deg}.cg-sitio:nth-child(even){rotate:.6deg}
+.cg-sitio:hover:not(:disabled){transform:translateY(-3px)}
+.cg-sitio:focus-visible,.cg-pin:focus-visible,.cg-chip:focus-visible,.cg-celda:focus-visible,.cg-ficha:focus-visible{outline:4px solid var(--cobalto);outline-offset:3px}
+.cg-sitio:disabled{cursor:default}
+.cg-sitio-dibujo{display:block;width:clamp(64px,8vw,96px)}
+.cg-sitio-dibujo svg{display:block;width:100%;height:auto}
+.cg-sitio b{font-family:var(--fuerte);font-weight:800;font-size:clamp(15px,1.7vw,19px);line-height:1.1;text-align:center}
+.cg-sitio small{font-size:14px;font-weight:700;color:var(--gris)}
+.cg-sitio.visitado{background-color:#e3f4ff}
+.cg-sitio.visitado::after{content:"✓";position:absolute;right:-8px;top:-10px;display:grid;place-items:center;width:30px;height:30px;border:3px solid var(--tinta);border-radius:50%;background:var(--lima);font-weight:900}
+.cg-sitio.rebota{background-color:#ffe1e5}
+.cg-sitio.bien{background-color:#e6f7d0;box-shadow:0 0 0 4px var(--lima),var(--sombra-baja)}
+.cg-sitio.tachada{opacity:.5}
+.cg-sitio.tachada::before{content:"";position:absolute;left:8%;right:8%;top:50%;height:5px;border-radius:3px;background:var(--rojo);rotate:-14deg}
+
+/* ---------- el viaje: el expediente y lo que pasa */
+.cg-ruta{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.6fr);gap:18px 24px;align-items:start}
+.cg-mesa-exp{display:grid;gap:12px;align-content:start}
+.cg-expediente{position:relative;z-index:5;display:grid;justify-items:center;gap:6px;padding:12px;border:var(--borde);border-radius:12px;background:#fffdf6;box-shadow:var(--sombra);rotate:-1.2deg}
+.cg-expediente>b{font-family:var(--fuerte);font-size:18px;text-align:center}
+.cg-carpeta{width:110px}
+.cg-carpeta svg{display:block;width:100%;height:auto}
+.cg-sellos{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0;padding:0;list-style:none}
+.cg-sello{padding:2px 8px;border:3px double currentColor;border-radius:6px;font-family:var(--fuerte);font-weight:900;font-size:13px;rotate:-4deg;background:rgba(255,255,255,.6)}
+.cg-sello.s-comision{color:var(--cobalto)}
+.cg-sello.s-parlamento,.cg-sello.s-consejo{color:#2e7d5b;rotate:3deg}
+.cg-sello.s-paises{color:var(--fucsia)}
+.cg-pegatinas{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.cg-pegatinas:empty{display:none}
+.cg-pegatina{padding:2px 8px;border:2px solid var(--tinta);border-radius:20px;background:var(--lima);font-weight:800;font-size:13px;rotate:2deg}
+.cg-dice{margin:0;padding:10px 14px;border:var(--borde);border-radius:14px;background:var(--papel);font-size:17px;line-height:1.35;box-shadow:var(--sombra-baja)}
+.cg-dice:empty{display:none}
+.cg-dice.bien{background:#e6f7d0}
+.cg-dice.mal{background:#ffe1e5}
+.cg-mapa.cg-mapa-mini{grid-column:1/-1;width:min(100%,420px);justify-self:center}
+@media (max-width:820px){.cg-ruta{grid-template-columns:minmax(0,1fr)}.cg-mesa-exp{grid-template-columns:minmax(0,190px) minmax(0,1fr);align-items:start}}
+@media (max-width:560px){.cg-tablero{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.cg-mesa-exp{grid-template-columns:minmax(0,1fr)}.cg-expediente{grid-template-columns:auto 1fr;justify-items:start;align-items:center}.cg-carpeta{width:70px;grid-row:span 3}}
+
+/* ---------- ¿dónde es? */
+.cg-quien{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr);gap:18px 24px;align-items:start}
+.cg-cartel{padding:14px 18px 16px;border:var(--borde);border-radius:3px 8px 4px 10px;background:#fff7c9 url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra-baja);rotate:-.6deg}
+.cg-cartel small{display:block;color:var(--gris);font-weight:800;font-size:14px}
+.cg-cartel p{margin:4px 0 0;font-size:clamp(19px,2.1vw,23px);font-weight:700;line-height:1.3}
+.cg-fila{display:flex;gap:8px;margin:0;padding:0;list-style:none}
+.cg-fila li{display:grid;place-items:center;width:34px;height:34px;border:3px solid var(--tinta);border-radius:50%;background:var(--papel);font-weight:900;opacity:.55}
+.cg-fila li.ahora{opacity:1;box-shadow:0 0 0 4px var(--amarillo)}
+.cg-fila li.bien{opacity:1;background:#e6f7d0}
+.cg-fila li.mal{opacity:1;background:#ffe1e5}
+@media (max-width:820px){.cg-quien{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- la negociación */
+.cg-negocia{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px 24px;align-items:start}
+.cg-ley{display:grid;gap:12px;padding:14px 16px 16px;border:var(--borde);border-radius:6px 6px 14px 14px;background:var(--papel) url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra);rotate:-.4deg}
+.cg-ley h3{margin:0;font-family:'Rotulo',var(--fuerte);font-weight:900;font-size:clamp(20px,2.2vw,25px)}
+.cg-ley>small{margin-top:-10px;color:var(--gris);font-weight:700}
+.cg-campo{display:grid;gap:7px}
+.cg-campo>b{font-family:var(--fuerte);font-size:17px}
+.cg-chips{display:flex;flex-wrap:wrap;gap:7px}
+.cg-chip{min-height:44px;padding:5px 12px;border:2.5px solid var(--tinta);border-radius:12px;background:#fff;box-shadow:0 3px 0 var(--tinta);color:var(--tinta);font:inherit;font-weight:700;font-size:16px;cursor:pointer}
+.cg-chip[aria-pressed="true"],.cg-chip[aria-checked="true"]{background:var(--amarillo)}
+.cg-chip[aria-pressed="true"]::before{content:"✓ "}
+.cg-chip:disabled{cursor:default}
+.cg-stepper{display:flex;align-items:center;gap:10px}
+.cg-stepper .tecla{min-width:52px;min-height:48px;font-size:26px;padding:0}
+.cg-plazo-num{min-width:4.2em;font-family:var(--fuerte);font-weight:900;font-size:26px;text-align:center}
+.cg-casas{display:grid;gap:14px}
+.cg-casa{position:relative;display:grid;gap:8px;padding:12px 14px;border:var(--borde);border-radius:14px;background:#eef6ff;box-shadow:var(--sombra-baja)}
+.cg-casa[data-id="consejo"]{background:#fff6e8}
+.cg-casa-cab{display:flex;align-items:center;gap:10px}
+.cg-casa-cab .cg-sitio-dibujo{width:62px;flex:none}
+.cg-casa-cab b{display:block;font-family:var(--fuerte);font-size:19px}
+.cg-casa-cab small{color:var(--gris);font-weight:700;font-size:14px}
+.cg-pide{display:grid;gap:5px;margin:0;padding:0 0 0 4px;list-style:none}
+.cg-pide li{position:relative;padding:3px 0 3px 26px;font-size:16px;line-height:1.3}
+.cg-pide li::before{content:"·";position:absolute;left:8px;font-weight:900}
+.cg-pide li.bien::before{content:"✓";left:4px;color:#2e7d5b}
+.cg-pide li.mal::before{content:"✕";left:4px;color:var(--rojo)}
+.cg-veredicto{margin:0;font-weight:800;font-size:16px}
+.cg-veredicto:empty{display:none}
+.cg-casa.si{box-shadow:0 0 0 4px var(--lima),var(--sombra-baja)}
+.cg-casa.no{box-shadow:0 0 0 4px #ff9aa8,var(--sombra-baja)}
+.cg-voto-sello{position:absolute;right:12px;top:8px;padding:0 12px 2px;border:5px double currentColor;border-radius:10px;font-family:var(--fuerte);font-weight:900;font-size:30px;rotate:-10deg;mix-blend-mode:multiply;pointer-events:none}
+.cg-voto-sello.si{color:#2e7d5b}
+.cg-voto-sello.no{color:#c8201a}
+@media (max-width:820px){.cg-negocia{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- el mapa de Europa */
+.cg-mapa{position:relative;width:100%;aspect-ratio:840/803;border:var(--borde);border-radius:14px;overflow:hidden;box-shadow:var(--sombra);background:#bfe3f7}
+.cg-mapa svg{position:absolute;inset:0;width:100%;height:100%}
+.cg-mar{fill:#bfe3f7}
+.cg-fondo{fill:#e8e1cd;stroke:#8d8a7a;stroke-width:1}
+.cg-pais{fill:#fffdf6;stroke:var(--tinta);stroke-width:1.4;stroke-linejoin:round;transition:fill .25s}
+.cg-pais.tocable{cursor:pointer}
+.cg-pin{position:absolute;z-index:2;translate:-50% -50%;display:flex;align-items:center;gap:4px;min-height:32px;padding:2px 9px 2px 3px;border:2.5px solid var(--tinta);border-radius:999px;background:var(--papel);box-shadow:0 3px 0 rgba(27,30,58,.6);color:var(--tinta);font:inherit;font-weight:800;font-size:clamp(12px,1.35vw,15px);line-height:1;white-space:nowrap;cursor:pointer}
+.cg-pin::after{content:"";position:absolute;inset:-6px -2px}
+.cg-pin i{display:grid;place-items:center;width:24px;height:24px;border:2.5px solid var(--tinta);border-radius:50%;background:#fff;font-style:normal;font-size:14px}
+.cg-pin[aria-pressed="true"]{background:var(--amarillo)}
+.cg-pin[aria-pressed="true"] i::after{content:"✓"}
+.cg-pin.bien i{background:var(--lima)}
+.cg-pin.mal{background:#ffe1e5}
+.cg-pin.mal i{background:#ff9aa8}
+.cg-pin.mal i::after{content:"✕"}
+.cg-pin.bien:not([aria-pressed="true"]) i::after{content:"–"}
+.cg-pin:disabled{cursor:default}
+.cg-mapa-reto{display:grid;grid-template-columns:minmax(0,min(620px,calc((100dvh - 300px) * 1.05))) minmax(180px,260px);gap:16px 22px;align-items:start}
+.cg-lista{display:grid;gap:8px;padding:12px;border:var(--borde);border-radius:14px;background:var(--papel);box-shadow:var(--sombra-baja)}
+.cg-lista>b{font-family:var(--fuerte);font-size:17px}
+.cg-lista .cg-chip.bien{box-shadow:0 0 0 3px var(--lima),0 3px 0 var(--tinta)}
+.cg-lista .cg-chip.mal{background:#ffe1e5;box-shadow:0 0 0 3px #ff9aa8,0 3px 0 var(--tinta)}
+@media (max-width:820px){.cg-mapa-reto{grid-template-columns:minmax(0,1fr)}.cg-lista{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}.cg-lista>b{grid-column:1/-1}}
+.cg-leyenda{display:flex;align-items:center;gap:8px;width:fit-content;margin:0;padding:5px 12px;border:2.5px solid var(--tinta);border-radius:10px;background:var(--papel);font-weight:800}
+.cg-leyenda i{width:22px;height:16px;border:2px solid var(--tinta);border-radius:3px}
+.cg-leyenda[hidden]{display:none}
+
+/* ---------- la tabla UE × euro */
+.cg-tabla{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 24px;align-items:start}
+.cg-mapa-tabla .cg-pin{pointer-events:none;padding-right:8px}
+.cg-mapa-tabla .cg-pin i{display:none}
+.cg-celdas{padding-left:4px;display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:stretch}
+.cg-eje{align-self:end;font-family:var(--fuerte);font-size:16px;text-align:center;color:#fffdf6;text-shadow:0 2px 0 var(--tinta),0 0 4px var(--tinta)}
+.cg-eje.fila{align-self:center;writing-mode:vertical-rl;rotate:180deg}
+.cg-celda{min-height:110px;padding:6px;border:3px dashed var(--tinta);border-radius:12px;background:color-mix(in srgb,var(--c) 45%,#fffdf6);cursor:pointer}
+.cg-celda.sobre{border-style:solid;box-shadow:0 0 0 4px var(--amarillo)}
+.cg-dentro{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;min-height:90px;align-content:center}
+.cg-monton{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;min-height:50px}
+.cg-ficha{min-height:44px;padding:6px 14px;border:var(--borde);border-radius:10px;background:var(--papel);box-shadow:var(--sombra-baja);color:var(--tinta);font:inherit;font-weight:800;font-size:16px;cursor:grab}
+.cg-ficha.elegida{background:var(--amarillo);transform:translateY(-3px)}
+.cg-ficha.levantado{opacity:.3}
+.cg-ficha.bien{background:#e6f7d0}
+.cg-ficha.mal{background:#ffe1e5;text-decoration:line-through wavy var(--rojo)}
+@media (max-width:820px){.cg-eje.fila{font-size:12px}.cg-tabla{grid-template-columns:minmax(0,1fr)}.cg-mapa-tabla{width:min(100%,420px);justify-self:center}.cg-celda{min-height:84px}.cg-dentro{min-height:64px}}
+body.pizarra .cg-sitio,body.pizarra .cg-ley,body.pizarra .cg-mapa{box-shadow:none}

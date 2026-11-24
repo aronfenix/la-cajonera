@@ -1,0 +1,360 @@
+{
+  "tema": "Ciencias Sociales 5.º — Tema 2: Un voto de confianza",
+  "videos": [
+    {
+      "id": 1,
+      "slug": "v1-quien-decide",
+      "titulo": "¿Quién decide?",
+      "subtitulo": "Democracia, partidos y Constitución",
+      "ideas": [
+        "En democracia decide la ciudadanía, que presta el poder votando a sus representantes.",
+        "Un partido político es un grupo de personas con ideas comunes sobre cómo gobernar. El pluralismo político permite que haya muchos.",
+        "La Constitución de 1978 es la ley más importante y recoge derechos y deberes. Votan los mayores de 18."
+      ],
+      "escenas": [
+        {
+          "n": 1,
+          "pantalla": "Un barrio dibujado con un solar vacío en medio y vecinos alrededor. Tres bocadillos: un árbol, un coche, una canasta.",
+          "voz": "En un barrio hay un solar vacío. Unos vecinos quieren un parque. Otros, un aparcamiento. Otros, una pista de baloncesto. No cabe todo. Entonces, ¿quién decide?"
+        },
+        {
+          "n": 2,
+          "pantalla": "Un trono con una corona; después, una figura sola con uniforme dando órdenes a una fila de personas.",
+          "voz": "Durante gran parte de la historia, la respuesta era sencilla: decidía una sola persona. Un rey con todo el poder, o un dictador. Los demás obedecían, les gustara o no."
+        },
+        {
+          "n": 3,
+          "pantalla": "Los vecinos levantan papeletas. Rótulo: «demos (pueblo) + kratos (poder) = democracia».",
+          "voz": "En una democracia la respuesta es otra: decide la ciudadanía. La palabra viene del griego: «demos», el pueblo, y «kratos», el poder. El poder del pueblo."
+        },
+        {
+          "n": 4,
+          "pantalla": "Zoom out: del barrio a un mapa de España lleno de personitas; contador «más de 49 millones». Luego unas pocas personitas destacadas: representantes.",
+          "voz": "Pero en España vivimos más de 49 millones de personas. No podemos reunirnos todos para decidir cada cosa. Así que elegimos a unas personas para que decidan en nombre de todos: nuestros representantes. Y las elegimos votando, en las elecciones."
+        },
+        {
+          "n": 5,
+          "pantalla": "Una papeleta entra en una urna. Rótulo: «Votar = prestar el poder». Un reloj de arena / calendario que pasa años y vuelve a votarse.",
+          "voz": "Cuando votamos no regalamos el poder: lo prestamos. Unos años después volvemos a votar y podemos elegir a otras personas."
+        },
+        {
+          "n": 6,
+          "pantalla": "Los vecinos se agrupan en tres corros con pancarta: «Los del Parque» (árbol), «Los del Aparcamiento» (coche), «Los de la Pista» (canasta). Cada corro muestra su frase.",
+          "voz": "Volvamos al solar. Los vecinos que piensan parecido se juntan para defender su idea. Los del Parque dicen: lo más importante es el aire limpio y tener sitios para pasear. Los del Aparcamiento: lo más importante es poder llegar en coche al trabajo y a las tiendas. Los de la Pista: lo más importante es que los jóvenes tengan dónde hacer deporte. Ninguno es el malo. Cada grupo ve el barrio a su manera y piensa sobre todo en unas personas concretas."
+        },
+        {
+          "n": 7,
+          "pantalla": "Los corros se convierten en tres logotipos inventados; de ellos salen flechas a iconos: impuestos, sanidad, vivienda, colegios, medio ambiente, trabajo. Después, iconos de grupos de personas: campo, alquiler, empresa, personas mayores.",
+          "voz": "Un partido político es eso mismo, pero en grande. Es un grupo de personas que comparten unas ideas sobre cómo debería funcionar el país y que se presentan a las elecciones para ponerlas en práctica. Cada partido tiene su forma de ver el mundo: cuántos impuestos cobrar y en qué gastarlos, cómo cuidar la sanidad o el medio ambiente, qué hacer con la vivienda. Y cada uno defiende sobre todo los intereses de algunos grupos de personas: quienes trabajan en el campo, quienes viven de alquiler, quienes tienen una empresa, las personas mayores."
+        },
+        {
+          "n": 8,
+          "pantalla": "Un libro grande con la portada «Constitución 1978» que se coloca por encima de todos los grupos.",
+          "voz": "Para que todos puedan defender sus ideas sin hacer trampas, hacen falta unas reglas del juego que estén por encima de todos, también de quien gane las elecciones. En España esas reglas están en la Constitución. Es la ley más importante del país: ninguna otra ley puede ir contra ella."
+        },
+        {
+          "n": 9,
+          "pantalla": "Calendario de diciembre con el día 6 marcado y una urna con la pregunta «¿Apruebas esta Constitución?». Rótulo: «Referéndum = votar una pregunta».",
+          "voz": "La Constitución se votó el 6 de diciembre de 1978. Por eso ese día no hay cole: es el Día de la Constitución. Aquel día no se eligió a nadie. Se hizo una pregunta a toda la ciudadanía: ¿apruebas esta Constitución? Cuando se vota una pregunta, en lugar de a personas, se llama referéndum."
+        },
+        {
+          "n": 10,
+          "pantalla": "Cuatro palabras caen sobre el mapa: libertad, justicia, igualdad, pluralismo político. Los tres corros del solar reaparecen debajo de la última.",
+          "voz": "La Constitución dice que España es un Estado democrático basado en la libertad, la justicia, la igualdad y el pluralismo político. Pluralismo político es justo lo que hemos visto en el solar: que puede haber muchas ideas y muchos partidos, y que ninguno puede prohibir a los demás."
+        },
+        {
+          "n": 11,
+          "pantalla": "Pantalla dividida: «Derechos» a la izquierda, «Deberes» a la derecha, con iconos que van apareciendo a la vez que se nombran.",
+          "voz": "La Constitución también reparte derechos y deberes. Derechos: a la vida, a la educación, a la sanidad, a una vivienda, a pensar y creer lo que quieras, a expresarte y a ser tratado igual ante la ley. Deberes: participar en la vida pública, trabajar, pagar impuestos y ayudar cuando hay una emergencia. Un derecho es algo que te deben a ti. Un deber, algo que tú debes a los demás."
+        },
+        {
+          "n": 12,
+          "pantalla": "Rueda con cuatro sectores: municipales (ayuntamiento), autonómicas (comunidad), generales (España), europeas (UE). Al final se ilumina «generales · 29 de noviembre».",
+          "voz": "¿Quién vota? Las personas mayores de 18 años. Y hay cuatro tipos de elecciones: municipales, para el ayuntamiento; autonómicas, para la comunidad; generales, para toda España; y europeas, para la Unión Europea. El 29 de noviembre tocan las generales."
+        },
+        {
+          "n": 13,
+          "pantalla": "«Para y piensa» con un solar y un cuarto bocadillo con interrogación. Después, las 3 ideas clave en pantalla una a una.",
+          "voz": "Para el vídeo y piensa: ¿se te ocurre un cuarto grupo de vecinos con otra idea para el solar? Repasamos. Uno: en democracia decide la ciudadanía, que presta el poder votando. Dos: un partido es un grupo de personas con ideas comunes sobre cómo gobernar. Tres: la Constitución es la ley más importante. Y ahora, unas preguntas para ver si lo has pillado."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "v2-munecas-rusas",
+      "titulo": "Las muñecas rusas",
+      "subtitulo": "Ayuntamiento, provincia, comunidad, Estado y UE",
+      "ideas": [
+        "De menor a mayor: municipio, provincia, comunidad autónoma, Estado y Unión Europea.",
+        "El ayuntamiento (alcaldía, concejalías y pleno) presta los servicios más cercanos: basura, calles, agua, alumbrado, parques.",
+        "España tiene 50 provincias, 17 comunidades y 2 ciudades autónomas. Cada comunidad tiene su Estatuto y se ocupa de la educación y la sanidad."
+      ],
+      "escenas": [
+        {
+          "n": 1,
+          "pantalla": "Cuatro problemas en fila: una farola fundida, un profe, un pasaporte, una moneda de euro.",
+          "voz": "Una farola de tu calle no se enciende. ¿A quién se lo dices? ¿Y quién paga a tu profe? ¿Y quién decide qué dinero usamos? No es la misma persona. Hoy vamos a descubrir por qué."
+        },
+        {
+          "n": 2,
+          "pantalla": "Aparece una muñeca rusa que se abre en cinco: municipio, provincia, comunidad, Estado, UE (cada una con su color).",
+          "voz": "España se organiza como unas muñecas rusas: una dentro de otra. La más pequeña es el municipio. Luego vienen la provincia y la comunidad autónoma. Después, el Estado, que es toda España. Y por fuera de todo, la Unión Europea."
+        },
+        {
+          "n": 3,
+          "pantalla": "Muñeca 1 (color Ayuntamiento). Mapa de la Comunidad de Madrid salpicado de puntos; contador «179 municipios».",
+          "voz": "Empezamos por la pequeña. Un municipio es un pueblo o una ciudad. Solo en la Comunidad de Madrid hay 179. Cada municipio lo gobierna su ayuntamiento."
+        },
+        {
+          "n": 4,
+          "pantalla": "Una mesa grande: alcaldía en el centro, concejalías alrededor, cada una con un icono (deportes, cultura, limpieza). Rótulo «Pleno».",
+          "voz": "En el ayuntamiento manda el alcalde o la alcaldesa, con un equipo de concejales. Cada concejal se ocupa de un tema: deportes, cultura, limpieza... Las decisiones importantes se votan en una reunión que se llama pleno."
+        },
+        {
+          "n": 5,
+          "pantalla": "Iconos que entran en la muñeca del Ayuntamiento: basura, calles y señales, agua, farola, parque, policía municipal, polideportivo, biblioteca, servicios sociales.",
+          "voz": "El ayuntamiento se encarga de lo más cercano a tu casa: recoger la basura, limpiar y arreglar las calles, las señales, el agua y el alcantarillado, las farolas, los parques, la policía municipal, los polideportivos y las bibliotecas. También de los servicios sociales, que ayudan a las familias que lo necesitan. Así que la farola, al ayuntamiento."
+        },
+        {
+          "n": 6,
+          "pantalla": "Muñeca 2: mapa de España dividido en provincias; contador «50 provincias». Islas destacadas con rótulo «cabildos y consejos insulares».",
+          "voz": "Varios municipios forman una provincia. En España hay 50. Muchas tienen una diputación, que ayuda sobre todo a los pueblos pequeños. En las islas, ese papel lo hacen los cabildos y los consejos insulares."
+        },
+        {
+          "n": 7,
+          "pantalla": "Muñeca 3 (color Comunidad): el mapa se agrupa en 17 comunidades + Ceuta y Melilla. Se destaca Madrid: una sola provincia.",
+          "voz": "Varias provincias forman una comunidad autónoma. En España hay 17 comunidades y 2 ciudades autónomas, Ceuta y Melilla. Madrid es una comunidad con una sola provincia, así que no tiene diputación: la propia Comunidad hace ese trabajo."
+        },
+        {
+          "n": 8,
+          "pantalla": "Un libro con la portada «Estatuto de autonomía». Al lado, un parlamento pequeño («Asamblea de Madrid») y un gobierno. Iconos: educación, sanidad, carreteras, impuestos.",
+          "voz": "Cada comunidad tiene su propia ley básica, el Estatuto de autonomía. Tiene un parlamento, que en Madrid se llama Asamblea de Madrid, y un gobierno con su presidente o presidenta. La comunidad se ocupa de cosas muy grandes: la educación, la sanidad, muchas carreteras y obras públicas, y cobra algunos impuestos."
+        },
+        {
+          "n": 9,
+          "pantalla": "Dibujo del cole partido en dos: el edificio (color Ayuntamiento) y la clase con el profe (color Comunidad).",
+          "voz": "Y aquí viene la sorpresa. Vuestro cole depende de dos muñecas a la vez. Al profe lo paga la Comunidad de Madrid. Pero el edificio, su limpieza y su mantenimiento son cosa del ayuntamiento."
+        },
+        {
+          "n": 10,
+          "pantalla": "Mapa con lenguas: castellano en todo el país y, encima, catalán, valenciano, euskera, gallego y aranés en sus zonas.",
+          "voz": "Las comunidades son muy distintas: en paisaje, en economía y en costumbres. También en lenguas. El castellano es la lengua oficial de todo el Estado, y en algunas comunidades convive con otras lenguas oficiales: el catalán, el valenciano, el euskera, el gallego o el aranés."
+        },
+        {
+          "n": 11,
+          "pantalla": "Muñecas 4 y 5 (Estado y UE) se cierran por fuera. En la del Estado: ejército, mundo, DNI/pasaporte, pensiones.",
+          "voz": "Por fuera quedan dos muñecas más: el Estado, que se encarga de lo que es igual para toda España, como el ejército, las relaciones con otros países, el DNI y el pasaporte o las pensiones; y la Unión Europea, que veremos en el último vídeo. Para el vídeo y piensa: ¿quién arregla el columpio roto de tu parque?"
+        },
+        {
+          "n": 12,
+          "pantalla": "Las 3 ideas clave en pantalla una a una, con las muñecas al lado.",
+          "voz": "Repasamos. Uno: de menor a mayor, municipio, provincia, comunidad autónoma, Estado y Unión Europea. Dos: el ayuntamiento se ocupa de lo más cercano, como la basura, las calles o los parques. Tres: la comunidad se ocupa, entre otras cosas, de la educación y la sanidad. Y ahora, unas preguntas para ver si lo has pillado."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "v3-tres-poderes",
+      "titulo": "Los tres poderes",
+      "subtitulo": "Legislativo, ejecutivo, judicial y el rey",
+      "ideas": [
+        "Legislativo (Cortes Generales: Congreso y Senado) hace las leyes; ejecutivo (Gobierno) gobierna y las aplica; judicial (jueces y tribunales) juzga.",
+        "La ciudadanía elige a los diputados y el Congreso elige a la presidencia del Gobierno. El Tribunal Constitucional vigila que las leyes respeten la Constitución.",
+        "España es una monarquía parlamentaria: el rey es el jefe del Estado y la representa, pero no gobierna."
+      ],
+      "escenas": [
+        {
+          "n": 1,
+          "pantalla": "Un partido de fútbol. Un jugador lleva silbato de árbitro y un libro de reglas bajo el brazo, y marca gol.",
+          "voz": "Imagina un partido en el que un jugador escribe el reglamento, juega y además hace de árbitro. ¿Quién crees que va a ganar? Exacto. Por eso en una democracia el poder no se le da entero a nadie. Se parte en tres."
+        },
+        {
+          "n": 2,
+          "pantalla": "Un triángulo con tres vértices vacíos: «hacer las leyes», «gobernar y aplicarlas», «juzgar». Rótulo «División de poderes».",
+          "voz": "Hay tres trabajos distintos. Hacer las leyes. Aplicarlas y gobernar. Y juzgar si alguien las ha incumplido. A esto se le llama división de poderes, y cada trabajo lo hace un grupo diferente."
+        },
+        {
+          "n": 3,
+          "pantalla": "Vértice 1: el edificio del Congreso y el del Senado. Rótulo «Poder legislativo = Cortes Generales». Contador «350 diputados».",
+          "voz": "El poder legislativo hace las leyes. Lo tienen las Cortes Generales, que tienen dos partes, llamadas cámaras: el Congreso de los Diputados, con 350 diputados, y el Senado. Además de hacer leyes, aprueban en qué se gasta el dinero de todos y vigilan al Gobierno."
+        },
+        {
+          "n": 4,
+          "pantalla": "Vértice 2: una mesa con una presidencia y ministerios alrededor, cada uno con su icono (sanidad, defensa, mundo). Rótulo «Poder ejecutivo = Gobierno».",
+          "voz": "El poder ejecutivo gobierna y hace que las leyes se cumplan. Lo tiene el Gobierno: un presidente o una presidenta y sus ministros. Cada ministerio se ocupa de un tema, como la sanidad, la defensa o las relaciones con otros países. El Gobierno dirige el país y gestiona el presupuesto."
+        },
+        {
+          "n": 5,
+          "pantalla": "Vértice 3: una sala de juicio con una balanza. Rótulo «Poder judicial = jueces y tribunales». Arriba, «Tribunal Supremo».",
+          "voz": "El poder judicial juzga. Lo tienen los jueces y los tribunales. El más alto es el Tribunal Supremo. Los jueces tienen que ser independientes: nadie, ni siquiera el Gobierno, les puede decir cómo juzgar."
+        },
+        {
+          "n": 6,
+          "pantalla": "Fuera del triángulo, un guardián con la Constitución en la mano. Rótulo «Tribunal Constitucional». Una ley con un sello rojo «anulada».",
+          "voz": "Y hay un vigilante especial: el Tribunal Constitucional. Su trabajo es comprobar que ninguna ley va contra la Constitución. Si una ley se salta las reglas del juego, la anula."
+        },
+        {
+          "n": 7,
+          "pantalla": "Flechas en cadena: ciudadanía → vota → diputados → el Congreso vota → presidencia → elige → ministros.",
+          "voz": "¿Y cómo encaja esto con las elecciones? Así: la ciudadanía vota y elige a los diputados. Luego el Congreso vota quién será presidente o presidenta del Gobierno. Y esa persona elige a sus ministros. Por eso decimos que el Gobierno sale del Congreso."
+        },
+        {
+          "n": 8,
+          "pantalla": "Una corona pequeña, apartada del triángulo. Rótulo «Monarquía parlamentaria». Frase: «El rey reina, pero no gobierna».",
+          "voz": "¿Y el rey? España es una monarquía parlamentaria. El rey es el jefe del Estado: representa a España, firma las leyes que aprueban las Cortes y propone al candidato a presidente. Pero no gobierna ni hace leyes. Se suele decir así: el rey reina, pero no gobierna."
+        },
+        {
+          "n": 9,
+          "pantalla": "Tres mini triángulos: España, Comunidad de Madrid (Asamblea + gobierno), ayuntamiento (pleno + alcaldía). Al final, «Para y piensa».",
+          "voz": "Esta idea se repite en pequeño. La Comunidad de Madrid tiene su Asamblea, que hace leyes, y su gobierno. Y el ayuntamiento tiene su pleno y su alcaldía. Para el vídeo y piensa: ¿qué poder tiene un juez que decide en un juicio?"
+        },
+        {
+          "n": 10,
+          "pantalla": "Las 3 ideas clave en pantalla una a una, con el triángulo al lado.",
+          "voz": "Repasamos. Uno: las Cortes hacen las leyes, el Gobierno gobierna y los jueces juzgan. Dos: votamos a los diputados y el Congreso elige a la presidencia del Gobierno. Tres: el rey es el jefe del Estado, pero no gobierna. Y ahora, unas preguntas para ver si lo has pillado."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "v4-como-se-vota",
+      "titulo": "Cómo se vota el 29 de noviembre",
+      "subtitulo": "Del voto al Congreso",
+      "ideas": [
+        "El 29 de noviembre se eligen las Cortes: 350 diputados y los senadores. Votan los españoles mayores de 18 que están en el censo.",
+        "Cada provincia elige sus diputados (Madrid, 38) y los reparte con la ley D'Hondt. En el Senado, cada provincia elige 4.",
+        "El Congreso elige a la presidencia del Gobierno en la investidura. La mayoría absoluta son 176 diputados."
+      ],
+      "escenas": [
+        {
+          "n": 1,
+          "pantalla": "Un colegio un domingo, con un cartel: «Colegio electoral». Gente entrando.",
+          "voz": "El domingo 29 de noviembre muchos colegios abrirán sus puertas, y no para dar clase. A lo mejor el tuyo también. Son colegios electorales. Hay elecciones generales, y en ellas se elige el Congreso y el Senado. Vamos a seguir el camino de un voto."
+        },
+        {
+          "n": 2,
+          "pantalla": "Calendario de noviembre: del 13 al 27 en un color («campaña»), el 28 en gris («reflexión»), el 29 con una urna.",
+          "voz": "Antes de votar hay campaña electoral: del 13 al 27 de noviembre, los partidos explican sus propuestas. El sábado 28 es la jornada de reflexión: ya no se hace campaña, para que cada persona piense con calma. Y el domingo 29, se vota."
+        },
+        {
+          "n": 3,
+          "pantalla": "Una lista larga de nombres con un sello: «Censo electoral». Un sobre que va por correo.",
+          "voz": "¿Quién vota? Las personas con nacionalidad española mayores de 18 años que están en el censo electoral, que es la lista oficial de votantes. Quien no puede ir ese día puede votar antes por correo."
+        },
+        {
+          "n": 4,
+          "pantalla": "Reloj 9:00 → 20:00. Una mesa con tres personas (presidente y dos vocales) y dos urnas transparentes; a un lado, interventores mirando.",
+          "voz": "Los colegios abren de 9 de la mañana a 8 de la tarde. En cada mesa electoral hay tres vecinos elegidos por sorteo: un presidente y dos vocales. Ese día trabajan para todos. También puede haber interventores de los partidos, que vigilan que todo se haga bien."
+        },
+        {
+          "n": 5,
+          "pantalla": "Un DNI. Dos papeletas: una blanca con listas de partidos inventados («Congreso»), otra de color sepia con nombres y casillas («Senado»). Cada una entra en su urna.",
+          "voz": "El votante enseña su DNI y mete dos papeletas, cada una en su sobre y en su urna. La blanca es para el Congreso: se elige una lista de un partido. La de color sepia es para el Senado: ahí se marcan nombres de personas, hasta tres."
+        },
+        {
+          "n": 6,
+          "pantalla": "Reloj a las 20:00. La urna se abre y se cuentan papeletas en voz alta; un marcador sube.",
+          "voz": "A las 8 de la tarde se cierran las urnas y empieza el escrutinio: se abren y se cuentan los votos delante de quien quiera mirar. Esa misma noche ya sabemos los resultados."
+        },
+        {
+          "n": 7,
+          "pantalla": "Mapa de España por provincias; cada una con un número. Madrid 38 se ilumina, Barcelona 32, Soria 2, Ceuta y Melilla 1.",
+          "voz": "Ahora viene lo interesante. Los 350 diputados no se eligen todos juntos: cada provincia elige los suyos. Todas tienen al menos 2, y el resto se reparte según cuánta gente vive en cada una. Madrid, la que más, elige 38. Barcelona, 32. Soria, 2. Ceuta y Melilla, 1 cada una."
+        },
+        {
+          "n": 8,
+          "pantalla": "Una provincia con 3 escaños. Barras: Los del Parque 50.000, Los del Aparcamiento 30.000, Los de la Pista 20.000.",
+          "voz": "¿Y cómo se reparten los escaños dentro de una provincia? Con un método que se llama ley D'Hondt. Imagina una provincia que elige 3 diputados. Vuelven los vecinos del solar, ahora como partidos inventados. Los del Parque sacan 50.000 votos, los del Aparcamiento 30.000 y los de la Pista 20.000."
+        },
+        {
+          "n": 9,
+          "pantalla": "Tabla que se rellena: cada resultado dividido entre 1, 2 y 3; los tres números más altos se iluminan uno a uno (50.000, 30.000, 25.000). Resultado: Parque 2, Aparcamiento 1, Pista 0.",
+          "voz": "Los votos de cada partido se dividen entre 1, entre 2, entre 3... y se buscan los números más altos. El más alto, 50.000: un escaño para Los del Parque. El segundo, 30.000: uno para Los del Aparcamiento. El tercero, 25.000, que es la mitad de los votos del Parque: otro para el Parque. Resultado: Parque, 2. Aparcamiento, 1. Pista, ninguno."
+        },
+        {
+          "n": 10,
+          "pantalla": "Mapa: 4 asientos encima de cada provincia. Rótulo «Senado: 4 por provincia».",
+          "voz": "En el Senado es más sencillo: cada provincia elige 4 senadores, sea grande o pequeña. Las islas y Ceuta y Melilla tienen su propio reparto."
+        },
+        {
+          "n": 11,
+          "pantalla": "Un hemiciclo de 350 asientos que se llena; una línea marca el asiento 176. Rótulo «Investidura».",
+          "voz": "Y después de las elecciones, ¿quién gobierna? El Congreso vota quién será presidente o presidenta. A eso se le llama investidura. En la primera votación hace falta mayoría absoluta: más de la mitad, es decir, 176 de 350. Si nadie la consigue, en una segunda votación basta con tener más síes que noes."
+        },
+        {
+          "n": 12,
+          "pantalla": "Dos grupos de asientos se juntan y pasan la línea del 176. Rótulo «Pacto». Después, «Para y piensa» con el mapa de Madrid y Soria.",
+          "voz": "Si ningún partido llega solo, varios pueden ponerse de acuerdo y sumar sus diputados. Eso es un pacto. Para el vídeo y piensa: ¿por qué crees que Madrid elige muchos más diputados que Soria?"
+        },
+        {
+          "n": 13,
+          "pantalla": "Las 3 ideas clave en pantalla una a una, con el hemiciclo al lado.",
+          "voz": "Repasamos. Uno: el 29 de noviembre se eligen el Congreso y el Senado. Dos: cada provincia elige sus diputados y los reparte con la ley D'Hondt. Tres: para la mayoría absoluta hacen falta 176 diputados. Y ahora, unas preguntas para ver si lo has pillado."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "v5-union-europea",
+      "titulo": "La Unión Europea",
+      "subtitulo": "27 países, sus instituciones y tu vida",
+      "ideas": [
+        "La UE es una unión de 27 países europeos. España entró en 1986.",
+        "Instituciones: Parlamento Europeo (lo elige la ciudadanía), Consejo Europeo, Consejo de la UE, Comisión Europea, Tribunal de Justicia y Banco Central Europeo.",
+        "Se nota en la libre circulación, el mercado único, el euro y los fondos para las zonas que lo necesitan (FEDER)."
+      ],
+      "escenas": [
+        {
+          "n": 1,
+          "pantalla": "Una mano abre un monedero: monedas de euro con caras distintas de varios países.",
+          "voz": "Busca en casa unas monedas de euro y dales la vuelta. Algunas tienen dibujos de otros países. ¿Cómo han llegado hasta aquí? Porque se puede pagar con la misma moneda en muchos países de Europa. Hoy abrimos la muñeca más grande: la Unión Europea."
+        },
+        {
+          "n": 2,
+          "pantalla": "La muñeca 5 (color UE) envuelve a las otras cuatro. Rótulo «27 países». Iconos: democracia, derechos humanos, bienestar.",
+          "voz": "La Unión Europea es un grupo de 27 países europeos que han decidido trabajar juntos. Comparten reglas, una gran parte de su economía y unos valores comunes: la democracia, los derechos humanos y el bienestar de la gente."
+        },
+        {
+          "n": 3,
+          "pantalla": "Línea del tiempo: 1951 seis países → 1986 España → 2020 sale el Reino Unido → hoy 27.",
+          "voz": "Todo empezó después de la Segunda Guerra Mundial. En 1951 seis países se unieron para que no volviera a haber una guerra entre ellos. Poco a poco se fueron sumando más. España entró en 1986. En 2020 el Reino Unido se marchó, y desde entonces son 27."
+        },
+        {
+          "n": 4,
+          "pantalla": "Mapa de Europa: los 27 se colorean uno a uno; Suiza y Noruega quedan en gris con su nombre.",
+          "voz": "Estos son los 27. España, Portugal, Francia, Italia, Alemania... Fijaos en que no toda Europa está dentro: Suiza o Noruega, por ejemplo, no son de la UE."
+        },
+        {
+          "n": 5,
+          "pantalla": "Bandera azul con 12 estrellas doradas en círculo; un «27» tachado.",
+          "voz": "Su bandera es azul con 12 estrellas doradas en círculo. Ojo, que es una pregunta trampa: las estrellas no son los países. Son 12 porque el doce simboliza algo completo y unido."
+        },
+        {
+          "n": 6,
+          "pantalla": "Seis edificios con su icono, su función y su ciudad: Parlamento Europeo, Consejo Europeo, Consejo de la UE, Comisión Europea (Bruselas), Tribunal de Justicia, Banco Central Europeo.",
+          "voz": "La UE tiene sus propias instituciones. El Parlamento Europeo representa a la ciudadanía: lo elegimos votando en las elecciones europeas, cada cinco años. El Consejo Europeo reúne a los jefes de los 27 países y marca el rumbo. El Consejo de la Unión Europea reúne a los ministros de cada gobierno. La Comisión Europea, en Bruselas, administra la UE en el día a día. Y hay más: el Tribunal de Justicia, que vigila que se cumplan las leyes europeas, y el Banco Central Europeo, que se ocupa del euro."
+        },
+        {
+          "n": 7,
+          "pantalla": "Un coche cruza una frontera sin parar; un camión con mercancías pasa de un país a otro.",
+          "voz": "¿Y en qué se nota en tu vida? Primero, en la libre circulación: puedes viajar a muchos países de la UE sin control en la frontera, e incluso irte a vivir, estudiar o trabajar allí. Segundo, en el mercado único: los productos se mueven entre países casi como si fueran uno solo."
+        },
+        {
+          "n": 8,
+          "pantalla": "Moneda de euro gigante; en el mapa, la mayoría de países se iluminan y unos pocos quedan en gris.",
+          "voz": "Tercero, en el euro, la moneda común. La usan la mayoría de países de la UE, aunque no todos."
+        },
+        {
+          "n": 9,
+          "pantalla": "Un cartel de obra con la bandera europea: «Financiado por la Unión Europea». Rótulo «FEDER».",
+          "voz": "Y cuarto, en el dinero que la UE da a las zonas que lo necesitan más, para que todas puedan avanzar. Uno de esos fondos se llama FEDER. Un reto: la próxima vez que pases por una obra, busca un cartel con la bandera azul de estrellas."
+        },
+        {
+          "n": 10,
+          "pantalla": "Las cinco muñecas completas, y las 3 ideas clave en pantalla una a una.",
+          "voz": "Y con esta, ya tenemos las cinco muñecas. Repasamos. Uno: la Unión Europea la forman 27 países, y España entró en 1986. Dos: el Parlamento Europeo lo elegimos los ciudadanos. Tres: la UE se nota en la libre circulación, el euro y las ayudas a las zonas que lo necesitan. Y ahora, unas preguntas para ver si lo has pillado."
+        }
+      ]
+    }
+  ]
+}

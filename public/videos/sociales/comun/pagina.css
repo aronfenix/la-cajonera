@@ -1,0 +1,201 @@
+/* =====================================================================================
+   Vídeos de Sociales · página de cada vídeo (reproductor, partes y preguntas)
+   La mesa de manualidades de los juegos: alfombrilla verde de corte, cartulina con canto,
+   contorno #1b1e3a y sombras duras. Las variables están en preguntas.css (copiadas de piel.css).
+   ===================================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { font-size: 18px; -webkit-text-size-adjust: 100%; background: var(--mate); }
+@media (max-width: 480px) { html { font-size: 17px; } }
+body {
+  margin: 0; min-height: 100vh; min-height: 100dvh; overflow-x: hidden;
+  font-family: var(--texto); line-height: 1.4; color: var(--tinta); background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+h1, h2, h3 { margin: 0; line-height: 1.1; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+img, svg, video { max-width: 100%; }
+:focus-visible { outline: 4px solid var(--cielo); outline-offset: 3px; }
+
+/* la alfombrilla de corte (igual que .fondo-escena de los juegos) */
+.fondo {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none; background-color: var(--mate);
+  background-image:
+    radial-gradient(120% 90% at 12% -10%, rgba(255,236,190,.42), rgba(255,236,190,0) 55%),
+    radial-gradient(90% 80% at 105% 110%, rgba(5,25,18,.5), rgba(5,25,18,0) 60%),
+    linear-gradient(rgba(240,255,210,.26) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(240,255,210,.26) 2px, transparent 2px),
+    linear-gradient(rgba(240,255,210,.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240,255,210,.1) 1px, transparent 1px),
+    url('../../../juegos/motores/tex/mate.webp');
+  background-size: 100% 100%, 100% 100%, 150px 150px, 150px 150px, 30px 30px, 30px 30px, 256px 256px;
+  background-position: 0 0, 0 0, -1px -1px, -1px -1px, -1px -1px, -1px -1px, 0 0;
+  background-blend-mode: normal, normal, normal, normal, normal, normal, multiply;
+}
+
+/* ---------- botones de cartulina (los de los juegos) ---------- */
+.tecla {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 56px; padding: 0 24px 2px; border: var(--borde); border-radius: 18px;
+  background: var(--papel); color: var(--tinta); text-decoration: none; cursor: pointer;
+  font-family: var(--fuerte); font-weight: 800; font-size: 1.1rem; line-height: 1.05;
+  touch-action: manipulation; user-select: none; -webkit-user-select: none;
+  box-shadow: inset 0 3px 0 rgba(255,255,255,.6), inset 0 -5px 0 rgba(27,30,58,.1), 0 5px 0 var(--tinta), 4px 12px 16px -6px rgba(10,20,25,.5);
+  transition: transform .08s, box-shadow .08s;
+}
+.tecla:hover { transform: translateY(-2px); }
+.tecla:active { transform: translateY(5px) scale(.98, .96); box-shadow: inset 0 3px 0 rgba(255,255,255,.4), 0 0 0 var(--tinta); }
+.tecla.primaria { background: var(--amarillo); }
+.tecla svg { width: 1.2em; height: 1.2em; flex: none; }
+
+/* ---------- cabecera: piezas sueltas pegadas en la alfombrilla ---------- */
+.cabecera {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 12px 16px;
+  max-width: 1320px; margin: 0 auto; padding: 14px clamp(12px, 2.4vw, 30px) 6px;
+}
+.volver {
+  flex: none; display: inline-grid; place-items: center; width: 54px; height: 54px;
+  border: var(--borde); border-radius: 50%; background: var(--papel); color: var(--tinta);
+  box-shadow: var(--duro-bajo); transition: transform .15s var(--muelle);
+}
+.volver svg { width: 26px; height: 26px; }
+.volver:hover { transform: rotate(-8deg) scale(1.06); }
+.rotulo {
+  position: relative; flex: 0 1 auto; min-width: 0; padding: 8px 18px 10px; border: var(--borde); border-radius: 6px 12px 8px 10px;
+  background: var(--papel) url('../../../juegos/motores/tex/papel.webp'); background-blend-mode: multiply;
+  font-family: var(--fuerte); font-weight: 900; font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.05; letter-spacing: 0;
+  transform: rotate(-1.2deg); box-shadow: var(--duro-bajo); text-wrap: balance;
+}
+.rotulo::before {
+  content: ""; position: absolute; left: -14px; top: -9px; width: 54px; height: 20px; background: rgba(242,226,180,.86); transform: rotate(-24deg);
+  clip-path: polygon(0 8%, 6% 0, 12% 10%, 18% 0, 24% 6%, 100% 0, 100% 100%, 94% 92%, 88% 100%, 82% 90%, 76% 100%, 0 100%);
+}
+.etiqueta-area {
+  margin: 0; padding: 5px 14px 6px; border: var(--borde); border-radius: 4px 9px 5px 8px;
+  background: var(--sociales); color: #000; font-family: var(--fuerte); font-weight: 800; font-size: 1rem;
+  transform: rotate(1.2deg); box-shadow: var(--duro-bajo);
+}
+@media (max-width: 600px) {
+  .cabecera { gap: 10px; padding-top: 10px; }
+  .volver { width: 46px; height: 46px; }
+  .rotulo { flex: 1 1 calc(100% - 70px); padding: 6px 12px 8px; }
+  .etiqueta-area { margin-left: 4px; }
+  .etiqueta-area { font-size: .88rem; }
+}
+
+/* ---------- vídeo y partes ---------- */
+.pagina { max-width: 1320px; margin: 0 auto; padding: 10px clamp(12px, 2.4vw, 30px) 120px; }
+.zona-video { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); gap: 22px; align-items: start; }
+@media (max-width: 999px), (orientation: portrait) { .zona-video { grid-template-columns: minmax(0, 1fr); } }
+.columna-video { min-width: 0; }
+.marco-video {
+  position: relative; border: var(--borde); border-radius: 10px; overflow: hidden; background: var(--tinta);
+  box-shadow: 6px 8px 0 rgba(10, 30, 20, .45); scroll-margin-top: 12px;
+}
+.marco-video video { display: block; width: 100%; height: auto; aspect-ratio: 1280 / 800; background: var(--tinta); }
+.datos-video {
+  display: inline-flex; flex-wrap: wrap; gap: 4px 10px; margin: 14px 0 0; padding: 6px 14px 7px;
+  border-radius: 10px; background: rgba(255,253,246,.92); font-size: 1rem; box-shadow: 0 2px 0 rgba(0,0,0,.12);
+}
+.datos-video b { font-family: var(--fuerte); font-weight: 800; }
+
+.capitulos {
+  position: relative; display: flex; flex-direction: column; min-height: 0;
+  border: var(--borde); border-radius: 6px 12px 8px 10px; padding: 14px 12px 12px;
+  background: var(--papel) url('../../../juegos/motores/tex/papel.webp'); background-blend-mode: multiply;
+  box-shadow: 6px 8px 0 rgba(10, 30, 20, .45); transform: rotate(.4deg);
+}
+.capitulos h2 { margin: 0 4px 10px; font-family: var(--fuerte); font-weight: 900; font-size: 1.25rem; }
+.capitulos h2 small { font-family: var(--texto); font-weight: 400; font-size: .85rem; color: var(--gris-tinta); }
+.lista-capitulos { list-style: none; margin: 0; padding: 2px 4px 6px 2px; display: flex; flex-direction: column; gap: 8px; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+@media (min-width: 1000px) and (orientation: landscape) {
+  .capitulos { max-height: calc((min(100vw, 1320px) - 2 * clamp(12px, 2.4vw, 30px) - 322px) * .625 + 6px); }
+}
+@media (max-width: 999px), (orientation: portrait) {
+  .capitulos { transform: none; }
+  .lista-capitulos { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); overflow: visible; }
+}
+@media (max-width: 520px) { .lista-capitulos { grid-template-columns: 1fr 1fr; gap: 7px; } }
+.capitulo {
+  width: 100%; min-height: 50px; display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; align-items: center; gap: 10px;
+  padding: 6px 10px 6px 7px; border: 2.5px solid var(--tinta); border-radius: 10px; background: #fff; color: var(--tinta);
+  text-align: left; cursor: pointer; box-shadow: 2px 3px 0 rgba(27,30,58,.7); touch-action: manipulation;
+  transition: transform .1s, background .15s;
+}
+.capitulo:hover { background: #fffbea; }
+.capitulo:active { transform: translate(2px, 3px); box-shadow: 0 0 0 transparent; }
+.capitulo .n {
+  display: grid; place-items: center; width: 32px; height: 32px; border: 2.5px solid var(--tinta); border-radius: 50%;
+  background: var(--papel); font-family: var(--fuerte); font-weight: 800; font-size: .95rem;
+}
+.capitulo .l { font-family: var(--fuerte); font-weight: 700; font-size: 1rem; line-height: 1.12; min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
+.capitulo .t { font-variant-numeric: tabular-nums; font-size: .9rem; color: var(--gris-tinta); }
+.capitulo[aria-current="true"] { background: #fffbd0; }
+.capitulo[aria-current="true"] .n { background: var(--sociales); }
+.capitulo[aria-current="true"] .l { background: linear-gradient(176deg, transparent 0 22%, rgba(245,240,60,.95) 24% 86%, transparent 88%); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+@media (max-width: 520px) {
+  .capitulo { grid-template-columns: 28px minmax(0, 1fr); gap: 2px 8px; padding: 6px 8px; min-height: 56px; }
+  .capitulo .n { width: 28px; height: 28px; grid-row: span 2; font-size: .85rem; }
+  .capitulo .l { font-size: .92rem; }
+  .capitulo .t { font-size: .8rem; }
+}
+
+/* ---------- paso a las preguntas ---------- */
+.barra-preguntas { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; margin: 26px 0 10px; }
+.barra-preguntas .ayuda {
+  margin: 0; padding: 7px 14px; border-radius: 12px; background: rgba(255,253,246,.92); font-size: 1rem; box-shadow: 0 2px 0 rgba(0,0,0,.12);
+}
+@media (max-width: 520px) { .barra-preguntas .tecla { width: 100%; } }
+
+.zona-preguntas { margin-top: 18px; scroll-margin-top: 12px; }
+.pestana {
+  display: inline-block; margin: 0 0 16px; padding: 7px 18px 9px; border: var(--borde); border-radius: 6px 12px 8px 10px;
+  background: var(--sociales); color: #000; font-family: var(--fuerte); font-weight: 900; font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  transform: rotate(-1deg); box-shadow: var(--duro-bajo);
+}
+.pestana small { font-family: var(--texto); font-weight: 400; font-size: .55em; }
+#preguntas { max-width: 1040px; }
+
+.espera {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 14px 20px; max-width: 760px; padding: 20px 22px;
+  border: var(--borde); border-radius: 6px 14px 8px 12px; background: var(--papel) url('../../../juegos/motores/tex/papel.webp'); background-blend-mode: multiply;
+  box-shadow: 6px 8px 0 rgba(10, 30, 20, .45);
+}
+.espera svg { width: 64px; height: 64px; }
+.espera h3 { font-family: var(--fuerte); font-weight: 800; font-size: 1.35rem; margin: 0 0 4px; }
+.espera p { margin: 0; }
+.espera .tecla { grid-column: 1 / -1; justify-self: start; }
+@media (max-width: 520px) { .espera { grid-template-columns: 1fr; } .espera svg { display: none; } .espera .tecla { width: 100%; } }
+
+/* ---------- después de las preguntas ---------- */
+.despues { display: flex; flex-wrap: wrap; gap: 18px 22px; margin-top: 34px; max-width: 1040px; }
+.siguiente, .sigue-con {
+  position: relative; flex: 1 1 300px; display: flex; flex-direction: column; gap: 3px; min-height: 92px; padding: 14px 20px 16px 20px;
+  border: var(--borde); border-radius: 8px 14px 10px 12px; text-decoration: none; color: var(--tinta);
+  background: var(--papel); box-shadow: 6px 8px 0 rgba(10, 30, 20, .45); transition: transform .15s var(--muelle);
+}
+.siguiente:hover, .sigue-con:hover { transform: translateY(-3px) rotate(-.6deg); }
+.siguiente:active, .sigue-con:active { transform: translate(3px, 4px); box-shadow: 2px 3px 0 rgba(10, 30, 20, .45); }
+.siguiente .mini, .sigue-con .mini { font-size: .95rem; color: var(--gris-tinta); }
+.siguiente b, .sigue-con b { font-family: var(--fuerte); font-weight: 900; font-size: 1.35rem; line-height: 1.1; padding-right: 40px; }
+.siguiente::after, .sigue-con::after {
+  content: ""; position: absolute; right: 16px; top: 50%; width: 28px; height: 28px; margin-top: -14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h14M13 6l6 6-6 6' fill='none' stroke='%231b1e3a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.sigue-con { background: var(--sociales); transform: rotate(.5deg); }
+.sigue-con .mini { color: #33300a; }
+.despues.destacado .siguiente, .despues.destacado .sigue-con { animation: salta .6s var(--muelle) both; }
+@keyframes salta { 0% { transform: translateY(18px) rotate(-1deg); opacity: .4; } }
+
+/* ---------- botón flotante «Volver a la pregunta» ---------- */
+.volver-pregunta { position: fixed; right: clamp(12px, 2.4vw, 30px); bottom: 18px; z-index: 50; }
+@media (max-width: 520px) { .volver-pregunta { left: 12px; right: 12px; } }
+
+.pie { max-width: 1320px; margin: 0 auto; padding: 0 clamp(12px, 2.4vw, 30px) 28px; }
+.pie p { display: inline-block; margin: 0; padding: 6px 12px; border-radius: 10px; background: rgba(255,253,246,.86); font-size: .85rem; color: var(--gris-tinta); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+.oculto-visual { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

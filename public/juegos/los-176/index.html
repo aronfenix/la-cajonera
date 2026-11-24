@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>176 · La cajonera</title>
+<meta name="description" content="Negocia una investidura en un Congreso sin mayoría absoluta: peticiones para el solar del barrio, líneas rojas, 176 síes o más síes que noes.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "motor": "investidura",
+  "area": "sociales",
+  "escena": "corcho",
+  "personaje": "boli",
+  "volver": "../el-cajon-vota/",
+  "titulo": "176",
+  "subtitulo": "Nadie ha sacado mayoría absoluta. Para gobernar hay que sumar votos en el Congreso.",
+  "portada": {
+    "arte": "cajon",
+    "objetivo": "Negocia una investidura: cada partido pide cosas para el solar del barrio y tiene una línea roja.",
+    "frase": "Ganar no es gobernar.",
+    "rotulo": "CONGRESO"
+  },
+  "historia": [
+    {
+      "nota": "NADIE HA LLEGADO A 176. EL SOLAR DEL BARRIO SE QUEDA VALLADO HASTA QUE HAYA GOBIERNO.",
+      "firma": "El profe"
+    },
+    {
+      "quien": "fosforito",
+      "pose": "celebra",
+      "texto": "¡Fácil! Que gobiernen los que más votos han sacado, y a hacer el parque."
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "No. Gobierna quien consigue los votos del Congreso: 176 a la primera, o más síes que noes a la segunda."
+    },
+    {
+      "quien": "boli",
+      "pose": "piensa",
+      "texto": "Cada partido pide cosas para el solar y tiene una línea roja. Yo cuento los votos. Tú negocias."
+    }
+  ],
+  "saludo": "Para gobernar no basta con ganar: hay que **sumar**.",
+  "observa": "¿Es justo que gobierne un partido que no ha sido el más votado? ¿Y que una abstención ayude a quien no te gusta del todo?",
+  "nivelObjetivo": 4,
+  "niveles": [
+    {
+      "modo": "votacion",
+      "generar": {
+        "abst": false
+      }
+    },
+    {
+      "modo": "votacion",
+      "generar": {
+        "abst": true,
+        "noMayor": true
+      }
+    },
+    {
+      "modo": "apoyos",
+      "generar": {
+        "presupuesto": 2,
+        "bloqueos": 0.25
+      }
+    },
+    {
+      "modo": "apoyos",
+      "generar": {
+        "presupuesto": [
+          1,
+          2
+        ],
+        "noMayor": true,
+        "bloqueos": 0.5,
+        "trampa": true
+      }
+    },
+    {
+      "modo": "negocia",
+      "generar": {
+        "tipo": "facil",
+        "minimo": [
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "modo": "negocia",
+      "generar": {
+        "tipo": "lineas",
+        "minimo": [
+          5,
+          7
+        ]
+      }
+    },
+    {
+      "modo": "negocia",
+      "generar": {
+        "tipo": "elige",
+        "minimo": [
+          5,
+          7
+        ]
+      }
+    },
+    {
+      "modo": "negocia",
+      "generar": {
+        "tipo": "segunda",
+        "minimo": [
+          6,
+          7
+        ],
+        "ajustado": true
+      }
+    }
+  ]
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La noche del escrutinio · La cajonera</title>
+<meta name="description" content="Presides una mesa electoral el 29-N: quién puede votar, cómo se clasifica cada sobre (blanco, nulo, dos papeletas…) y cómo un solo voto mueve un escaño.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "motor": "escrutinio",
+  "area": "sociales",
+  "escena": "colegio-electoral",
+  "personaje": "boli",
+  "volver": "../el-cajon-vota/",
+  "titulo": "La noche del escrutinio",
+  "subtitulo": "Domingo 29 de noviembre. Te ha tocado presidir una mesa electoral. A las ocho se abre la urna.",
+  "portada": {
+    "objetivo": "Decide quién puede votar, abre la urna, clasifica cada sobre y descubre si un solo voto puede mover un escaño.",
+    "frase": "Aquí se cuenta todo. Hasta lo vacío."
+  },
+  "historia": [
+    {
+      "nota": "EL DOMINGO EL COLE ES COLEGIO ELECTORAL. LA URNA NO SE TOCA.",
+      "firma": "El profe"
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "Me han nombrado interventor. Vigilo que se cuente bien. Con tinta roja."
+    },
+    {
+      "quien": "goma",
+      "pose": "pista",
+      "texto": "Y a ti te ha tocado presidir la mesa. Es por sorteo, y no se puede decir que no."
+    },
+    {
+      "quien": "fosforito",
+      "pose": "celebra",
+      "texto": "¡A las ocho se abre la urna! ¡Todo es importante, hasta los sobres vacíos!"
+    }
+  ],
+  "saludo": "Un sobre vacío **no** es un voto nulo. Lo digo una vez.",
+  "observa": "Si el voto en blanco no es para ningún partido, ¿para qué sirve? ¿Es lo mismo votar en blanco que quedarse en casa?",
+  "niveles": [
+    {
+      "modo": "cola",
+      "generar": {
+        "f": 1,
+        "n": 3
+      }
+    },
+    {
+      "modo": "sobres",
+      "generar": {
+        "f": 1,
+        "n": 5
+      }
+    },
+    {
+      "modo": "cola",
+      "generar": {
+        "f": 2,
+        "n": 4
+      }
+    },
+    {
+      "modo": "sobres",
+      "generar": {
+        "f": 2,
+        "n": 6
+      }
+    },
+    {
+      "modo": "acta",
+      "generar": {
+        "f": 3,
+        "n": 5
+      }
+    },
+    {
+      "modo": "provincia",
+      "generar": {
+        "escanos": [
+          3,
+          4
+        ],
+        "margenes": [
+          1
+        ],
+        "dudosos": 3
+      }
+    },
+    {
+      "modo": "provincia",
+      "generar": {
+        "escanos": [
+          4,
+          5
+        ],
+        "margenes": [
+          1,
+          2
+        ],
+        "dudosos": 4
+      }
+    }
+  ]
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

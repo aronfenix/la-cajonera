@@ -1,6 +1,6 @@
 // Lee la configuración del juego (el bloque <script type="application/json" id="config">) y arranca su motor.
 // Mientras se cargan el motor y los dibujos, el personaje del juego baila.
-const MOTORES = { recta: './recta.js', cifras: './cifras.js', rejilla: './rejilla.js', geoplano: './geoplano.js', multiplica: './multiplica.js', formas: './formas.js', giros: './giros.js', reparto: './reparto.js', ceros: './ceros.js', examen: './examen.js', numeros: './numeros.js', linea: './linea.js', medida: './medida.js', caja: './caja.js', mental: './mental.js', angulos: './angulos.js', tablas: './tablas.js', vida: './vida.js', texto: './texto.js', visita: './visita.js' };
+const MOTORES = { recta: './recta.js', cifras: './cifras.js', rejilla: './rejilla.js', geoplano: './geoplano.js', multiplica: './multiplica.js', formas: './formas.js', giros: './giros.js', reparto: './reparto.js', ceros: './ceros.js', examen: './examen.js', numeros: './numeros.js', linea: './linea.js', medida: './medida.js', caja: './caja.js', mental: './mental.js', angulos: './angulos.js', tablas: './tablas.js', vida: './vida.js', texto: './texto.js', visita: './visita.js', escrutinio: './escrutinio.js', repartir: './repartir.js',investidura: './investidura.js',constitucion: './constitucion.js', cargador: './cargador.js', alcaldia: './alcaldia.js', llaves: './llaves.js', mezcla: './mezcla.js' };
 
 let capa = null;
 try {

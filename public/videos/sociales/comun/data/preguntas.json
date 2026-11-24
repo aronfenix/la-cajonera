@@ -1,0 +1,190 @@
+{
+  "_tipos": {
+    "clasificar": "Arrastrar tarjetas a cajas. categorias: [nombres]; tarjetas: [{texto, cat: índice de categoría}]",
+    "ordenar": "Ordenar tarjetas. elementos: [en el orden correcto]; se barajan al mostrar",
+    "emparejar": "Unir parejas. pares: [[izquierda, derecha]]; la columna derecha se baraja",
+    "huecos": "Completar frases. frases: [texto con {respuesta} entre llaves]; banco: [palabras para arrastrar, incluidas las correctas]. Sin banco = escribir; se compara sin mayúsculas ni tildes",
+    "numeros": "Respuestas numéricas. campos: [{etiqueta, respuesta}]",
+    "dhondt": "Tabla D'Hondt en tres pasos: rellenar cocientes, tocar los N más altos, escribir escaños por partido. escanos, divisores, partidos: [{nombre, icono, votos}]",
+    "mapa": "Mapa de Europa: tocar pedir_ue países de la UE y pedir_no_ue países europeos que no lo sean"
+  },
+  "videos": [
+    {
+      "video": 1,
+      "preguntas": [
+        {"id": "v1q1", "tipo": "clasificar", "enunciado": "Lleva cada tarjeta a su sitio: ¿es un derecho o un deber?", "categorias": ["Derecho", "Deber"],
+         "tarjetas": [
+           {"texto": "Recibir educación", "cat": 0},
+           {"texto": "Pagar impuestos", "cat": 1},
+           {"texto": "Que te atiendan en el médico", "cat": 0},
+           {"texto": "Decir lo que piensas", "cat": 0},
+           {"texto": "Ayudar en una emergencia", "cat": 1},
+           {"texto": "Trabajar", "cat": 1},
+           {"texto": "Ser tratado igual ante la ley", "cat": 0},
+           {"texto": "Participar en la vida pública", "cat": 1}
+         ],
+         "escenas": [11], "explicacion": "Un derecho es algo que te deben a ti; un deber, algo que tú debes a los demás."},
+        {"id": "v1q2", "tipo": "emparejar", "enunciado": "Une cada tipo de elecciones con lo que se elige.",
+         "pares": [["Municipales", "El ayuntamiento"], ["Autonómicas", "La Asamblea de Madrid"], ["Generales", "El Congreso y el Senado"], ["Europeas", "El Parlamento Europeo"]],
+         "escenas": [12], "explicacion": "Cada elección elige a gente distinta para cosas distintas."},
+        {"id": "v1q3", "tipo": "clasificar", "enunciado": "¿Es democracia o no? Arrastra cada situación.", "categorias": ["Democracia", "No es democracia"],
+         "tarjetas": [
+           {"texto": "Una persona decide sola y nadie puede cambiarla", "cat": 1},
+           {"texto": "Cada pocos años la gente elige a sus representantes", "cat": 0},
+           {"texto": "Solo se permite un partido", "cat": 1},
+           {"texto": "Varios partidos con ideas distintas se presentan a las elecciones", "cat": 0}
+         ],
+         "escenas": [2, 10], "explicacion": "En democracia decide la ciudadanía y puede haber muchos partidos (pluralismo político)."},
+        {"id": "v1q4", "tipo": "huecos", "enunciado": "Arrastra cada palabra a su hueco.",
+         "frases": [
+           "Cuando votamos no regalamos el poder: lo {prestamos}.",
+           "Si se vota una pregunta en vez de a personas, se llama {referéndum}.",
+           "Un grupo de personas con ideas comunes que se presenta a las elecciones es un {partido político}."
+         ],
+         "banco": ["prestamos", "referéndum", "partido político", "regalamos", "dictador"],
+         "escenas": [5, 9, 7], "explicacion": "Votar es prestar el poder; un referéndum es votar una pregunta; un partido reúne a gente con ideas parecidas."},
+        {"id": "v1q5", "tipo": "numeros", "enunciado": "Responde con un número.",
+         "campos": [
+           {"etiqueta": "¿Qué día de diciembre se celebra la Constitución?", "respuesta": 6},
+           {"etiqueta": "¿A partir de qué edad se puede votar?", "respuesta": 18}
+         ],
+         "escenas": [9, 12], "explicacion": "La Constitución se votó el 6 de diciembre de 1978. Votan los mayores de 18."}
+      ]
+    },
+    {
+      "video": 2,
+      "preguntas": [
+        {"id": "v2q1", "tipo": "clasificar", "enunciado": "¿Quién se ocupa? Lleva cada tarjeta a su caja.", "categorias": ["Ayuntamiento", "Comunidad de Madrid", "Estado"],
+         "tarjetas": [
+           {"texto": "Una farola fundida", "cat": 0},
+           {"texto": "Pagar al profesorado", "cat": 1},
+           {"texto": "Recoger la basura", "cat": 0},
+           {"texto": "Los hospitales públicos", "cat": 1},
+           {"texto": "El ejército", "cat": 2},
+           {"texto": "Arreglar un parque", "cat": 0},
+           {"texto": "El pasaporte", "cat": 2},
+           {"texto": "La policía municipal", "cat": 0}
+         ],
+         "escenas": [5, 8, 11], "explicacion": "Lo más cercano es del ayuntamiento; educación y sanidad, de la comunidad; lo que es igual para toda España, del Estado."},
+        {"id": "v2q2", "tipo": "ordenar", "enunciado": "Ordena de la muñeca más pequeña a la más grande.",
+         "elementos": ["Municipio", "Provincia", "Comunidad autónoma", "Estado", "Unión Europea"],
+         "escenas": [2], "explicacion": "Municipio, provincia, comunidad autónoma, Estado y Unión Europea: una dentro de otra."},
+        {"id": "v2q3", "tipo": "emparejar", "enunciado": "Une cada lugar con quién lo gobierna o con su ley.",
+         "pares": [["Municipio", "Ayuntamiento"], ["Provincia", "Diputación"], ["Islas", "Cabildo o consejo insular"], ["Comunidad autónoma", "Estatuto de autonomía"]],
+         "escenas": [3, 6, 8], "explicacion": "Cada nivel tiene su propio órgano de gobierno."},
+        {"id": "v2q4", "tipo": "numeros", "enunciado": "Responde con un número.",
+         "campos": [
+           {"etiqueta": "¿Cuántas provincias hay en España?", "respuesta": 50},
+           {"etiqueta": "¿Cuántas comunidades autónomas hay?", "respuesta": 17},
+           {"etiqueta": "¿Cuántos municipios tiene la Comunidad de Madrid?", "respuesta": 179}
+         ],
+         "escenas": [3, 6, 7], "explicacion": "50 provincias, 17 comunidades (más Ceuta y Melilla) y 179 municipios en Madrid."},
+        {"id": "v2q5", "tipo": "clasificar", "enunciado": "En tu cole se rompe una persiana y hay que contratar a una profe nueva. ¿A quién le toca cada cosa?", "categorias": ["Ayuntamiento", "Comunidad de Madrid"],
+         "tarjetas": [
+           {"texto": "Arreglar la persiana", "cat": 0},
+           {"texto": "Contratar a la profe", "cat": 1}
+         ],
+         "escenas": [9], "explicacion": "El edificio lo mantiene el ayuntamiento; al profesorado lo paga la Comunidad."}
+      ]
+    },
+    {
+      "video": 3,
+      "preguntas": [
+        {"id": "v3q1", "tipo": "clasificar", "enunciado": "¿Qué poder es? Lleva cada situación a su caja.", "categorias": ["Legislativo", "Ejecutivo", "Judicial"],
+         "tarjetas": [
+           {"texto": "El Congreso vota una ley nueva", "cat": 0},
+           {"texto": "Un tribunal juzga un caso", "cat": 2},
+           {"texto": "Una ministra se reúne con otros países", "cat": 1},
+           {"texto": "El Senado revisa una ley", "cat": 0},
+           {"texto": "El presidente nombra a sus ministros", "cat": 1},
+           {"texto": "Un juez decide si alguien ha incumplido la ley", "cat": 2}
+         ],
+         "escenas": [3, 4, 5], "explicacion": "Las Cortes hacen las leyes, el Gobierno gobierna y los jueces juzgan."},
+        {"id": "v3q2", "tipo": "emparejar", "enunciado": "Une cada poder con quién lo tiene.",
+         "pares": [["Poder legislativo", "Cortes Generales"], ["Poder ejecutivo", "Gobierno"], ["Poder judicial", "Jueces y tribunales"]],
+         "escenas": [3, 4, 5], "explicacion": "Cada trabajo lo hace un grupo diferente: eso es la división de poderes."},
+        {"id": "v3q3", "tipo": "ordenar", "enunciado": "Pon en orden cómo se forma el Gobierno.",
+         "elementos": ["La ciudadanía vota", "Se eligen los diputados", "El Congreso vota quién preside el Gobierno", "La presidencia elige a sus ministros"],
+         "escenas": [7], "explicacion": "El Gobierno sale del Congreso, y el Congreso sale de nuestros votos."},
+        {"id": "v3q4", "tipo": "huecos", "enunciado": "Arrastra cada palabra a su hueco.",
+         "frases": [
+           "Las {Cortes} hacen las leyes y el {rey} las firma.",
+           "El rey {reina}, pero no {gobierna}.",
+           "El Tribunal {Constitucional} comprueba que las leyes respetan la Constitución."
+         ],
+         "banco": ["Cortes", "rey", "reina", "gobierna", "Constitucional", "Supremo"],
+         "escenas": [3, 6, 8], "explicacion": "El rey es el jefe del Estado, pero no gobierna; el Tribunal Constitucional vigila las leyes."},
+        {"id": "v3q5", "tipo": "numeros", "enunciado": "Responde con un número.",
+         "campos": [{"etiqueta": "¿Cuántos diputados tiene el Congreso?", "respuesta": 350}],
+         "escenas": [3], "explicacion": "El Congreso tiene 350 diputados."}
+      ]
+    },
+    {
+      "video": 4,
+      "preguntas": [
+        {"id": "v4q1", "tipo": "ordenar", "enunciado": "Pon en orden el camino del voto.",
+         "elementos": ["Campaña electoral", "Jornada de reflexión", "Enseñar el DNI en la mesa", "Meter las papeletas en las urnas", "Escrutinio a las 20:00", "Investidura en el Congreso"],
+         "escenas": [2, 5, 6, 11], "explicacion": "Campaña, reflexión, votación, recuento y, después, la investidura."},
+        {"id": "v4q2", "tipo": "clasificar", "enunciado": "Lleva cada papeleta a su urna.", "categorias": ["Urna del Congreso", "Urna del Senado"],
+         "tarjetas": [
+           {"texto": "Papeleta blanca: eliges una lista de un partido", "cat": 0},
+           {"texto": "Papeleta sepia: marcas hasta 3 nombres", "cat": 1}
+         ],
+         "escenas": [5], "explicacion": "La blanca es para el Congreso; la sepia, para el Senado."},
+        {"id": "v4q3", "tipo": "dhondt", "enunciado": "Una provincia elige 4 diputados. Reparte los escaños con la ley D'Hondt.",
+         "escanos": 4, "divisores": 3,
+         "partidos": [
+           {"nombre": "Los del Parque", "icono": "arbol", "votos": 48000},
+           {"nombre": "Los del Aparcamiento", "icono": "coche", "votos": 30000},
+           {"nombre": "Los de la Pista", "icono": "canasta", "votos": 14000}
+         ],
+         "solucion": {"Los del Parque": 3, "Los del Aparcamiento": 1, "Los de la Pista": 0},
+         "escenas": [8, 9], "explicacion": "Los 4 cocientes más altos son 48.000, 30.000, 24.000 y 16.000: tres para el Parque y uno para el Aparcamiento."},
+        {"id": "v4q4", "tipo": "numeros", "enunciado": "Responde con un número.",
+         "campos": [
+           {"etiqueta": "¿Cuántos diputados hacen falta para la mayoría absoluta?", "respuesta": 176},
+           {"etiqueta": "Si un partido tiene 150, ¿cuántos le faltan?", "respuesta": 26},
+           {"etiqueta": "¿Cuántos diputados elige Madrid?", "respuesta": 38}
+         ],
+         "escenas": [7, 11], "explicacion": "176 es más de la mitad de 350. Madrid elige 38."},
+        {"id": "v4q5", "tipo": "emparejar", "enunciado": "Une cada persona con lo que hace el día de las elecciones.",
+         "pares": [["Presidente y vocales de la mesa", "Son vecinos elegidos por sorteo"], ["Interventores", "Vigilan en nombre de los partidos"], ["Votante", "Enseña su DNI y vota"]],
+         "escenas": [4, 5], "explicacion": "La mesa la forman vecinos sorteados; los interventores vigilan."}
+      ]
+    },
+    {
+      "video": 5,
+      "preguntas": [
+        {"id": "v5q1", "tipo": "ordenar", "enunciado": "Ordena en la línea del tiempo.",
+         "elementos": ["1951: se unen seis países", "1986: entra España", "2020: sale el Reino Unido", "Hoy: son 27 países"],
+         "escenas": [3], "explicacion": "Empezó en 1951 con seis países; España entró en 1986."},
+        {"id": "v5q2", "tipo": "emparejar", "enunciado": "Une cada institución con lo que hace.",
+         "pares": [
+           ["Parlamento Europeo", "Representa a la ciudadanía; se vota cada 5 años"],
+           ["Consejo Europeo", "Reúne a los jefes de los 27 y marca el rumbo"],
+           ["Consejo de la UE", "Reúne a los ministros de cada gobierno"],
+           ["Comisión Europea", "Administra la UE en el día a día"],
+           ["Banco Central Europeo", "Se ocupa del euro"]
+         ],
+         "escenas": [6], "explicacion": "Al Parlamento Europeo lo elegimos los ciudadanos en las elecciones europeas."},
+        {"id": "v5q3", "tipo": "clasificar", "enunciado": "¿Qué parte de la UE lo hace posible?", "categorias": ["Libre circulación", "Mercado único", "Euro", "FEDER"],
+         "tarjetas": [
+           {"texto": "Viajar a Francia sin control en la frontera", "cat": 0},
+           {"texto": "Una fruta de Portugal se vende en Madrid como si fuera de aquí", "cat": 1},
+           {"texto": "Pagar un helado en Italia con tus monedas", "cat": 2},
+           {"texto": "Una calle arreglada con un cartel azul de estrellas", "cat": 3}
+         ],
+         "escenas": [7, 8, 9], "explicacion": "Libre circulación, mercado único, euro y fondos FEDER: cuatro formas en que la UE se nota en tu vida."},
+        {"id": "v5q4", "tipo": "mapa", "enunciado": "Toca 3 países que sean de la UE y 1 país europeo que no lo sea.",
+         "pedir_ue": 3, "pedir_no_ue": 1,
+         "escenas": [4], "explicacion": "Suiza, Noruega, el Reino Unido o Islandia, por ejemplo, no son de la UE."},
+        {"id": "v5q5", "tipo": "numeros", "enunciado": "Pregunta trampa: responde con un número.",
+         "campos": [
+           {"etiqueta": "¿Cuántas estrellas tiene la bandera de la UE?", "respuesta": 12},
+           {"etiqueta": "¿Cuántos países forman la UE?", "respuesta": 27}
+         ],
+         "escenas": [2, 5], "explicacion": "Las 12 estrellas no son países: el doce simboliza algo completo y unido."}
+      ]
+    }
+  ]
+}

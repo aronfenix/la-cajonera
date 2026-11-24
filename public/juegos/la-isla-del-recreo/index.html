@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La isla del recreo · La cajonera</title>
+<meta name="description" content="Reparte las tres llaves (hacer normas, hacerlas cumplir, juzgar) y mira una semana de recreos. Después, Cortes, Gobierno, jueces, el Rey y el Tribunal Constitucional.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "motor": "llaves",
+  "area": "sociales",
+  "escena": "patio",
+  "personaje": "goma",
+  "volver": "../el-cajon-vota/",
+  "titulo": "La isla del recreo",
+  "subtitulo": "En el recreo, el patio es una isla con tres llaves: la de hacer las normas, la de hacerlas cumplir y la de juzgar.",
+  "portada": {
+    "arte": "propia",
+    "objetivo": "Reparte las tres llaves de la isla y mira qué pasa en una semana de recreos. Al final, lo mismo con España.",
+    "frase": "Tres llaves, tres bolsillos."
+  },
+  "historia": [
+    {
+      "nota": "ESTA SEMANA OS ORGANIZÁIS VOSOTROS EL RECREO. YO NO ME METO.",
+      "firma": "El profe"
+    },
+    {
+      "quien": "fosforito",
+      "pose": "asombro",
+      "texto": "¡Sacapuntas se ha quedado las tres llaves! Pone las normas, las hace cumplir y, si te quejas, juzga él."
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "Ya ha puesto una norma: «El balón es de Sacapuntas». Y ha juzgado que es justísima."
+    },
+    {
+      "quien": "goma",
+      "pose": "pista",
+      "texto": "Tres llaves en un solo bolsillo nunca salen bien. Repártelas y mira qué pasa en una semana."
+    }
+  ],
+  "saludo": "Cada llave, **en una mano distinta**. Y que ninguna se quede sin dueño.",
+  "observa": "¿Por qué no puede ser la misma persona la que pone las normas y la que juzga si se han cumplido? Si el Rey no tiene ninguna llave, ¿para qué sirve?",
+  "niveles": [
+    {
+      "modo": "reparto",
+      "generar": {
+        "n": 3
+      }
+    },
+    {
+      "modo": "arregla",
+      "generar": {
+        "n": 3
+      }
+    },
+    {
+      "modo": "reparto",
+      "generar": {
+        "rasgos": true,
+        "requisitos": true,
+        "n": 4
+      }
+    },
+    {
+      "modo": "reparto",
+      "generar": {
+        "rasgos": true,
+        "n": 5
+      }
+    },
+    {
+      "modo": "espana",
+      "generar": true
+    },
+    {
+      "modo": "vigila",
+      "generar": {
+        "n": 3
+      }
+    }
+  ]
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

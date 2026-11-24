@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El examen del 29-N · La cajonera</title>
+<meta name="description" content="Repaso de todo el tema 2 de Sociales: dos retos de cada juego de «El cajón vota».">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "motor": "mezcla",
+  "area": "sociales",
+  "escena": "colegio-electoral",
+  "personaje": "boli",
+  "volver": "../el-cajon-vota/",
+  "titulo": "El examen del 29-N",
+  "subtitulo": "Lunes 30 de noviembre. Las urnas ya están guardadas. Ahora el profe pregunta un poco de cada compartimento.",
+  "portada": {
+    "objetivo": "Diez retos, dos de cada compartimento: las reglas de todos, quién se encarga, las tres llaves, la noche electoral y la Unión Europea.",
+    "frase": "Diez retos. Ni uno en blanco.",
+    "rotulo": "29-N"
+  },
+  "historia": [
+    {
+      "nota": "HOY ES LUNES. YA HA VOTADO TODO EL MUNDO. AHORA PREGUNTO YO.",
+      "firma": "El profe"
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "Examen. Dos retos de cada compartimento, y yo con la tinta roja."
+    },
+    {
+      "quien": "fosforito",
+      "pose": "asombro",
+      "texto": "¿Y si me sale lo de D'Hondt? ¡Lo tengo subrayado, pero entero!"
+    },
+    {
+      "quien": "goma",
+      "pose": "animo",
+      "texto": "Te sale. Lo repartiste tú con la palanca."
+    }
+  ],
+  "saludo": "De todo un poco. **Lee el reto entero** antes de tocar.",
+  "observa": "Si una misma persona hiciera las normas, las hiciera cumplir y además contara los votos, ¿qué podría salir mal? ¿Qué parte del tema te ha costado más?",
+  "textoFinal": "Examen entregado",
+  "rondas": [
+    {
+      "motor": "constitucion",
+      "modo": "tribunal",
+      "generar": {
+        "f": 2
+      }
+    },
+    {
+      "motor": "alcaldia",
+      "modo": "dia",
+      "generar": {
+        "destinos": [
+          "ayto",
+          "comunidad",
+          "estado",
+          "ue"
+        ],
+        "n": 4,
+        "f": 2,
+        "min": 2
+      }
+    },
+    {
+      "motor": "alcaldia",
+      "modo": "cole",
+      "generar": {
+        "n": 4,
+        "f": 2
+      }
+    },
+    {
+      "motor": "llaves",
+      "modo": "espana",
+      "generar": true
+    },
+    {
+      "motor": "escrutinio",
+      "modo": "cola",
+      "generar": {
+        "f": 2,
+        "n": 3
+      }
+    },
+    {
+      "motor": "escrutinio",
+      "modo": "sobres",
+      "generar": {
+        "f": 2,
+        "n": 5
+      }
+    },
+    {
+      "motor": "repartir",
+      "modo": "predice",
+      "generar": {
+        "metodos": [
+          "dhondt"
+        ],
+        "escanos": [
+          3,
+          4
+        ],
+        "noche": true
+      }
+    },
+    {
+      "motor": "investidura",
+      "modo": "votacion",
+      "generar": {
+        "abst": true,
+        "noMayor": true
+      }
+    },
+    {
+      "motor": "cargador",
+      "modo": "ruta",
+      "generar": {
+        "f": 2,
+        "desde": [
+          "idea"
+        ],
+        "pasos": "todo",
+        "extra": [
+          "gobierno",
+          "congreso"
+        ]
+      }
+    },
+    {
+      "motor": "cargador",
+      "modo": "mapa",
+      "generar": {
+        "f": 2,
+        "criterios": [
+          "ley",
+          "euro"
+        ]
+      }
+    }
+  ]
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

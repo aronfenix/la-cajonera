@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La máquina de repartir · La cajonera</title>
+<meta name="description" content="Convierte votos en escaños: proporcional exacto, D’Hondt o «el que gana se lo lleva todo», el umbral del 3 % y por qué un escaño de Soria cuesta menos votos que uno de Madrid.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "motor": "repartir",
+  "area": "sociales",
+  "escena": "almacen",
+  "personaje": "goma",
+  "volver": "../el-cajon-vota/",
+  "titulo": "La máquina de repartir",
+  "subtitulo": "Los votos ya están contados. Ahora hay que convertirlos en escaños, y eso depende de las reglas.",
+  "portada": {
+    "objetivo": "Predice cuántos escaños saca cada partido, tira de la palanca y descubre qué cambia si cambias las reglas sin tocar un solo voto.",
+    "frase": "Mismos votos. Otras reglas. Otro Congreso."
+  },
+  "historia": [
+    {
+      "nota": "LOS VOTOS SE CUENTAN EN LA MESA. LOS ESCAÑOS SE REPARTEN CON UNA REGLA.",
+      "firma": "El profe"
+    },
+    {
+      "quien": "fosforito",
+      "pose": "celebra",
+      "texto": "¡He encontrado una máquina en el almacén! Le echas votos y salen escaños."
+    },
+    {
+      "quien": "goma",
+      "pose": "piensa",
+      "texto": "Tiene tres palancas: cuántos escaños, cómo se reparten y si hay un mínimo para entrar."
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "No toquéis los votos. Solo las palancas. Y luego me explicáis lo que ha pasado."
+    }
+  ],
+  "saludo": "Un escaño **no se puede partir**. Por eso hace falta una regla.",
+  "observa": "Con los mismos votos, ¿qué regla os parece más justa? ¿Y por qué Soria tiene 2 escaños si en Madrid un escaño «cuesta» muchos más votos?",
+  "niveles": [
+    {
+      "modo": "predice",
+      "generar": {
+        "metodos": [
+          "exacto",
+          "exacto",
+          "ganador"
+        ],
+        "redondos": true,
+        "escanos": [
+          10
+        ]
+      }
+    },
+    {
+      "modo": "cocientes",
+      "generar": {
+        "escanos": [
+          3,
+          4
+        ],
+        "huecos": 0
+      }
+    },
+    {
+      "modo": "predice",
+      "generar": {
+        "metodos": [
+          "dhondt"
+        ],
+        "escanos": [
+          3,
+          4
+        ],
+        "noche": true
+      }
+    },
+    {
+      "modo": "cocientes",
+      "generar": {
+        "escanos": [
+          4,
+          5
+        ],
+        "huecos": 3
+      }
+    },
+    {
+      "modo": "consigue",
+      "generar": {
+        "objetivos": [
+          "entra"
+        ]
+      }
+    },
+    {
+      "modo": "cuesta",
+      "generar": {
+        "pares": [
+          [
+            "soria",
+            "madrid"
+          ],
+          [
+            "soria",
+            "madrid"
+          ],
+          [
+            "soria",
+            "barcelona"
+          ]
+        ]
+      }
+    },
+    {
+      "modo": "consigue",
+      "generar": {
+        "objetivos": [
+          "umbral",
+          "mayoria"
+        ]
+      }
+    },
+    {
+      "modo": "pais",
+      "generar": true
+    }
+  ]
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

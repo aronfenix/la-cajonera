@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alcaldesa por un día · La cajonera</title>
+<meta name="description" content="Gobiernas un pueblo de Madrid: pagas lo que es del ayuntamiento y mandas por carta lo demás a la Comunidad, al Estado o a la Unión Europea.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "motor": "alcaldia",
+  "area": "sociales",
+  "escena": "corcho",
+  "personaje": "boli",
+  "volver": "../el-cajon-vota/",
+  "titulo": "Alcaldesa por un día",
+  "subtitulo": "Hoy gobiernas Villacajón, un pueblo de Madrid. Los vecinos piden de todo, pero no todo lo paga el ayuntamiento.",
+  "portada": {
+    "arte": "propia",
+    "objetivo": "Atiende a los vecinos: paga lo que es del ayuntamiento y manda por carta lo demás a quien le toca.",
+    "frase": "Con la caja del pueblo, lo del pueblo."
+  },
+  "historia": [
+    {
+      "nota": "HOY CADA UNO GOBIERNA UN PUEBLO DE CARTULINA. CUIDADO CON LA CAJA.",
+      "firma": "El profe"
+    },
+    {
+      "quien": "fosforito",
+      "pose": "celebra",
+      "texto": "¡Te han hecho alcaldesa! ¿Una farola? ¿Un hospital? ¿Un pasaporte? ¡Todo lo arreglas tú!"
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "Frena. Soy el interventor del ayuntamiento: miro cada euro que sale de la caja. Si pagas algo que no es tuyo, lo paro."
+    },
+    {
+      "quien": "goma",
+      "pose": "pista",
+      "texto": "Lo que no es del ayuntamiento no se tira: se manda por carta a quien le toca. Si te equivocas de buzón, la carta vuelve."
+    }
+  ],
+  "saludo": "Con la caja del pueblo, **solo lo del pueblo**. Lo demás, por carta.",
+  "observa": "Mirad el mapa del final: todo está en el mismo pueblo, pero hay banderitas de cuatro colores. ¿Por qué no lo lleva todo el ayuntamiento? ¿Y por qué el cole lo cuidan dos gobiernos?",
+  "niveles": [
+    {
+      "modo": "dia",
+      "generar": {
+        "destinos": [
+          "ayto",
+          "comunidad"
+        ],
+        "n": 3,
+        "f": 1
+      }
+    },
+    {
+      "modo": "dia",
+      "generar": {
+        "destinos": [
+          "ayto",
+          "comunidad",
+          "estado"
+        ],
+        "n": 4,
+        "f": 1
+      }
+    },
+    {
+      "modo": "cole",
+      "generar": {
+        "n": 4,
+        "f": 2
+      }
+    },
+    {
+      "modo": "dia",
+      "generar": {
+        "destinos": [
+          "ayto",
+          "comunidad",
+          "estado",
+          "ue"
+        ],
+        "n": 5,
+        "f": 2,
+        "min": 2
+      }
+    },
+    {
+      "modo": "fondo",
+      "generar": {
+        "destinos": [
+          "ayto",
+          "comunidad",
+          "estado",
+          "ue"
+        ],
+        "n": 4,
+        "f": 2
+      }
+    },
+    {
+      "modo": "dia",
+      "generar": {
+        "destinos": [
+          "ayto",
+          "comunidad",
+          "estado",
+          "ue"
+        ],
+        "n": 5,
+        "f": 3,
+        "min": 3,
+        "trampa": true
+      }
+    }
+  ]
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

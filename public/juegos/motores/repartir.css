@@ -1,0 +1,125 @@
+/* Sociales (El cajón vota): La máquina de repartir. Una máquina de cartón en el almacén:
+   a la izquierda los votos y las palancas, a la derecha el hemiciclo que sale. Motor «repartir». */
+
+.portada-arte .arte-maquina-rep{width:min(100%,640px)}
+
+.rp-maquina{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px;padding:16px 58px 16px 16px;border:var(--borde);border-radius:26px;background:#f2e6cf url('tex/cartulina.webp');background-size:200px;background-blend-mode:multiply;box-shadow:inset 0 -10px 0 rgba(120,80,30,.14),var(--sombra)}
+.rp-izq{display:grid;gap:12px;align-content:start;min-width:0}
+.rp-cab{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.rp-cab b{font-family:var(--fuerte);font-size:18px}
+.rp-cab small{font-weight:800;color:var(--gris)}
+.rp-votos,.rp-palancas,.rp-salida{padding:12px 14px;border:var(--borde);border-radius:16px;background:var(--papel);box-shadow:var(--sombra-baja)}
+.rp-filas{display:grid;gap:8px}
+.rp-fila{display:grid;grid-template-columns:34px minmax(84px,auto) minmax(0,1fr);align-items:center;gap:8px;transition:opacity .25s}
+.rp-votos.con-pred .rp-fila{grid-template-columns:34px minmax(84px,auto) minmax(0,1fr) auto}
+.rp-fila.fuera{opacity:.45}
+.rp-fila.fuera .rp-barra{background:repeating-linear-gradient(135deg,#d9dbe6 0 6px,#c4c7d6 6px 12px)}
+.rp-ic svg{display:block;width:34px;height:34px}
+.rp-nom{display:grid;line-height:1.1}
+.rp-nom b{font-family:var(--fuerte);font-size:17px}
+.rp-pc{font-weight:800;color:var(--gris);font-size:14px}
+.rp-pista{position:relative;display:flex;align-items:center;gap:6px;min-height:30px}
+.rp-barra{height:22px;border:2.5px solid var(--tinta);border-radius:4px 8px 8px 4px;transition:width .4s var(--muelle)}
+.rp-fila[data-p="parque"] .rp-barra{background:#bfe39a}.rp-fila[data-p="aparcamiento"] .rp-barra{background:#a9d8f5}.rp-fila[data-p="pista"] .rp-barra{background:#ffc896}
+.rp-num{font-weight:800;font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rp-marca{position:absolute;top:-4px;bottom:-4px;width:0;border-left:3px dashed #c8201a;pointer-events:none}
+.rp-marca::after{content:"3 %";position:absolute;bottom:-17px;left:-11px;font-size:11px;font-weight:900;color:#c8201a;white-space:nowrap}
+.rp-fila:not(:last-of-type) .rp-marca::after{display:none}
+.rp-filas{padding-bottom:10px}
+.rp-blanco{margin:8px 0 0;font-size:14px;font-weight:700;color:var(--gris)}
+.rp-pred{display:flex;align-items:center;gap:6px}
+.rp-pred .tecla{min-width:44px;min-height:44px;padding:0 0 3px;font-size:24px;border-radius:12px}
+.rp-pred-n{min-width:1.4em;text-align:center;font-family:var(--fuerte);font-weight:900;font-size:26px}
+.rp-fila.acierto .rp-pred-n{background:#e6f7d0;border-radius:8px}
+.rp-fila.fallo .rp-pred-n{background:#ffe1e5;border-radius:8px;color:#b3122b}
+.rp-quedan{margin:10px 0 0;padding:5px 12px;width:fit-content;border-radius:10px;background:#fff0c2;font-weight:700;font-size:15px}
+.rp-quedan.listo{background:#e6f7d0}
+.rp-palancas{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 14px;align-items:center;background:#e9ecf4}
+.rp-palanca{display:contents}
+.rp-palanca>b{font-family:var(--fuerte);font-size:16px;white-space:nowrap}
+.rp-fija{display:inline-block;margin-left:4px;padding:0 6px;border-radius:6px;background:#1b1e3a;color:#fff;font-family:inherit;font-size:11px;font-weight:800;vertical-align:2px}
+.rp-stepper{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rp-rango{flex:1 1 120px;min-width:110px;height:44px;accent-color:var(--cobalto);cursor:pointer}
+.rp-stepper .tecla{min-width:48px;min-height:46px;padding:0 0 3px;font-size:26px;border-radius:12px}
+.rp-esc-n{min-width:1.8em;text-align:center;font-family:var(--fuerte);font-weight:900;font-size:30px}
+.rp-metodos{display:flex;flex-wrap:wrap;gap:6px}
+.rp-met{min-height:44px;padding:4px 10px;border:2.5px solid var(--tinta);border-radius:10px;background:var(--papel);color:var(--tinta);font-family:var(--fuerte);font-weight:800;font-size:14.5px;line-height:1.05;cursor:pointer;box-shadow:0 3px 0 var(--tinta)}
+.rp-met[aria-pressed="true"]{background:var(--amarillo);transform:translateY(2px);box-shadow:0 1px 0 var(--tinta)}
+.rp-met:disabled,.rp-umbral:disabled{cursor:default;opacity:.75}
+.rp-met:focus-visible,.rp-umbral:focus-visible,.rp-celda:focus-visible{outline:4px solid var(--cobalto);outline-offset:2px}
+.rp-umbral{display:flex;align-items:center;gap:10px;min-height:44px;padding:4px 10px 4px 4px;border:2.5px solid var(--tinta);border-radius:24px;background:var(--papel);color:var(--tinta);font:inherit;font-weight:800;font-size:15px;cursor:pointer;width:fit-content}
+.rp-interruptor{position:relative;width:52px;height:30px;border:2.5px solid var(--tinta);border-radius:16px;background:#d9dbe6;transition:background .2s}
+.rp-interruptor::after{content:"";position:absolute;top:2px;left:2px;width:21px;height:21px;border:2.5px solid var(--tinta);border-radius:50%;background:#fff;transition:transform .25s var(--muelle)}
+.rp-umbral[aria-checked="true"] .rp-interruptor{background:var(--lima)}
+.rp-umbral[aria-checked="true"] .rp-interruptor::after{transform:translateX(21px)}
+.rp-salida{display:grid;justify-items:center;align-content:start;gap:6px;min-width:0;transition:opacity .3s,filter .3s}
+.rp-salida.apagada{opacity:.6;filter:saturate(.3)}
+.rp-salida .rp-cab{justify-self:stretch}
+.rp-salida .hemiciclo{width:min(100%,360px)}
+.rp-salida.grande .hemiciclo{width:min(100%,560px)}
+.rp-leyenda{margin-top:2px}
+.rp-nota{margin:0;min-height:1.3em;font-size:15px;font-weight:700;text-align:center}
+.rp-nota:empty{display:none}
+.rp-tiques{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin:2px 0 0;padding:0;list-style:none}
+.rp-tiques:empty{display:none}
+.rp-tiques li{display:flex;align-items:center;gap:4px;padding:2px 8px 2px 4px;border:2px solid var(--tinta);border-radius:6px;background:#fffdf6;font-size:13px;font-weight:800;box-shadow:0 2px 0 rgba(0,0,0,.15)}
+.rp-tiques .k{font-family:var(--fuerte);color:var(--gris)}
+.rp-tiques svg{display:block}
+.rp-mango{position:absolute;right:4px;top:50%;width:50px;translate:0 -50%}
+.rp-mango svg{width:100%;height:auto;display:block;overflow:visible}
+
+/* la tabla de cocientes */
+.rp-cocientes{display:grid;grid-template-columns:minmax(0,auto) minmax(220px,360px);gap:18px;align-items:start}
+.rp-tabla-caja{padding:12px;border:var(--borde);border-radius:16px;background:var(--papel) url('tex/papel.webp');background-blend-mode:multiply;box-shadow:var(--sombra);overflow-x:auto}
+.rp-tabla{border-collapse:separate;border-spacing:6px}
+.rp-tabla th{font-family:var(--fuerte);font-size:17px;text-align:center;padding:2px 6px}
+.rp-tabla tbody th{text-align:left;white-space:nowrap}
+.rp-tabla tbody th>span{display:inline-block;vertical-align:middle}
+.rp-tabla tbody th .rp-ic svg{width:28px;height:28px;margin-right:6px}
+.rp-celda{position:relative;display:grid;place-items:center;min-width:86px;min-height:52px;padding:4px 8px;border:2.5px solid var(--tinta);border-radius:10px;background:#fff;color:var(--tinta);font-family:var(--fuerte);font-weight:800;font-size:19px;font-variant-numeric:tabular-nums;cursor:pointer;box-shadow:0 3px 0 var(--tinta);user-select:none}
+.rp-tabla tr[data-p="parque"] .rp-celda{background:#f1f9e8}.rp-tabla tr[data-p="aparcamiento"] .rp-celda{background:#ecf6fc}.rp-tabla tr[data-p="pista"] .rp-celda{background:#fdf1e5}
+.rp-tabla .rp-celda[aria-pressed="true"]{background:var(--amarillo);box-shadow:0 0 0 3px var(--papel),0 0 0 6px var(--tinta)}
+.rp-celda.con-hueco{padding:4px}
+.rp-hueco{width:5.4ch;min-height:40px;font-size:18px;text-align:center}
+.rp-celda.escrita{border-style:dashed}
+.rp-celda.hueco-bien{background:#e6f7d0!important}.rp-celda.hueco-mal{background:#ffe1e5!important}.rp-celda.hueco-mal s{color:#b3122b;font-size:14px}
+.rp-celda.gana{outline:3px solid #1b8f4e;outline-offset:2px}
+.rp-celda.fallo{background:#ffe1e5!important}
+.rp-orden{position:absolute;top:-10px;right:-8px;display:grid;place-items:center;width:24px;height:24px;border:2px solid var(--tinta);border-radius:50%;background:#1b8f4e;color:#fff;font-style:normal;font-size:13px}
+.rp-tabla.cerrada .rp-celda{cursor:default}
+
+/* ¿cuánto cuesta un escaño? */
+.rp-cuesta{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,320px);gap:18px;align-items:end}
+.rp-cuesta-campos{display:grid;gap:14px;padding:14px 16px;border:var(--borde);border-radius:16px;background:var(--papel);box-shadow:var(--sombra-baja)}
+.rp-campo{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:18px;line-height:1.3}
+.rp-campo input{width:9.5ch;min-height:52px;font-size:24px}
+.rp-campo.bien input{background:#e6f7d0}.rp-campo.mal input{background:#ffe1e5}
+.rp-columnas{display:flex;justify-content:center;align-items:flex-end;gap:24px;height:240px}
+.rp-columnas:empty{display:none}
+.rp-col{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;height:100%;font-family:var(--fuerte);font-weight:800}
+.rp-col-barra{position:relative;width:70px;border:var(--borde);border-radius:8px 8px 0 0;background:repeating-linear-gradient(0deg,#fffaf0 0 10px,#f0e4c8 10px 12px);box-shadow:var(--sombra-baja)}
+.rp-col-barra b{position:absolute;bottom:100%;left:50%;translate:-50% -4px;white-space:nowrap;font-size:16px}
+
+/* la noche entera */
+.rp-pais{display:grid;gap:14px;justify-items:start}
+.rp-pais .rp-salida{width:min(100%,640px)}
+.rp-prov-actual{margin:0;font-weight:800;font-size:16px}
+.rp-pais-preg{padding:12px 16px;border:var(--borde);border-radius:16px;background:#fff7d6;box-shadow:var(--sombra-baja)}
+
+@media (max-width:980px){
+  .rp-maquina{grid-template-columns:1fr;padding:12px 12px 12px 12px}
+  .rp-mango{display:none}
+  .rp-cocientes,.rp-cuesta{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .rp-votos,.rp-palancas,.rp-salida{padding:10px}
+  .rp-fila,.rp-votos.con-pred .rp-fila{grid-template-columns:28px minmax(0,1fr) auto;row-gap:2px}
+  .rp-fila .rp-pista{grid-column:2/-1;grid-row:2}
+  .rp-ic svg{width:28px;height:28px}
+  .rp-palancas{grid-template-columns:1fr}
+  .rp-met{font-size:13px;padding:4px 8px}
+  .rp-celda{min-width:62px;min-height:48px;font-size:16px}
+  .rp-tabla{border-spacing:4px}
+  .rp-tabla tbody th .rp-ic{display:none}
+  .rp-columnas{height:180px}
+}
