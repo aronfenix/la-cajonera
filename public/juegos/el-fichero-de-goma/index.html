@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El fichero de Goma · La cajonera</title>
+<meta name="description" content="Automatizar las tablas contra el reloj: cada multiplicación es una ficha que avanza por un fichero de cuatro cajones si la recuerdas a tiempo y vuelve al primero si fallas.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "area": "matematicas",
+  "escena": "cajon",
+  "volver": "../../matematicas/",
+  "motor": "fichero",
+  "titulo": "El fichero de Goma",
+  "subtitulo": "Cada multiplicación es una ficha. Si la recuerdas a tiempo, avanza un cajón. Si fallas, vuelve al 1 y sale más a menudo.",
+  "portada": {
+    "arte": "fichero",
+    "rotulo": "TABLAS",
+    "objetivo": "Recuerda cada multiplicación antes de que se acabe la tira. Las que fallas vuelven hasta que dejen de resistirse.",
+    "frase": "Las tablas no se borran. Se entrenan."
+  },
+  "historia": [
+    {
+      "nota": "ESTE FICHERO ES TUYO. LO QUE FALLES HOY, MAÑANA VUELVE.",
+      "firma": "El profe"
+    },
+    {
+      "quien": "goma",
+      "pose": "seguro",
+      "texto": "Esto es un fichero. Cada ficha es una multiplicación, y tiene cuatro cajones y un álbum."
+    },
+    {
+      "quien": "goma",
+      "pose": "pista",
+      "texto": "Si la sabes a tiempo, la ficha avanza. Si no, vuelve al cajón 1, que sale todos los días."
+    },
+    {
+      "quien": "goma",
+      "pose": "celebra",
+      "texto": "Cuando una ficha pasa el cajón 4, va al álbum. Y del álbum ya no la saca nadie."
+    }
+  ],
+  "saludo": "Cada ficha que aciertas a tiempo **avanza un cajón**.",
+  "observa": "Si sabes 7 × 4, ¿cuánto te cuesta 7 × 8? ¿Y 7 × 9 si sabes 7 × 10?",
+  "nivelObjetivo": 3,
+  "maximo": 16,
+  "niveles": [
+    {
+      "modo": "fichero",
+      "generar": {
+        "segundos": 10,
+        "fichas": 8
+      }
+    },
+    {
+      "modo": "fichero",
+      "generar": {
+        "segundos": 8,
+        "fichas": 10
+      }
+    },
+    {
+      "modo": "fichero",
+      "generar": {
+        "segundos": 6,
+        "fichas": 10
+      }
+    },
+    {
+      "modo": "fichero",
+      "generar": {
+        "segundos": 5,
+        "fichas": 10
+      }
+    },
+    {
+      "modo": "fichero",
+      "generar": {
+        "segundos": 4,
+        "fichas": 12
+      }
+    },
+    {
+      "modo": "fichero",
+      "generar": {
+        "segundos": 3,
+        "fichas": 12
+      }
+    }
+  ],
+  "personaje": "goma"
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

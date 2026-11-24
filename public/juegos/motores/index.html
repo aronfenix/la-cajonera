@@ -99,6 +99,15 @@
 </ul>
 <p><strong>construir</strong>: tocar puntos para hacer una figura. <code>"tarea": "simetria"</code> (eje vertical), <code>"tarea": "traslacion"</code> (con <code>vectores</code>) o <code>"figura": "cuadrado"</code> con anclajes limitados (<code>sobran</code>, <code>inclinado</code>). Se acepta cualquier solución que cumpla lo pedido.</p>
 </section>
+<section class="motor">
+<h2>Fichero</h2>
+<p>Automatizar las tablas contra el reloj. Aquí la velocidad <em>es</em> el contenido: se responde con el teclado numérico, sin apuntar ni arrastrar, y el resultado se comprueba solo al escribir sus cifras. Cada hecho tiene memoria en la tablet (<code>localStorage</code> «cajon-fichero»): vive en un fichero de cuatro cajones y un álbum. Al empezar, el alumno elige mazo (<code>faciles</code>, <code>dificiles</code>, <code>division</code> o <code>extra</code>) y el juego marca el recomendado.</p>
+<p><strong>fichero</strong>: tandas de fichas, cada una con su tira de tiempo. Si se acierta a tiempo, la ficha sube un cajón (solo si le tocaba salir: el 1 sale siempre, el 2 al día siguiente, el 3 a los dos días, el 4 a los cuatro). Si se falla o se acaba la tira, vuelve al 1, se da la vuelta con su estrategia y hay que escribir el resultado para seguir. Vuelve a salir unas fichas después. La pista (?) da primero la idea y después la cuenta. Los niveles bajan el tiempo.</p>
+<pre><code>{ "modo": "fichero", "generar": { "segundos": 6, "fichas": 10 } }</code></pre>
+<p><strong>minuto</strong>: contrarreloj de un minuto con el mazo elegido. Hay un récord por mazo y los fallos pasan al cajón 1 del fichero.</p>
+<pre><code>{ "modo": "minuto", "segundos": 60, "repetir": 3 }</code></pre>
+<p>En pizarra no hay reloj ni memoria: sale la ficha, la clase la dice en voz alta y se destapa.</p>
+</section>
 </div>
 </body>
 </html>

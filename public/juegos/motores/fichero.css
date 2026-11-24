@@ -1,0 +1,111 @@
+/* Motor «fichero»: fichas de cartulina, la tira del tiempo y el fichero de cuatro cajones con su álbum. */
+
+/* ---------- elegir mazo ---------- */
+.fch-mazos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:980px;margin:6px 0 14px}
+.fch-mazo{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-height:44px;padding:16px 16px 14px;border:var(--borde);border-radius:10px;background:var(--papel) repeating-linear-gradient(transparent 0 27px,#d6e4f5 27px 29px);background-position:0 46px;color:var(--tinta);text-align:left;font:inherit;cursor:pointer;box-shadow:var(--sombra-baja);rotate:-1deg;transition:transform .15s var(--muelle),box-shadow .15s}
+.fch-mazo:nth-child(2n){rotate:1.2deg}
+.fch-mazo::before{content:'';position:absolute;left:0;right:0;top:38px;border-top:2px solid #f08aa8}
+.fch-mazo:hover,.fch-mazo:focus-visible{transform:translateY(-4px) rotate(-1deg);box-shadow:var(--sombra);outline:none}
+.fch-mazo:focus-visible{box-shadow:0 0 0 5px var(--acento),var(--sombra)}
+.fch-mazo .nombre-mazo{font-family:var(--fuerte);font-size:26px;line-height:1}
+.fch-mazo .titulo-mazo{font-family:var(--fuerte);font-weight:700;font-size:19px;margin-top:10px}
+.fch-mazo small{font-size:14px;line-height:1.25;color:var(--gris)}
+.fch-mazo .medidor{display:block;align-self:stretch;height:12px;margin-top:auto;border:2px solid var(--tinta);border-radius:6px;background:#fff;overflow:hidden}
+.fch-mazo .medidor i{display:block;height:100%;background:var(--lima)}
+.fch-mazo .extra-mazo{font-weight:700;color:var(--tinta)}
+.fch-mazo.recomendado{background-color:#fff6d4;box-shadow:0 0 0 4px var(--amarillo),var(--sombra)}
+.sello-rec{position:absolute;right:-10px;top:-14px;padding:3px 10px;border:3px solid var(--fucsia-osc);border-radius:6px;background:#fff;color:var(--fucsia-osc);font-family:var(--fuerte);font-size:15px;text-transform:uppercase;letter-spacing:.04em;rotate:8deg}
+.ver-fichero{margin-bottom:12px}
+.mapa-fichas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px;max-width:980px;padding:14px 18px;border:var(--borde);border-radius:10px;background:var(--papel);box-shadow:var(--sombra-baja)}
+.mapa-fichas h3{margin:0 0 6px;font-family:var(--fuerte);font-size:17px}
+.mapa-fichas .chips{display:flex;flex-wrap:wrap;gap:5px}
+.mapa-fichas .chip{display:inline-flex;align-items:center;gap:4px;padding:2px 6px;border:2px solid var(--tinta);border-radius:5px;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.mapa-fichas .chip i{font-style:normal;font-size:12px;padding:0 4px;border-radius:3px;background:rgba(27,30,58,.12)}
+.leyenda-chips{grid-column:1/-1;margin:2px 0 0;font-size:13px;color:var(--gris)}
+
+/* colores de los cajones (siempre acompañan a un número o una palabra) */
+.fch-c0{background:#eef0f4}.fch-c1{background:#ffc9d8}.fch-c2{background:#ffd9ae}.fch-c3{background:#fff0a8}.fch-c4{background:#cdeeff}.fch-c5{background:#d6f5b5}
+
+/* ---------- la mesa de una tanda ---------- */
+.tanda{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:22px 34px;margin-top:4px}
+.mesa-ficha{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.fila-ficha{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px}
+.cabeza-ficha{display:flex;justify-content:space-between;align-items:center;align-self:stretch;gap:10px}
+.contador-fichas{font-weight:800;font-size:15px;color:var(--papel);text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.en-cajon{padding:2px 10px;border:2px solid var(--tinta);border-radius:5px;font-weight:800;font-size:14px;rotate:2deg}
+.sitio-ficha{display:flex;justify-content:center;min-height:150px}
+.cartulina{display:flex;flex-direction:column;align-items:center;justify-content:center;width:min(380px,82vw);min-height:150px;padding:18px 24px 14px;border:var(--borde);border-radius:8px;
+  background:var(--papel) repeating-linear-gradient(transparent 0 33px,#d6e4f5 33px 35px);background-position:0 30px;box-shadow:var(--sombra);rotate:-1.2deg;position:relative}
+.cartulina::before{content:'';position:absolute;left:0;right:0;top:30px;border-top:2px solid #f08aa8}
+.op-ficha{font-family:var(--fuerte);font-weight:900;font-size:clamp(54px,7.5vw,88px);line-height:1;letter-spacing:.01em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mesa-ficha.fch-acierto .cartulina{animation:ficha-bien .28s var(--muelle)}
+.mesa-ficha.fch-fallo .cartulina{background-color:#fff1f4}
+@keyframes ficha-bien{50%{transform:translateX(26px) rotate(4deg)}}
+.linea-ficha{display:flex;align-items:center;gap:10px;font-family:var(--fuerte);font-weight:900;font-size:46px}
+.campo-num.campo-ficha{width:3.6ch!important;min-height:70px;font-size:46px;border-radius:12px}
+.dorso-ficha{align-self:stretch;margin:10px 0 0;padding:8px 12px;border:2.5px solid var(--tinta);border-radius:5px;background:#fff27a;font-size:17px;line-height:1.35;text-align:left;rotate:.6deg}
+.dorso-ficha .marca{font-weight:900}
+.dorso-ficha .copia{font-weight:800}
+.mesa-ficha.con-ayuda .tira-tiempo{opacity:.35}
+.mesa-ficha.fch-fallo .tira-tiempo{display:none}
+.acciones .ok-ficha{min-width:120px}
+body.con-teclado .acciones .ok-ficha{display:none}
+
+/* la tira de papel que se va cortando */
+.tira-tiempo{width:min(380px,82vw);height:18px;border:var(--borde);border-radius:4px;background:#fff repeating-linear-gradient(90deg,transparent 0 10px,rgba(27,30,58,.12) 10px 12px);overflow:hidden;box-shadow:var(--sombra-baja)}
+.relleno-tira{display:block;height:100%;background:var(--lima);transform-origin:0 50%;border-right:3px dashed var(--tinta)}
+.tira-tiempo.fch-poco .relleno-tira{background:var(--fucsia)}
+
+/* ---------- el fichero ---------- */
+.fichero{display:flex;gap:6px;padding:12px 12px 10px;border:var(--borde);border-radius:10px;background:#c99a63 url('tex/cartulina.webp');background-blend-mode:multiply;box-shadow:var(--sombra)}
+.cajon-f{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;width:54px;height:112px;padding:0 0 6px;border:2.5px solid var(--tinta);border-radius:4px 4px 6px 6px;background:#fff8ea}
+.cajon-f.fch-c5{background:#e7f8d2}
+.cajon-f .pestana{position:absolute;top:-2px;left:50%;transform:translate(-50%,-60%);min-width:30px;padding:0 6px;border:2.5px solid var(--tinta);border-radius:6px 6px 0 0;background:inherit;font-family:var(--fuerte);font-size:14px;text-align:center}
+.cajon-f.fch-c5 .pestana{font-size:12px}
+.cajon-f.fch-c1 .pestana{background:#ffc9d8}.cajon-f.fch-c2 .pestana{background:#ffd9ae}.cajon-f.fch-c3 .pestana{background:#fff0a8}.cajon-f.fch-c4 .pestana{background:#cdeeff}.cajon-f.fch-c5 .pestana{background:#d6f5b5}
+.cajon-f .fch-tacos{display:flex;flex-direction:column-reverse;gap:2px;width:78%;margin-bottom:6px}
+.cajon-f .fch-tacos i{display:block;height:4px;border:1.5px solid var(--tinta);border-radius:1px;background:#fff}
+.cajon-f .fch-cuantas{font-family:var(--fuerte);font-size:20px;line-height:1}
+.fichero.grande{gap:12px;padding:20px 18px 14px}
+.fichero.grande .cajon-f{width:82px;height:150px}
+.fichero.grande .cajon-f .pestana{font-size:17px}
+.fichero.grande .cajon-f .fch-cuantas{font-size:28px}
+.cierre-tanda{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;width:100%}
+.resumen-tanda{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:720px}
+.chip-res{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:2.5px solid var(--tinta);border-radius:6px;font-weight:800;font-size:17px;font-variant-numeric:tabular-nums;background:#fff}
+.chip-res i{font-style:normal;padding:0 5px;border-radius:4px;background:rgba(27,30,58,.12)}
+.chip-res.fch-bien{background:#d6f5b5}.chip-res.fch-mal,.chip-res.fch-tarde{background:#ffc9d8}.chip-res.fch-pista{background:#fff0a8}
+.pegatina-hecho{position:absolute;top:-24px;right:calc(50% - 250px);display:flex;flex-direction:column;align-items:center;justify-content:center;width:108px;height:108px;border:3px solid var(--tinta);border-radius:50%;background:var(--amarillo);box-shadow:var(--sombra);rotate:-10deg;text-align:center}
+.pegatina-hecho+.pegatina-hecho{right:calc(50% - 370px);rotate:8deg}
+.pegatina-hecho b{font-family:var(--fuerte);font-size:24px;line-height:1}
+.pegatina-hecho small{font-weight:800;font-size:13px}
+
+/* ---------- pizarra ---------- */
+.pizarra-ficha .cartulina{width:min(620px,90vw);min-height:220px}
+.pizarra-ficha .op-ficha{font-size:clamp(80px,12vw,150px)}
+.res-pizarra{min-height:1.1em;margin:0;font-family:var(--fuerte);font-weight:900;font-size:clamp(60px,9vw,110px);color:var(--papel);text-shadow:0 3px 0 rgba(0,0,0,.35)}
+
+/* ---------- el minuto ---------- */
+.tanda.minuto{flex-wrap:nowrap;align-items:flex-start}
+.marcador-minuto{display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:24px}
+.reloj-minuto,.cuenta-minuto{display:flex;flex-direction:column;align-items:center;justify-content:center;border:var(--borde);background:var(--papel);box-shadow:var(--sombra-baja)}
+.reloj-minuto{width:104px;height:104px;border-radius:50%;background:#fff radial-gradient(circle,transparent 58%,#ffe9a0 59% 62%,transparent 63%)}
+.reloj-minuto b,.cuenta-minuto b{font-family:var(--fuerte);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.reloj-minuto b.fch-poco{color:var(--fucsia-osc)}
+.reloj-minuto small,.cuenta-minuto small{font-weight:800;font-size:12px}
+.cuenta-minuto{min-width:84px;padding:8px 12px;border-radius:10px;rotate:-2deg}
+.cuenta-minuto.rec{background:#fff0a8;rotate:2deg}
+
+@media (max-width:900px){.fch-mazos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .tanda.minuto{flex-direction:column;align-items:center}.marcador-minuto{flex-direction:row;padding-top:0}.reloj-minuto{width:84px;height:84px}
+  .mapa-fichas{grid-template-columns:1fr}
+  .tanda{gap:14px}
+  .fichero{padding:8px 8px 6px;gap:4px}.cajon-f{width:42px;height:80px}.cajon-f .pestana{font-size:12px;min-width:22px}.cajon-f .fch-cuantas{font-size:16px}
+  .fichero.grande .cajon-f{width:56px;height:110px}
+  .sitio-ficha,.cartulina{min-height:120px}
+  .linea-ficha{font-size:36px}.campo-num.campo-ficha{min-height:58px;font-size:38px}
+  .pegatina-hecho{right:4px;top:-30px;width:88px;height:88px}.pegatina-hecho+.pegatina-hecho{right:96px}
+}
+@media (prefers-reduced-motion:reduce){.mesa-ficha.fch-acierto .cartulina{animation:none}.fch-mazo{transition:none}}
+.mesa-ficha:has(.pizarra-ficha){align-items:center;width:100%}

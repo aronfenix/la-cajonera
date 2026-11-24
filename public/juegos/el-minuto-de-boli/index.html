@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El minuto de Boli · La cajonera</title>
+<meta name="description" content="Contrarreloj de tablas: un minuto para acertar todas las multiplicaciones (o divisiones) que puedas y batir tu récord, que se guarda en la tablet.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../motores/base.css">
+</head>
+<body>
+<!--
+  Este juego no tiene código propio: todo lo que cambia está en el bloque de abajo.
+  Para hacer otro con el mismo motor, copia esta carpeta, cambia el texto y los datos, y listo.
+  Instrucciones de cada motor: ../motores/
+-->
+<script type="application/json" id="config">
+{
+  "area": "matematicas",
+  "escena": "cajon",
+  "volver": "../../matematicas/",
+  "motor": "fichero",
+  "titulo": "El minuto de Boli",
+  "subtitulo": "Un minuto. Todas las que puedas. Tres intentos para batir tu récord.",
+  "portada": {
+    "arte": "fichero",
+    "rotulo": "1 MINUTO",
+    "objetivo": "Un minuto para acertar todas las que puedas. Tu récord se queda guardado en esta tablet.",
+    "frase": "Sesenta segundos. Ni uno más."
+  },
+  "historia": [
+    {
+      "nota": "SE CORRIGE EN UN MINUTO. EL RELOJ NO ESPERA A NADIE.",
+      "firma": "Boli"
+    },
+    {
+      "quien": "boli",
+      "pose": "seguro",
+      "texto": "Un minuto. Yo cronometro, tú contestas. Lo que falles, te lo apunto."
+    },
+    {
+      "quien": "boli",
+      "pose": "pista",
+      "texto": "Las que se te atasquen se van al fichero de Goma, al cajón 1. Ella sabe qué hacer con ellas."
+    }
+  ],
+  "saludo": "El reloj arranca **con tu primera cifra**.",
+  "observa": "¿Qué multiplicaciones te hacen perder más tiempo? ¿Qué truco te ahorraría segundos con ellas?",
+  "textoFinal": "Tres minutos, tres intentos",
+  "rondas": [
+    {
+      "modo": "minuto",
+      "segundos": 60,
+      "repetir": 3
+    }
+  ],
+  "personaje": "boli"
+}
+</script>
+<script type="module" src="../motores/arranque.js"></script>
+<noscript><p style="margin:24px">Este juego necesita JavaScript.</p></noscript>
+</body>
+</html>

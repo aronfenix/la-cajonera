@@ -52,6 +52,22 @@ const ARTE = {
     <g class="abertura">${pieza(0, 150, 84, -10)}${pieza(2, 480, 80, 16)}${pieza(1, 420, 76, -6)}</g>
     <g class="sueltas">${pieza(3, 100, 372, -12)}${pieza(1, 586, 356, 18)}</g>
   </svg>`,
+  // fichero de cartulina con sus cuatro separadores y unas fichas de multiplicar que asoman (motor fichero)
+  fichero: (r) => {
+    const sep = [['1', '#ffc9d8', 150], ['2', '#ffd9ae', 250], ['3', '#fff0a8', 350], ['4', '#cdeeff', 450]];
+    const ficha = (x, y, rot, t, cls = '') => `<g class="pieza ${cls}" transform="translate(${x} ${y}) rotate(${rot})"><rect x="-78" y="-44" width="156" height="88" rx="6" fill="#fffdf6" stroke="${T}" stroke-width="4"/><path d="M-78 -24 H78" stroke="#f08aa8" stroke-width="2.5"/><path d="M-70 -2 H70 M-70 20 H70" stroke="#d6e4f5" stroke-width="2.5"/><text y="18" text-anchor="middle" font-family="Rotulo,Grandstander,sans-serif" font-weight="900" font-size="38" fill="${T}">${t}</text></g>`;
+    return `<svg viewBox="0 0 640 400" class="arte arte-fichero" aria-hidden="true">
+    <defs><pattern id="p-carton-f" width="128" height="128" patternUnits="userSpaceOnUse"><image href="../motores/tex/cartulina.webp" width="128" height="128"/></pattern>
+      <filter id="p-sf" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="10" dy="20" stdDeviation="12" flood-color="#04140d" flood-opacity=".55"/></filter></defs>
+    <g filter="url(#p-sf)"><path d="M96 170 H544 L556 352 Q556 362 546 362 H94 Q84 362 84 352Z" fill="#c99a63" stroke="${T}" stroke-width="5" stroke-linejoin="round"/></g>
+    ${Array.from({ length: 9 }, (_, k) => `<rect x="${118 + k * 3}" y="${132 + k * 4}" width="${404 - k * 6}" height="60" rx="4" fill="#fffdf6" stroke="${T}" stroke-width="2.5"/>`).join('')}
+    ${sep.map(([t, c, x]) => `<g><path d="M${x - 34} 196 V150 Q${x - 34} 140 ${x - 24} 140 H${x + 24} Q${x + 34} 140 ${x + 34} 150 V196" fill="${c}" stroke="${T}" stroke-width="4"/><text x="${x}" y="176" text-anchor="middle" font-family="Rotulo,Grandstander,sans-serif" font-weight="900" font-size="28" fill="${T}">${t}</text></g>`).join('')}
+    <path d="M84 196 H556 L546 352 Q546 362 536 362 H104 Q94 362 94 352Z" fill="#d9ad72" stroke="${T}" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M84 196 H556 L546 352 Q546 362 536 362 H104 Q94 362 94 352Z" fill="url(#p-carton-f)" style="mix-blend-mode:multiply"/>
+    <g transform="translate(320 282) rotate(-3)"><rect x="-${(r || 'FICHERO').length * 11 + 34}" y="-28" width="${2 * ((r || 'FICHERO').length * 11 + 34)}" height="56" rx="6" fill="#fffaf0" stroke="${T}" stroke-width="4"/><text y="10" text-anchor="middle" font-family="Rotulo,sans-serif" font-weight="900" font-size="28" fill="${T}">${r || 'FICHERO'}</text></g>
+    <g class="abertura">${ficha(512, 98, 14, '7 × 8')}${ficha(150, 92, -12, '6 × 9')}${ficha(338, 62, 3, '8 × 4')}</g>
+  </svg>`;
+  },
   // bandeja de puzle con un hueco y la pieza encima, a punto de girar
   puzle: () => `<svg viewBox="0 0 640 400" class="arte arte-puzle" aria-hidden="true">
     <defs><pattern id="p-carton" width="128" height="128" patternUnits="userSpaceOnUse"><image href="../motores/tex/cartulina.webp" width="128" height="128"/></pattern>
